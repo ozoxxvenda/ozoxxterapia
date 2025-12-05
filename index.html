@@ -13,6 +13,10 @@
     <meta property="og:url" content="https://seu-site.com">
     <meta property="og:type" content="website">
     
+    <!-- Preload de imagens para melhor performance -->
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-hero-desktop.webp" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-hero-mobile.webp" media="(max-width: 768px)">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -234,6 +238,27 @@
             animation: fadeInUp 1s ease;
         }
         
+        /* Hero Image Styles */
+        .hero-image {
+            margin: 30px auto 40px;
+            max-width: 1000px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+        
         .hero-btns {
             display: flex;
             justify-content: center;
@@ -263,6 +288,11 @@
                 opacity: 1;
                 transform: translateX(0);
             }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         /* Elementos animados */
@@ -728,6 +758,12 @@
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.1rem; }
             
+            .hero-image {
+                margin: 20px auto 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            
             .hero-btns {
                 flex-direction: column;
                 align-items: center;
@@ -829,12 +865,39 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section com Imagem Responsiva -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1 class="animate-element animate-fade-up">Ozonioterapia Caseira para Saúde e Qualidade de Vida</h1>
                 <p class="animate-element animate-fade-up">Trate <strong>pé diabético, psoríase, artrose, má circulação e feridas crônicas</strong> no conforto da sua casa. Tecnologia aprovada pela ANVISA. Resultados comprovados.</p>
+                
+                <!-- Imagem Responsiva Hero -->
+                <div class="hero-image animate-element animate-fade-up">
+                    <picture>
+                        <!-- Para Mobile -->
+                        <source 
+                            srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-hero-mobile.webp" 
+                            media="(max-width: 768px)" 
+                            type="image/webp">
+                        <source 
+                            srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-hero-mobile.jpg" 
+                            media="(max-width: 768px)" 
+                            type="image/jpeg">
+                        
+                        <!-- Para Desktop (padrão) -->
+                        <source 
+                            srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-hero-desktop.webp" 
+                            type="image/webp">
+                        <img 
+                            src="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-hero-desktop.jpg" 
+                            alt="Aparelho Ozoxx - Ozonioterapia Caseira" 
+                            loading="lazy"
+                            width="1200"
+                            height="600">
+                    </picture>
+                </div>
+                
                 <div class="hero-btns">
                     <a href="#contact" class="btn animate-element animate-fade-up">QUERO SABER MAIS</a>
                     <a href="#testimonials" class="btn btn-primary animate-element animate-fade-up">VER DEPOIMENTOS</a>
@@ -927,15 +990,28 @@
                         </h3>
                         
                         <div class="product-image">
-                            <!-- SUBSTITUIR POR IMAGEM DO OZOXX MULTI -->
-                            <div class="product-image-placeholder">
-                                <i class="fas fa-image"></i>
-                                <p style="margin: 0; font-style: italic;">Imagem do Ozoxx MULTI</p>
-                                <p style="font-size: 0.8rem; margin-top: 5px; color: #999;">
-                                    URL: https://raw.githubusercontent.com/seu-usuario/seu-repo/main/images/ozoxx-multi.jpg
-                                </p>
-                            </div>
-                            <!-- <img src="URL_DA_IMAGEM_AQUI" alt="Ozoxx MULTI"> -->
+                            <picture>
+                                <!-- Para Mobile -->
+                                <source 
+                                    srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-multi-mobile.webp" 
+                                    media="(max-width: 768px)" 
+                                    type="image/webp">
+                                <source 
+                                    srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-multi-mobile.jpg" 
+                                    media="(max-width: 768px)" 
+                                    type="image/jpeg">
+                                
+                                <!-- Para Desktop (padrão) -->
+                                <source 
+                                    srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-multi-desktop.webp" 
+                                    type="image/webp">
+                                <img 
+                                    src="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-multi-desktop.jpg" 
+                                    alt="Ozoxx MULTI - Gerador de Ozônio" 
+                                    loading="lazy"
+                                    width="600"
+                                    height="400">
+                            </picture>
                         </div>
                         
                         <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.2rem;">
@@ -1015,15 +1091,28 @@
                         </h3>
                         
                         <div class="product-image">
-                            <!-- SUBSTITUIR POR IMAGEM DO OZOXX AIR -->
-                            <div class="product-image-placeholder">
-                                <i class="fas fa-image"></i>
-                                <p style="margin: 0; font-style: italic;">Imagem do Ozoxx AIR</p>
-                                <p style="font-size: 0.8rem; margin-top: 5px; color: #999;">
-                                    URL: https://raw.githubusercontent.com/seu-usuario/seu-repo/main/images/ozoxx-air.jpg
-                                </p>
-                            </div>
-                            <!-- <img src="URL_DA_IMAGEM_AQUI" alt="Ozoxx AIR"> -->
+                            <picture>
+                                <!-- Para Mobile -->
+                                <source 
+                                    srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-air-mobile.webp" 
+                                    media="(max-width: 768px)" 
+                                    type="image/webp">
+                                <source 
+                                    srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-air-mobile.jpg" 
+                                    media="(max-width: 768px)" 
+                                    type="image/jpeg">
+                                
+                                <!-- Para Desktop (padrão) -->
+                                <source 
+                                    srcset="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-air-desktop.webp" 
+                                    type="image/webp">
+                                <img 
+                                    src="https://raw.githubusercontent.com/seu-usuario/ozoxx-images/main/images/ozoxx-air-desktop.jpg" 
+                                    alt="Ozoxx AIR - Gerador de Ozônio" 
+                                    loading="lazy"
+                                    width="600"
+                                    height="400">
+                            </picture>
                         </div>
                         
                         <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.2rem;">
