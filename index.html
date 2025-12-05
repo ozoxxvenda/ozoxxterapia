@@ -128,6 +128,14 @@
         
         section {
             padding: 80px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .text-center {
@@ -142,6 +150,12 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        header.hidden {
+            transform: translateY(-100%);
         }
         
         .header-container {
@@ -187,25 +201,37 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.8)), url('https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             color: white;
+            overflow: hidden;
             padding: 150px 0 80px;
+            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.8));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .hero h1 {
             font-size: 3.2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease;
         }
         
         .hero p {
             font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: var(--text-light);
+            margin-bottom: 35px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
         }
         
         .hero-btns {
@@ -213,9 +239,58 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease;
         }
         
-        /* Benefícios - ATUALIZADO COM 6 CARDS */
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Elementos animados */
+        .animate-element {
+            opacity: 0;
+        }
+        
+        .animate-fade-up {
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-fade-left {
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-fade-right {
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-visible {
+            opacity: 1;
+            transform: translate(0, 0) !important;
+        }
+        
+        /* Benefícios */
         .benefits {
             background: var(--light);
         }
@@ -291,22 +366,88 @@
             box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
         }
         
-        .step h3 {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        /* Seção Produtos */
+        .products {
+            background: #f0f7ff;
         }
         
-        .step p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .product-image-placeholder {
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        .product-image-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.5;
+        }
+        
+        .product-content {
+            padding: 0 30px 30px;
+        }
+        
+        .product-specs {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .product-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .product-measures {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
         }
         
         /* Depoimentos */
         .testimonials {
-            background: #f0f7ff;
-            padding: 80px 0;
+            background: white;
         }
         
         .testimonials .subtitle {
@@ -330,6 +471,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            border: 1px solid #eee;
         }
         
         .testimonial-card:hover {
@@ -417,6 +559,11 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .condition-card:hover {
+            transform: translateY(-5px);
         }
         
         .condition-card h3 i {
@@ -552,22 +699,12 @@
             font-size: 0.9rem;
         }
         
-        /* Notificações */
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        
         /* Responsividade */
         @media (max-width: 992px) {
             h1 { font-size: 2.4rem; }
             h2 { font-size: 1.8rem; }
             section { padding: 60px 0; }
+            .animate-fade-up { transform: translateX(-30px); }
         }
         
         @media (max-width: 768px) {
@@ -598,12 +735,17 @@
             
             .btn { width: 100%; max-width: 300px; }
             
-            .testimonials-grid {
+            .testimonials-grid,
+            .benefits-grid,
+            .products-grid,
+            .conditions-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
             
-            .testimonial-card {
+            .testimonial-card,
+            .benefit-card,
+            .product-card {
                 max-width: 500px;
                 margin: 0 auto;
             }
@@ -612,15 +754,25 @@
                 grid-template-columns: 1fr;
             }
             
-            .benefits-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            .steps {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
             }
         }
         
         @media (max-width: 480px) {
             .step { max-width: 100%; }
             .form-container { padding: 20px; }
-            .benefit-card { padding: 20px; }
+            .benefit-card,
+            .product-card { padding: 20px; }
+            .product-content { padding: 0 20px 20px; }
+        }
+        
+        @media (min-width: 769px) {
+            .animate-fade-up {
+                transform: translateY(30px);
+            }
         }
     </style>
     
@@ -668,6 +820,7 @@
                     <li><a href="#home">Início</a></li>
                     <li><a href="#benefits">Benefícios</a></li>
                     <li><a href="#how-it-works">Como Funciona</a></li>
+                    <li><a href="#products">Produtos</a></li>
                     <li><a href="#testimonials">Depoimentos</a></li>
                     <li><a href="#conditions">Condições</a></li>
                     <li><a href="#contact">Contato</a></li>
@@ -679,48 +832,48 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Ozonioterapia Caseira para Saúde e Qualidade de Vida</h1>
-            <p>Trate <strong>pé diabético, psoríase, artrose, má circulação e feridas crônicas</strong> no conforto da sua casa. Tecnologia aprovada pela ANVISA. Resultados comprovados.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn">QUERO SABER MAIS</a>
-                <a href="#testimonials" class="btn btn-primary">VER DEPOIMENTOS</a>
+            <div class="hero-content">
+                <h1 class="animate-element animate-fade-up">Ozonioterapia Caseira para Saúde e Qualidade de Vida</h1>
+                <p class="animate-element animate-fade-up">Trate <strong>pé diabético, psoríase, artrose, má circulação e feridas crônicas</strong> no conforto da sua casa. Tecnologia aprovada pela ANVISA. Resultados comprovados.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn animate-element animate-fade-up">QUERO SABER MAIS</a>
+                    <a href="#testimonials" class="btn btn-primary animate-element animate-fade-up">VER DEPOIMENTOS</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefícios - ATUALIZADO COM 6 CARDS -->
+    <!-- Benefícios -->
     <section class="benefits" id="benefits">
         <div class="container">
-            <h2>Por Que Escolher o Ozoxx?</h2>
+            <h2 class="animate-element animate-fade-up">Por Que Escolher o Ozoxx?</h2>
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card animate-element animate-fade-up">
                     <div class="benefit-icon"><i class="fas fa-home"></i></div>
                     <h3>Tratamento em Casa</h3>
                     <p>Faça sessões de ozonioterapia quando quiser, sem precisar ir a clínicas. Economize tempo e dinheiro.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animate-element animate-fade-up">
                     <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Seguro e Aprovado</h3>
                     <p>Aparelho registrado na ANVISA. Tecnologia de plasma frio que garante precisão e segurança total.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animate-element animate-fade-up">
                     <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Resultados Rápidos</h3>
                     <p>Alívio da dor, cicatrização acelerada e renovação celular. Efeitos percebidos nas primeiras aplicações.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animate-element animate-fade-up">
                     <div class="benefit-icon"><i class="fas fa-heartbeat"></i></div>
                     <h3>Natural e Sem Efeitos Colaterais</h3>
                     <p>Use o poder do ozônio medicinal, uma terapia natural que não agride o organismo quando aplicada corretamente.</p>
                 </div>
-                <!-- NOVO BENEFÍCIO 1 -->
-                <div class="benefit-card">
+                <div class="benefit-card animate-element animate-fade-up">
                     <div class="benefit-icon"><i class="fas fa-users"></i></div>
                     <h3>Para Todas as Idades</h3>
                     <p>Pode ser usado por toda a família, desde bebês até idosos. Tratamento seguro e adaptável para cada faixa etária.</p>
                 </div>
-                <!-- NOVO BENEFÍCIO 2 -->
-                <div class="benefit-card">
+                <div class="benefit-card animate-element animate-fade-up">
                     <div class="benefit-icon"><i class="fas fa-star-of-life"></i></div>
                     <h3>Versatilidade Completa</h3>
                     <p>Trata desde problemas de pele até doenças crônicas. Um único aparelho para múltiplas aplicações terapêuticas.</p>
@@ -732,23 +885,23 @@
     <!-- Como Funciona -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <h2>Como Funciona a Ozonioterapia Caseira</h2>
-            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px; color: rgba(255, 255, 255, 0.9) !important;">
+            <h2 class="animate-element animate-fade-up">Como Funciona a Ozonioterapia Caseira</h2>
+            <p class="text-center animate-element animate-fade-up" style="max-width: 800px; margin: 0 auto 40px; color: rgba(255, 255, 255, 0.9) !important;">
                 O Ozoxx transforma oxigênio do ar em ozônio medicinal através da tecnologia de plasma frio, proporcionando um tratamento eficaz e não invasivo.
             </p>
             
             <div class="steps">
-                <div class="step">
+                <div class="step animate-element animate-fade-up">
                     <div class="step-number">1</div>
                     <h3>Conecte e Ligue</h3>
                     <p>Conecte o aparelho na tomada e pressione o botão de ligar. Ozoxx começa a gerar ozônio medicinal de forma segura e controlada.</p>
                 </div>
-                <div class="step">
+                <div class="step animate-element animate-fade-up">
                     <div class="step-number">2</div>
                     <h3>Aplique no Local</h3>
                     <p>Use a bolsa especial (bagging) para isolar a área a ser tratada ou prepare óleo ozonizado para aplicação tópica na pele.</p>
                 </div>
-                <div class="step">
+                <div class="step animate-element animate-fade-up">
                     <div class="step-number">3</div>
                     <h3>Trate Regularmente</h3>
                     <p>Siga o protocolo recomendado para sua condição específica. Em poucas semanas você sentirá a diferença na sua saúde e bem-estar.</p>
@@ -757,14 +910,199 @@
         </div>
     </section>
 
+    <!-- SEÇÃO PRODUTOS -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="animate-element animate-fade-up">Nossos Produtos Ozoxx</h2>
+            <p class="text-center animate-element animate-fade-up" style="max-width: 800px; margin: 0 auto 50px;">
+                Conheça nossa linha completa de geradores de ozônio desenvolvidos para diferentes necessidades terapêuticas e de sanitização.
+            </p>
+            
+            <div class="products-grid">
+                <!-- Ozoxx MULTI -->
+                <div class="product-card animate-element animate-fade-up">
+                    <div class="product-content">
+                        <h3 style="color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 15px; text-align: center;">
+                            <i class="fas fa-cube"></i> Ozoxx MULTI
+                        </h3>
+                        
+                        <div class="product-image">
+                            <!-- SUBSTITUIR POR IMAGEM DO OZOXX MULTI -->
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-image"></i>
+                                <p style="margin: 0; font-style: italic;">Imagem do Ozoxx MULTI</p>
+                                <p style="font-size: 0.8rem; margin-top: 5px; color: #999;">
+                                    URL: https://raw.githubusercontent.com/seu-usuario/seu-repo/main/images/ozoxx-multi.jpg
+                                </p>
+                            </div>
+                            <!-- <img src="URL_DA_IMAGEM_AQUI" alt="Ozoxx MULTI"> -->
+                        </div>
+                        
+                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.2rem;">
+                            <i class="fas fa-info-circle"></i> Descrição do Produto
+                        </h4>
+                        <p>O Ozoxx Multi é um gerador de ozônio aprovado para exposição humana, conforme os laudos da UFF e da UNICAMP, que confirmam a emissão de aproximadamente 0,06 ppm, valor considerado seguro de acordo com a NR-15 do Ministério do Trabalho (0,08 ppm).</p>
+                        <p><strong>Destinado para:</strong></p>
+                        <ul style="padding-left: 20px; margin-bottom: 20px;">
+                            <li>Ozonização em ambientes</li>
+                            <li>Ozonização de alimentos</li>
+                            <li>Ozonização da água</li>
+                        </ul>
+                        
+                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.2rem;">
+                            <i class="fas fa-list-alt"></i> Especificações Técnicas
+                        </h4>
+                        <div class="product-specs">
+                            <p style="margin: 8px 0;"><strong>Temporização:</strong></p>
+                            <ul style="padding-left: 20px; margin-bottom: 15px;">
+                                <li>Ambiente (30 Minutos – Ciclo Automático*)</li>
+                                <li>Ambiente (45 Minutos – Ciclo Automático*)</li>
+                                <li>Água (5 minutos)</li>
+                                <li>Alimentos (15 minutos)</li>
+                            </ul>
+                            <p style="font-size: 0.9rem; color: var(--gray); margin: 10px 0; font-style: italic;">
+                                *Obs.: O controle é programado para realizar 4 ciclos da opção selecionada, com intervalo de 1 hora, ou seja, o aparelho irá trabalhar pelo tempo selecionado, fará a pausa de 1 hora e ligará novamente de forma automática.
+                            </p>
+                            
+                            <div class="product-specs-grid">
+                                <div>
+                                    <p style="margin: 5px 0;"><strong>Peso:</strong></p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">• 3,00 kg (com embalagem)</p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">• 2,44 kg (sem embalagem)</p>
+                                </div>
+                                <div>
+                                    <p style="margin: 5px 0;"><strong>Tensão:</strong></p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">Bivolt (110v e 220v)</p>
+                                </div>
+                                <div>
+                                    <p style="margin: 5px 0;"><strong>Consumo:</strong></p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">15w/h</p>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 15px;">
+                                <p style="margin: 8px 0;"><strong>Medidas:</strong></p>
+                                <div class="product-measures">
+                                    <div>
+                                        <p style="margin: 5px 0; font-size: 0.95rem;"><strong>Dentro da Caixa:</strong></p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Largura: 32,5 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Altura: 22,5 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Profundidade: 13 cm</p>
+                                    </div>
+                                    <div>
+                                        <p style="margin: 5px 0; font-size: 0.95rem;"><strong>Fora da Caixa:</strong></p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Largura: 30 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Altura: 20 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Profundidade: 10,5 cm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 25px;">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"></i> SOLICITAR OZOXX MULTI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ozoxx AIR -->
+                <div class="product-card animate-element animate-fade-up">
+                    <div class="product-content">
+                        <h3 style="color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 15px; text-align: center;">
+                            <i class="fas fa-wind"></i> Ozoxx AIR
+                        </h3>
+                        
+                        <div class="product-image">
+                            <!-- SUBSTITUIR POR IMAGEM DO OZOXX AIR -->
+                            <div class="product-image-placeholder">
+                                <i class="fas fa-image"></i>
+                                <p style="margin: 0; font-style: italic;">Imagem do Ozoxx AIR</p>
+                                <p style="font-size: 0.8rem; margin-top: 5px; color: #999;">
+                                    URL: https://raw.githubusercontent.com/seu-usuario/seu-repo/main/images/ozoxx-air.jpg
+                                </p>
+                            </div>
+                            <!-- <img src="URL_DA_IMAGEM_AQUI" alt="Ozoxx AIR"> -->
+                        </div>
+                        
+                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.2rem;">
+                            <i class="fas fa-info-circle"></i> Descrição do Produto
+                        </h4>
+                        <p>O gerador Ozoxx Air foi criado para a sanitização de casas, empresas, salões e comércios, possuindo programação automatizada para economizar energia e suprir o que precisa.</p>
+                        
+                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.2rem;">
+                            <i class="fas fa-list-alt"></i> Especificações Técnicas
+                        </h4>
+                        <div class="product-specs">
+                            <p style="margin: 8px 0;"><strong>Temporização:</strong></p>
+                            <ul style="padding-left: 20px; margin-bottom: 15px;">
+                                <li>15 Minutos</li>
+                                <li>30 Minutos</li>
+                                <li>45 Minutos</li>
+                            </ul>
+                            
+                            <div class="product-specs-grid">
+                                <div>
+                                    <p style="margin: 5px 0;"><strong>Peso:</strong></p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">• 3,00 kg (com embalagem)</p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">• 2,42 kg (sem embalagem)</p>
+                                </div>
+                                <div>
+                                    <p style="margin: 5px 0;"><strong>Tensão:</strong></p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">Bivolt (110v e 220v)</p>
+                                </div>
+                                <div>
+                                    <p style="margin: 5px 0;"><strong>Consumo:</strong></p>
+                                    <p style="margin: 2px 0; font-size: 0.95rem;">15w/h</p>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 15px;">
+                                <p style="margin: 8px 0;"><strong>Medidas:</strong></p>
+                                <div class="product-measures">
+                                    <div>
+                                        <p style="margin: 5px 0; font-size: 0.95rem;"><strong>Dentro da Caixa:</strong></p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Largura: 32,5 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Altura: 22,5 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Profundidade: 13 cm</p>
+                                    </div>
+                                    <div>
+                                        <p style="margin: 5px 0; font-size: 0.95rem;"><strong>Fora da Caixa:</strong></p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Largura: 30 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Altura: 20 cm</p>
+                                        <p style="margin: 2px 0; font-size: 0.9rem;">• Profundidade: 10,5 cm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 25px;">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"></i> SOLICITAR OZOXX AIR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center animate-element animate-fade-up" style="margin-top: 30px;">
+                <p><strong>Precisa de ajuda para escolher o produto ideal?</strong></p>
+                <a href="#contact" class="btn">
+                    <i class="fas fa-headset"></i> FALE COM UM ESPECIALISTA
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Depoimentos -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2>Veja o que nossos pacientes estão falando</h2>
-            <p class="subtitle">Depoimentos reais de pessoas que transformaram sua saúde com a ozonioterapia caseira</p>
+            <h2 class="animate-element animate-fade-up">Veja o que nossos pacientes estão falando</h2>
+            <p class="subtitle animate-element animate-fade-up">Depoimentos reais de pessoas que transformaram sua saúde com a ozonioterapia caseira</p>
             
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card animate-element animate-fade-up">
                     <div class="video-container">
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
@@ -783,7 +1121,7 @@
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
+                <div class="testimonial-card animate-element animate-fade-up">
                     <div class="video-container">
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
@@ -802,7 +1140,7 @@
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
+                <div class="testimonial-card animate-element animate-fade-up">
                     <div class="video-container">
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
@@ -827,29 +1165,29 @@
     <!-- Condições Tratadas -->
     <section class="conditions" id="conditions">
         <div class="container">
-            <h2>Condições Tratadas com o Ozoxx</h2>
+            <h2 class="animate-element animate-fade-up">Condições Tratadas com o Ozoxx</h2>
             <div class="conditions-grid">
-                <div class="condition-card">
+                <div class="condition-card animate-element animate-fade-up">
                     <h3><i class="fas fa-hand-holding-medical"></i> Pé Diabético e Feridas</h3>
                     <p>Cicatrização acelerada de úlceras diabéticas, redução do risco de infecções e amputações.</p>
                 </div>
-                <div class="condition-card">
+                <div class="condition-card animate-element animate-fade-up">
                     <h3><i class="fas fa-allergies"></i> Psoríase e Dermatites</h3>
-                    <p>Redução de lesões, coceira e inflamação da peau. Melhora significativa em eczemas e dermatites.</p>
+                    <p>Redução de lesões, coceira e inflamação da pele. Melhora significativa em eczemas e dermatites.</p>
                 </div>
-                <div class="condition-card">
+                <div class="condition-card animate-element animate-fade-up">
                     <h3><i class="fas fa-bone"></i> Dores Articulares</h3>
                     <p>Alívio de dores na artrose, artrite reumatoide, fibromialgia e dores musculares crônicas.</p>
                 </div>
-                <div class="condition-card">
+                <div class="condition-card animate-element animate-fade-up">
                     <h3><i class="fas fa-tint"></i> Problemas Circulatórios</h3>
                     <p>Melhora da circulação sanguínea, redução de inchaços, tratamento de úlceras varicosas.</p>
                 </div>
-                <div class="condition-card">
+                <div class="condition-card animate-element animate-fade-up">
                     <h3><i class="fas fa-bacteria"></i> Infecções Fúngicas</h3>
                     <p>Eliminação de micoses em unhas (onicomicose) e pele. Ação antifúngica poderosa.</p>
                 </div>
-                <div class="condition-card">
+                <div class="condition-card animate-element animate-fade-up">
                     <h3><i class="fas fa-spa"></i> Estética e Bem-Estar</h3>
                     <p>Redução de celulite, estrias, rejuvenescimento cutâneo e fortalecimento do sistema imunológico.</p>
                 </div>
@@ -858,23 +1196,23 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta">
+    <section class="cta" id="cta">
         <div class="container">
-            <h2>Não Espere Mais Para Ter Qualidade de Vida</h2>
-            <p>Mais de 5.000 pacientes já transformaram sua saúde com o Ozoxx. Agora é a sua vez de viver sem dores e limitações.</p>
-            <a href="#contact" class="btn">QUERO FALAR COM UM ESPECIALISTA</a>
+            <h2 class="animate-element animate-fade-up">Não Espere Mais Para Ter Qualidade de Vida</h2>
+            <p class="animate-element animate-fade-up">Mais de 5.000 pacientes já transformaram sua saúde com o Ozoxx. Agora é a sua vez de viver sem dores e limitações.</p>
+            <a href="#contact" class="btn animate-element animate-fade-up">QUERO FALAR COM UM ESPECIALISTA</a>
         </div>
     </section>
 
     <!-- Formulário -->
     <section class="form-section" id="contact">
         <div class="container">
-            <h2>Fale Com Nossos Especialistas</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px;">
+            <h2 class="animate-element animate-fade-up">Fale Com Nossos Especialistas</h2>
+            <p class="text-center animate-element animate-fade-up" style="max-width: 700px; margin: 0 auto 40px;">
                 Preencha o formulário abaixo e um de nossos especialistas em ozonioterapia entrará em contato para tirar todas suas dúvidas e oferecer a melhor condição.
             </p>
             
-            <div class="form-container">
+            <div class="form-container animate-element animate-fade-up">
                 <form id="contact-form">
                     <div class="form-row">
                         <div class="form-group">
@@ -944,16 +1282,18 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="condition">Principal Condição de Interesse *</label>
+                        <label for="condition">Principal Condição/Produto de Interesse *</label>
                         <select id="condition" name="condition" required>
-                            <option value="">Selecione sua condição</option>
+                            <option value="">Selecione sua condição/produto</option>
+                            <option value="ozoxx-multi">Ozoxx MULTI</option>
+                            <option value="ozoxx-air">Ozoxx AIR</option>
                             <option value="pe-diabetico">Pé Diabético/Feridas</option>
                             <option value="psoriase">Psoríase/Dermatites</option>
                             <option value="dores">Dores Articulares/Artrose</option>
                             <option value="circulacao">Problemas de Circulação</option>
                             <option value="micose">Micoses/Infecções</option>
                             <option value="estetica">Estética/Bem-Estar</option>
-                            <option value="outra">Outra Condição</option>
+                            <option value="outra">Outra Condição/Dúvida</option>
                         </select>
                     </div>
                     
@@ -989,6 +1329,7 @@
                         <li><a href="#home">Início</a></li>
                         <li><a href="#benefits">Benefícios</a></li>
                         <li><a href="#how-it-works">Como Funciona</a></li>
+                        <li><a href="#products">Produtos</a></li>
                         <li><a href="#testimonials">Depoimentos</a></li>
                         <li><a href="#conditions">Condições Tratadas</a></li>
                         <li><a href="#contact">Contato</a></li>
@@ -1104,7 +1445,7 @@
                 showNotification('error', '⚠️ Ocorreu um erro. Enviando por e-mail alternativo...');
                 
                 const subject = `Novo Lead Ozoxx - ${formData.name}`;
-                const body = `Nome: ${formData.name}%0ATelefone: ${formData.phone}%0AE-mail: ${formData.email}%0AIdade: ${formData.age}%0AEstado: ${formData.state}%0ACidade: ${formData.city}%0ACondição: ${formData.condition}%0AMensagem: ${formData.message}`;
+                const body = `Nome: ${formData.name}%0ATelefone: ${formData.phone}%0AE-mail: ${formData.email}%0AIdade: ${formData.age}%0AEstado: ${formData.state}%0ACidade: ${formData.city}%0ACondição/Produto: ${formData.condition}%0AMensagem: ${formData.message}`;
                 window.location.href = `mailto:contato@ozoxx.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 
             } finally {
@@ -1174,10 +1515,95 @@
             });
         });
         
+        // ===========================================
+        // SISTEMA DE ANIMAÇÕES RESPONSIVAS
+        // ===========================================
+        
+        // Detecta se é mobile
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+        
+        // Sistema de animação scroll
+        function initAnimations() {
+            // Seleciona todos os elementos animáveis
+            const animatedElements = document.querySelectorAll('.animate-element');
+            
+            // Configura cada elemento
+            animatedElements.forEach(element => {
+                // Remove classe de visibilidade inicial
+                element.classList.remove('animate-visible');
+                
+                // Detecta direção da animação baseado no dispositivo
+                if(isMobile()) {
+                    // Mobile: animação da esquerda
+                    element.classList.add('animate-fade-left');
+                } else {
+                    // Desktop: animação de baixo para cima
+                    element.classList.add('animate-fade-up');
+                }
+            });
+            
+            // Observer para animar ao scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('animate-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            // Observa cada elemento
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Observa seções completas
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+        
+        // Header hide on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scroll down
+                header.classList.add('hidden');
+            } else {
+                // Scroll up
+                header.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+        
+        // Re-inicializa animações ao redimensionar
+        window.addEventListener('resize', function() {
+            initAnimations();
+        });
+        
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Landing Page Ozoxx carregada com sucesso!');
             console.log('Google Script URL:', GOOGLE_SCRIPT_URL);
+            
+            // Inicia animações
+            setTimeout(initAnimations, 500);
+            
+            // Anima hero imediatamente
+            setTimeout(() => {
+                const heroElements = document.querySelectorAll('.hero .animate-element');
+                heroElements.forEach(element => {
+                    element.classList.add('animate-visible');
+                });
+            }, 300);
         });
     </script>
 </body>
