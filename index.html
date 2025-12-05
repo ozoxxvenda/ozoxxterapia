@@ -215,7 +215,7 @@
             flex-wrap: wrap;
         }
         
-        /* Benefícios */
+        /* Benefícios - ATUALIZADO COM 6 CARDS */
         .benefits {
             background: var(--light);
         }
@@ -246,7 +246,7 @@
             margin-bottom: 20px;
         }
         
-        /* Como Funciona - CORRIGIDO */
+        /* Como Funciona */
         .how-it-works {
             background: linear-gradient(135deg, #0a5c8c 0%, #1a9cda 100%);
             color: var(--text-light);
@@ -442,7 +442,7 @@
             color: var(--text-light);
         }
         
-        /* Formulário ATUALIZADO */
+        /* Formulário */
         .form-section {
             background: white;
         }
@@ -611,11 +611,16 @@
             .form-row {
                 grid-template-columns: 1fr;
             }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
         }
         
         @media (max-width: 480px) {
             .step { max-width: 100%; }
             .form-container { padding: 20px; }
+            .benefit-card { padding: 20px; }
         }
     </style>
     
@@ -629,7 +634,7 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'SEU_PIXEL_ID'); // SUBSTITUA PELO SEU PIXEL
+        fbq('init', 'SEU_PIXEL_ID');
         fbq('track', 'PageView');
     </script>
     <noscript>
@@ -683,7 +688,7 @@
         </div>
     </section>
 
-    <!-- Benefícios -->
+    <!-- Benefícios - ATUALIZADO COM 6 CARDS -->
     <section class="benefits" id="benefits">
         <div class="container">
             <h2>Por Que Escolher o Ozoxx?</h2>
@@ -700,26 +705,31 @@
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Resultados Comprovados</h3>
+                    <h3>Resultados Rápidos</h3>
                     <p>Alívio da dor, cicatrização acelerada e renovação celular. Efeitos percebidos nas primeiras aplicações.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-heartbeat"></i></div>
                     <h3>Natural e Sem Efeitos Colaterais</h3>
-                    <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-home"></i></div>
-                </div>
-
-                    <h3>Indicado para qualquer idade</h3>
-                    <p>Não há restrições para idade, devido a alta segurança na dosagem do ozônio.</p>
-                </div>
                     <p>Use o poder do ozônio medicinal, uma terapia natural que não agride o organismo quando aplicada corretamente.</p>
+                </div>
+                <!-- NOVO BENEFÍCIO 1 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3>Para Todas as Idades</h3>
+                    <p>Pode ser usado por toda a família, desde bebês até idosos. Tratamento seguro e adaptável para cada faixa etária.</p>
+                </div>
+                <!-- NOVO BENEFÍCIO 2 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-star-of-life"></i></div>
+                    <h3>Versatilidade Completa</h3>
+                    <p>Trata desde problemas de pele até doenças crônicas. Um único aparelho para múltiplas aplicações terapêuticas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Como Funciona - CORRIGIDO -->
+    <!-- Como Funciona -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <h2>Como Funciona a Ozonioterapia Caseira</h2>
@@ -757,7 +767,6 @@
                 <div class="testimonial-card">
                     <div class="video-container">
                         <div class="video-wrapper">
-                            <!-- SUBSTITUA VIDEO_ID_1 PELO SEU VÍDEO -->
                             <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -777,7 +786,6 @@
                 <div class="testimonial-card">
                     <div class="video-container">
                         <div class="video-wrapper">
-                            <!-- SUBSTITUA VIDEO_ID_2 PELO SEU VÍDEO -->
                             <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -797,7 +805,6 @@
                 <div class="testimonial-card">
                     <div class="video-container">
                         <div class="video-wrapper">
-                            <!-- SUBSTITUA VIDEO_ID_3 PELO SEU VÍDEO -->
                             <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -828,7 +835,7 @@
                 </div>
                 <div class="condition-card">
                     <h3><i class="fas fa-allergies"></i> Psoríase e Dermatites</h3>
-                    <p>Redução de lesões, coceira e inflamação da pele. Melhora significativa em eczemas e dermatites.</p>
+                    <p>Redução de lesões, coceira e inflamação da peau. Melhora significativa em eczemas e dermatites.</p>
                 </div>
                 <div class="condition-card">
                     <h3><i class="fas fa-bone"></i> Dores Articulares</h3>
@@ -859,7 +866,7 @@
         </div>
     </section>
 
-    <!-- Formulário ATUALIZADO -->
+    <!-- Formulário -->
     <section class="form-section" id="contact">
         <div class="container">
             <h2>Fale Com Nossos Especialistas</h2>
@@ -1036,7 +1043,7 @@
             });
         });
         
-        // 📍📍📍 SEU LINK DO GOOGLE SCRIPT JÁ INSERIDO AQUI 📍📍📍
+        // SEU LINK DO GOOGLE SCRIPT
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqA_cCPi5_c9q6wr5DUBeeecxohfp4H_FNxXwyiIVbdHc3KeFWqHD0d9e1XvRa_PqpyA/exec";
         
         // Formulário para Google Sheets
