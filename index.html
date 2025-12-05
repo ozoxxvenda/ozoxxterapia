@@ -13,6 +13,104 @@
     <meta property="og:url" content="https://seu-site.com">
     <meta property="og:type" content="website">
     
+    <!-- 🔴🔴🔴 TESTE A/B - CÓDIGO ADICIONADO AQUI 🔴🔴🔴 -->
+    <script>
+        // TESTE A/B PARA TÍTULO E BOTÃO PRINCIPAL
+        // 50% dos usuários verão Versão A, 50% verão Versão B
+        var versaoAB = Math.random() < 0.5 ? 'A' : 'B';
+        
+        // Configurações das versões
+        var configAB = {
+            titulo: {
+                'A': 'Ozonioterapia Caseira para Saúde e Qualidade de Vida',
+                'B': 'Trate Pé Diabético e Dores Crônicas em Casa com Ozônio Medicinal'
+            },
+            subtitulo: {
+                'A': 'Trate <strong>pé diabético, psoríase, artrose, má circulação e feridas crônicas</strong> no conforto da sua casa. Tecnologia aprovada pela ANVISA. Resultados comprovados.',
+                'B': '<strong>Resultados em 30 dias ou seu dinheiro de volta!</strong> Trate pé diabético, psoríase e dores articulares no conforto do lar. Método natural aprovado pela ANVISA.'
+            },
+            botaoTexto: {
+                'A': 'QUERO SABER MAIS',
+                'B': 'EXPERIMENTE 30 DIAS COM GARANTIA'
+            },
+            botaoCor: {
+                'A': '#ff6b35',  // Laranja original
+                'B': '#28a745'    // Verde
+            }
+        };
+        
+        // Aplica o teste quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔬 TESTE A/B: Versão ' + versaoAB + ' ativada');
+            
+            // 1. ALTERA O TÍTULO PRINCIPAL
+            var tituloPrincipal = document.getElementById('titulo-teste');
+            if (tituloPrincipal && configAB.titulo[versaoAB]) {
+                tituloPrincipal.innerHTML = configAB.titulo[versaoAB];
+                console.log('✅ Título modificado para versão ' + versaoAB);
+            }
+            
+            // 2. ALTERA O SUBTÍTULO (se existir)
+            var subtituloHero = document.querySelector('.hero p');
+            if (subtituloHero && configAB.subtitulo[versaoAB]) {
+                subtituloHero.innerHTML = configAB.subtitulo[versaoAB];
+            }
+            
+            // 3. ALTERA O BOTÃO PRINCIPAL
+            var botaoPrincipal = document.getElementById('botao-teste');
+            if (botaoPrincipal && configAB.botaoTexto[versaoAB]) {
+                botaoPrincipal.innerHTML = configAB.botaoTexto[versaoAB];
+                botaoPrincipal.style.backgroundColor = configAB.botaoCor[versaoAB];
+                
+                // Atualiza cor do hover também
+                botaoPrincipal.style.setProperty('--hover-color', versaoAB === 'B' ? '#218838' : '#e05a2b', 'important');
+                console.log('✅ Botão modificado para versão ' + versaoAB);
+            }
+            
+            // 4. RASTREAMENTO PARA GOOGLE ANALYTICS (se configurado)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'ab_test_view', {
+                    'experiment_name': 'titulo_botao_hero',
+                    'variant': versaoAB,
+                    'send_to': 'GA_MEASUREMENT_ID' // Substitua pelo seu ID
+                });
+            }
+            
+            // 5. Para debugging - mostra versão atual (remova depois)
+            var debugDiv = document.createElement('div');
+            debugDiv.style.cssText = 'position:fixed; bottom:10px; right:10px; background:#333; color:white; padding:5px 10px; border-radius:3px; font-size:12px; z-index:9999;';
+            debugDiv.innerHTML = 'TESTE A/B: Versão ' + versaoAB;
+            document.body.appendChild(debugDiv);
+        });
+        
+        // Função para rastrear cliques no botão de teste
+        function rastrearCliqueAB(elemento, acao) {
+            console.log('🎯 Clique na versão ' + versaoAB + ' - Ação: ' + acao);
+            
+            // Facebook Pixel
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    'experiment_variant': versaoAB,
+                    'experiment_name': 'titulo_botao_hero',
+                    'button_clicked': acao
+                });
+            }
+            
+            // Google Analytics
+            if(typeof gtag !== 'undefined') {
+                gtag('event', 'ab_test_click', {
+                    'experiment_name': 'titulo_botao_hero',
+                    'variant': versaoAB,
+                    'button_text': elemento.innerText,
+                    'send_to': 'GA_MEASUREMENT_ID'
+                });
+            }
+            
+            return true;
+        }
+    </script>
+    <!-- 🔴🔴🔴 FIM DO TESTE A/B 🔴🔴🔴 -->
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,7 +210,7 @@
         }
         
         .btn:hover {
-            background: #e05a2b;
+            background: var(--hover-color, #e05a2b); /* 🔴 MODIFICADO PARA TESTE A/B */
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
         }
@@ -671,13 +769,18 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- 🔴🔴🔴 HERO SECTION MODIFICADA PARA TESTE A/B 🔴🔴🔴 -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Ozonioterapia Caseira para Saúde e Qualidade de Vida</h1>
+            <!-- ID ADICIONADO AQUI para teste A/B -->
+            <h1 id="titulo-teste">Ozonioterapia Caseira para Saúde e Qualidade de Vida</h1>
+            
+            <!-- Este parágrafo será modificado pelo JavaScript -->
             <p>Trate <strong>pé diabético, psoríase, artrose, má circulação e feridas crônicas</strong> no conforto da sua casa. Tecnologia aprovada pela ANVISA. Resultados comprovados.</p>
+            
             <div class="hero-btns">
-                <a href="#contact" class="btn">QUERO SABER MAIS</a>
+                <!-- ID ADICIONADO AQUI e onclick para rastreamento -->
+                <a href="#contact" class="btn" id="botao-teste" onclick="return rastrearCliqueAB(this, 'cta_principal')">QUERO SABER MAIS</a>
                 <a href="#testimonials" class="btn btn-primary">VER DEPOIMENTOS</a>
             </div>
         </div>
@@ -1036,6 +1139,9 @@
         document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            // 🔴 ADICIONA VERSÃO DO TESTE A/B AO FORMULÁRIO
+            const versaoTeste = typeof versaoAB !== 'undefined' ? versaoAB : 'N/A';
+            
             // Dados do formulário
             const formData = {
                 name: document.getElementById('name').value.trim(),
@@ -1045,7 +1151,9 @@
                 state: document.getElementById('state').value,
                 city: document.getElementById('city').value.trim(),
                 condition: document.getElementById('condition').value,
-                message: document.getElementById('message').value.trim()
+                message: document.getElementById('message').value.trim(),
+                teste_ab: versaoTeste, // 🔴 NOVO CAMPO PARA ANÁLISE
+                timestamp: new Date().toISOString()
             };
             
             // Loading
@@ -1063,21 +1171,26 @@
                     body: JSON.stringify(formData)
                 });
                 
-                // Facebook Pixel
+                // Facebook Pixel com versão A/B
                 if(typeof fbq !== 'undefined') {
                     fbq('track', 'Lead', {
                         lead_name: formData.name,
-                        lead_condition: formData.condition
+                        lead_condition: formData.condition,
+                        teste_ab_version: versaoTeste // 🔴 RASTREAMENTO DA VERSÃO
                     });
                 }
                 
-                // Google Tag Manager
+                // Google Tag Manager com versão A/B
                 if(typeof dataLayer !== 'undefined') {
                     dataLayer.push({
                         'event': 'form_submit_success',
-                        'form_type': 'contact'
+                        'form_type': 'contact',
+                        'test_ab_version': versaoTeste // 🔴 RASTREAMENTO DA VERSÃO
                     });
                 }
+                
+                // 🔴 RASTREAMENTO ESPECÍFICO PARA TESTE A/B
+                console.log('🎯 Lead da versão ' + versaoTeste + ' convertido!');
                 
                 // Notificação de sucesso
                 showNotification('success', '✅ Solicitação enviada com sucesso! Entraremos em contato em até 24h.');
@@ -1089,8 +1202,8 @@
                 // Fallback para e-mail
                 showNotification('error', '⚠️ Ocorreu um erro. Enviando por e-mail alternativo...');
                 
-                const subject = `Novo Lead Ozoxx - ${formData.name}`;
-                const body = `Nome: ${formData.name}%0ATelefone: ${formData.phone}%0AE-mail: ${formData.email}%0AIdade: ${formData.age}%0AEstado: ${formData.state}%0ACidade: ${formData.city}%0ACondição: ${formData.condition}%0AMensagem: ${formData.message}`;
+                const subject = `Novo Lead Ozoxx - ${formData.name} [V${versaoTeste}]`;
+                const body = `Nome: ${formData.name}%0ATelefone: ${formData.phone}%0AE-mail: ${formData.email}%0AIdade: ${formData.age}%0AEstado: ${formData.state}%0ACidade: ${formData.city}%0ACondição: ${formData.condition}%0ATeste A/B: ${versaoTeste}%0AMensagem: ${formData.message}`;
                 window.location.href = `mailto:contato@ozoxx.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 
             } finally {
@@ -1147,7 +1260,10 @@
                 e.preventDefault();
                 
                 if(typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead', { content_category: 'testimonial_cta' });
+                    fbq('track', 'Lead', { 
+                        content_category: 'testimonial_cta',
+                        teste_ab_version: typeof versaoAB !== 'undefined' ? versaoAB : 'N/A'
+                    });
                 }
                 
                 const formSection = document.getElementById('contact');
@@ -1162,8 +1278,21 @@
         
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Landing Page Ozoxx carregada com sucesso!');
-            console.log('Google Script URL:', GOOGLE_SCRIPT_URL);
+            console.log('✅ Landing Page Ozoxx carregada com sucesso!');
+            console.log('✅ Google Script URL:', GOOGLE_SCRIPT_URL);
+            
+            // 🔴 CONFIRMAÇÃO DO TESTE A/B
+            if(typeof versaoAB !== 'undefined') {
+                console.log('✅ Teste A/B ativo - Versão: ' + versaoAB);
+                
+                // Mostra visualmente a versão (apenas para testes)
+                setTimeout(() => {
+                    console.log('📊 Dados do teste A/B:');
+                    console.log('- Título:', document.getElementById('titulo-teste')?.innerText);
+                    console.log('- Botão:', document.getElementById('botao-teste')?.innerText);
+                    console.log('- Cor do botão:', document.getElementById('botao-teste')?.style.backgroundColor);
+                }, 1000);
+            }
         });
     </script>
 </body>
