@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +13,8 @@
     <meta property="og:type" content="website">
     
     <!-- 🔴🔴🔴 TESTE A/B - CÓDIGO ADICIONADO AQUI 🔴🔴🔴 -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
+    <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
     <script>
         // TESTE A/B PARA TÍTULO E BOTÃO PRINCIPAL
         // 50% dos usuários verão Versão A, 50% verão Versão B
@@ -306,11 +307,37 @@
             color: var(--text-light);
         }
         
+        /* 🔴🔴🔴 ESTILO DO VÍDEO NA HERO 🔴🔴🔴 */
+        .hero-video {
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: #000;
+        }
+        
+        .video-wrapper-hero {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+        }
+        
+        .video-wrapper-hero iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
         .hero-btns {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-top: 30px;
         }
         
         /* Benefícios */
@@ -773,14 +800,30 @@
     <section class="hero" id="home">
         <div class="container">
             <!-- ID ADICIONADO AQUI para teste A/B -->
-            <h1 id="titulo-teste">Ozonioterapia Caseira para Saúde e Qualidade de Vida</h1>
+            <h1 id="titulo-teste">Trate Pé Diabético e Dores Crônicas em Casa com Ozônio Medicinal</h1>
             
             <!-- Este parágrafo será modificado pelo JavaScript -->
-            <p>Trate <strong>pé diabético, psoríase, artrose, má circulação e feridas crônicas</strong> no conforto da sua casa. Tecnologia aprovada pela ANVISA. Resultados comprovados.</p>
+            <p><strong>Milhares de resultados pelo Brasil!</strong> Trate pé diabético, psoríase e dores articulares no conforto do lar. Método natural aprovado pela ANVISA.</p>
+            
+            <!-- 🔴🔴🔴 ESPAÇO PARA VÍDEO DO YOUTUBE ADICIONADO AQUI 🔴🔴🔴 -->
+            <div class="hero-video">
+                <div class="video-wrapper-hero">
+                    <!-- SUBSTITUA SEU_ID_DO_VIDEO pelo ID real do seu vídeo do YouTube -->
+                    <!-- Exemplo: se o link do YouTube for https://www.youtube.com/watch?v=abc123, use abc123 -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO" 
+                        title="Vídeo demonstrativo Ozoxx - Ozonioterapia Caseira"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <!-- 🔴🔴🔴 FIM DO ESPAÇO DO VÍDEO 🔴🔴🔴 -->
             
             <div class="hero-btns">
                 <!-- ID ADICIONADO AQUI e onclick para rastreamento -->
-                <a href="#contact" class="btn" id="botao-teste" onclick="return rastrearCliqueAB(this, 'cta_principal')">QUERO SABER MAIS</a>
+                <a href="#contact" class="btn" id="botao-teste" onclick="return rastrearCliqueAB(this, 'cta_principal')" style="background-color: rgb(40, 167, 69); --hover-color: #218838 !important;">EXPERIMENTE 30 DIAS COM GARANTIA</a>
                 <a href="#testimonials" class="btn btn-primary">VER DEPOIMENTOS</a>
             </div>
         </div>
@@ -804,7 +847,7 @@
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Resultados Comprovados</h3>
-                    <p>Alívio da dor, cicatrização acelerada e renovação celular. Efeitos percebidos nas primeiras semanadas aplicações,.</p>
+                    <p>Alívio da dor, cicatrização acelerada e renovação celular. Efeitos percebidos nas primeiras semanas.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-heartbeat"></i></div>
