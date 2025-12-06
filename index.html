@@ -1,5 +1,14 @@
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8D4M7PEGKL');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ozoxx - Ozonioterapia Caseira | Trate Diabéticos, Psoríase e Dores em Casa</title>
@@ -68,20 +77,14 @@
                 console.log('✅ Botão modificado para versão ' + versaoAB);
             }
             
-            // 4. RASTREAMENTO PARA GOOGLE ANALYTICS (se configurado)
+            // 4. RASTREAMENTO PARA GOOGLE ANALYTICS
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'ab_test_view', {
                     'experiment_name': 'titulo_botao_hero',
                     'variant': versaoAB,
-                    'send_to': 'GA_MEASUREMENT_ID' // Substitua pelo seu ID
+                    'send_to': 'G-8D4M7PEGKL'
                 });
             }
-            
-            // 5. Para debugging - mostra versão atual (remova depois)
-            var debugDiv = document.createElement('div');
-            debugDiv.style.cssText = 'position:fixed; bottom:10px; right:10px; background:#333; color:white; padding:5px 10px; border-radius:3px; font-size:12px; z-index:9999;';
-            debugDiv.innerHTML = 'TESTE A/B: Versão ' + versaoAB;
-            
         });
         
         // Função para rastrear cliques no botão de teste
@@ -103,7 +106,7 @@
                     'experiment_name': 'titulo_botao_hero',
                     'variant': versaoAB,
                     'button_text': elemento.innerText,
-                    'send_to': 'GA_MEASUREMENT_ID'
+                    'send_to': 'G-8D4M7PEGKL'
                 });
             }
             
@@ -811,7 +814,7 @@
                     <!-- SUBSTITUA SEU_ID_DO_VIDEO pelo ID real do seu vídeo do YouTube -->
                     <!-- Exemplo: se o link do YouTube for https://www.youtube.com/watch?v=abc123, use abc123 -->
                     <iframe 
-                        src="https://www.youtube.com/embed/G6t7AZLJqPY?si=U0_3rFyBfM4aurwE"
+                        src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO" 
                         title="Vídeo demonstrativo Ozoxx - Ozonioterapia Caseira"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -1327,14 +1330,6 @@
             // 🔴 CONFIRMAÇÃO DO TESTE A/B
             if(typeof versaoAB !== 'undefined') {
                 console.log('✅ Teste A/B ativo - Versão: ' + versaoAB);
-                
-                // Mostra visualmente a versão (apenas para testes)
-                setTimeout(() => {
-                    console.log('📊 Dados do teste A/B:');
-                    console.log('- Título:', document.getElementById('titulo-teste')?.innerText);
-                    console.log('- Botão:', document.getElementById('botao-teste')?.innerText);
-                    console.log('- Cor do botão:', document.getElementById('botao-teste')?.style.backgroundColor);
-                }, 1000);
             }
         });
     </script>
