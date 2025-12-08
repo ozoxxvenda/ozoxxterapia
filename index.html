@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ozoxx - Ozonioterapia Caseira com Ozoxx | Conheça como Funciona</title>
+    <title>Ozoxx - Ozonioterapia Caseira | Saiba como Funciona</title>
     <meta name="description" content="Veja fotos reais de clientes que trataram pé diabético, psoríase e dores com Ozoxx. Resultados comprovados. Aprovado pela ANVISA.">
     
     <!-- Meta Tags OG -->
@@ -409,7 +409,7 @@
         }
         
         .client-card:hover .client-overlay {
-            opacity: 1;
+            opacity = 1;
         }
         
         .clients-cta {
@@ -1617,17 +1617,6 @@
             .finally(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            });
-        });
-        
-        // Foco automático no campo de e-mail quando usuário clicar em qualquer campo
-        document.querySelectorAll('#contact-form input, #contact-form select').forEach(field => {
-            field.addEventListener('focus', function() {
-                // Se o campo de e-mail estiver vazio, focar nele
-                const emailField = document.getElementById('email');
-                if (emailField.value === '') {
-                    emailField.focus();
-                }
             });
         });
     </script>
