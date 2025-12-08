@@ -1543,36 +1543,6 @@
             lastScroll = currentScroll;
         });
         
-        // Form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
-            submitBtn.disabled = true;
-            
-            // Coletar dados do formulário
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Log para depuração (remover em produção)
-            console.log('Dados do formulário:', data);
-            
-            setTimeout(() => {
-                alert('✅ Solicitação enviada com sucesso! Entraremos em contato em até 24h.');
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
-        
-        // Validação de idade
-        document.getElementById('age').addEventListener('input', function() {
-            if (this.value < 1) this.value = 1;
-            if (this.value > 120) this.value = 120;
-        });
-        
         // Mostrar/ocultar campo "outra condição"
         document.getElementById('health-condition').addEventListener('change', function() {
             const otherConditionGroup = document.getElementById('other-condition-group');
@@ -1582,6 +1552,72 @@
                 otherConditionGroup.style.display = 'none';
                 document.getElementById('other-condition').value = '';
             }
+        });
+        
+        // Validação de idade
+        document.getElementById('age').addEventListener('input', function() {
+            if (this.value < 1) this.value = 1;
+            if (this.value > 120) this.value = 120;
+        });
+        
+        // ===========================================
+        // INTEGRAÇÃO COM GOOGLE SHEETS
+        // ===========================================
+        
+        // Form submission para Google Sheets
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
+            submitBtn.disabled = true;
+            
+            // Coletar dados do formulário
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                age: document.getElementById('age').value,
+                state: document.getElementById('state').value,
+                city: document.getElementById('city').value,
+                health_condition: document.getElementById('health-condition').value,
+                other_condition: document.getElementById('other-condition').value || '',
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString('pt-BR'),
+                source: 'Site Ozoxx'
+            };
+            
+            // URL DO SEU GOOGLE APPS SCRIPT
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwRnHN1IGgEMFxKgjzTBklb30D_2dukDzAqJhJ20tEgu-wbuOobVxyWsF_Sq93c0TBpMQ/exec';
+            
+            // Enviar para Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // Importante para Google Apps Script
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                alert('✅ Solicitação enviada com sucesso! Entraremos em contato em até 24h.');
+                
+                // Resetar formulário
+                document.getElementById('contact-form').reset();
+                document.getElementById('other-condition-group').style.display = 'none';
+                
+                // Rolar para o topo do formulário
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('⚠️ Ocorreu um erro ao enviar. Tente novamente ou entre em contato diretamente pelo WhatsApp: (11) 99999-9999');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
         });
         
         // Foco automático no campo de e-mail quando usuário clicar em qualquer campo
