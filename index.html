@@ -1,119 +1,17 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-8D4M7PEGKL');
-    </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ozoxx - Ozonioterapia Caseira | Trate Diabéticos, Psoríase e Dores em Casa</title>
-    <meta name="description" content="Aparelho de ozonioterapia portátil. Trate pé diabético, psoríase, artrose, má circulação e feridas crônicas em casa. Aprovado pela ANVISA. Entrega para todo Brasil.">
+    <title>Ozoxx - Ozonioterapia Caseira | Resultados Reais Comprovados</title>
+    <meta name="description" content="Veja fotos reais de clientes que trataram pé diabético, psoríase e dores com Ozoxx. Resultados comprovados. Aprovado pela ANVISA.">
     
     <!-- Meta Tags OG -->
-    <meta property="og:title" content="Ozoxx - Ozonioterapia Caseira para Saúde e Bem-Estar">
-    <meta property="og:description" content="Tratamento natural com ozônio medicinal. Alívio de dores, cicatrização acelerada e renovação celular.">
+    <meta property="og:title" content="Ozoxx - Resultados Reais com Ozonioterapia Caseira">
+    <meta property="og:description" content="Fotos reais de clientes que transformaram sua saúde. Tratamento natural aprovado pela ANVISA.">
     <meta property="og:image" content="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png">
     <meta property="og:url" content="https://seu-site.com">
     <meta property="og:type" content="website">
-    
-    <!-- 🔴🔴🔴 TESTE A/B - CÓDIGO ADICIONADO AQUI 🔴🔴🔴 -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
-    <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
-    <script>
-        // TESTE A/B PARA TÍTULO E BOTÃO PRINCIPAL
-        // 50% dos usuários verão Versão A, 50% verão Versão B
-        var versaoAB = Math.random() < 0.5 ? 'A' : 'B';
-        
-        // Configurações das versões
-        var configAB = {
-            titulo: {
-                'A': 'Ozonioterapia Caseira para Saúde e Qualidade de Vida',
-                'B': 'Trate Pé Diabético e Dores Crônicas em Casa com Ozônio Medicinal'
-            },
-            subtitulo: {
-                'A': 'Trate <strong>pé diabético, psoríase, artrose, má circulação e feridas crônicas</strong> no conforto da sua casa. Tecnologia aprovada pela ANVISA. Resultados comprovados.',
-                'B': '<strong>Milhares de resultados pelo Brasil!</strong> Trate pé diabético, psoríase e dores articulares no conforto do lar. Método natural aprovado pela ANVISA.'
-            },
-            botaoTexto: {
-                'A': 'QUERO SABER MAIS',
-                'B': 'EXPERIMENTE 30 DIAS COM GARANTIA'
-            },
-            botaoCor: {
-                'A': '#ff6b35',  // Laranja original
-                'B': '#28a745'    // Verde
-            }
-        };
-        
-        // Aplica o teste quando a página carrega
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🔬 TESTE A/B: Versão ' + versaoAB + ' ativada');
-            
-            // 1. ALTERA O TÍTULO PRINCIPAL
-            var tituloPrincipal = document.getElementById('titulo-teste');
-            if (tituloPrincipal && configAB.titulo[versaoAB]) {
-                tituloPrincipal.innerHTML = configAB.titulo[versaoAB];
-                console.log('✅ Título modificado para versão ' + versaoAB);
-            }
-            
-            // 2. ALTERA O SUBTÍTULO (se existir)
-            var subtituloHero = document.querySelector('.hero p');
-            if (subtituloHero && configAB.subtitulo[versaoAB]) {
-                subtituloHero.innerHTML = configAB.subtitulo[versaoAB];
-            }
-            
-            // 3. ALTERA O BOTÃO PRINCIPAL
-            var botaoPrincipal = document.getElementById('botao-teste');
-            if (botaoPrincipal && configAB.botaoTexto[versaoAB]) {
-                botaoPrincipal.innerHTML = configAB.botaoTexto[versaoAB];
-                botaoPrincipal.style.backgroundColor = configAB.botaoCor[versaoAB];
-                
-                // Atualiza cor do hover também
-                botaoPrincipal.style.setProperty('--hover-color', versaoAB === 'B' ? '#218838' : '#e05a2b', 'important');
-                console.log('✅ Botão modificado para versão ' + versaoAB);
-            }
-            
-            // 4. RASTREAMENTO PARA GOOGLE ANALYTICS
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'ab_test_view', {
-                    'experiment_name': 'titulo_botao_hero',
-                    'variant': versaoAB,
-                    'send_to': 'G-8D4M7PEGKL'
-                });
-            }
-        });
-        
-        // Função para rastrear cliques no botão de teste
-        function rastrearCliqueAB(elemento, acao) {
-            console.log('🎯 Clique na versão ' + versaoAB + ' - Ação: ' + acao);
-            
-            // Facebook Pixel
-            if(typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    'experiment_variant': versaoAB,
-                    'experiment_name': 'titulo_botao_hero',
-                    'button_clicked': acao
-                });
-            }
-            
-            // Google Analytics
-            if(typeof gtag !== 'undefined') {
-                gtag('event', 'ab_test_click', {
-                    'experiment_name': 'titulo_botao_hero',
-                    'variant': versaoAB,
-                    'button_text': elemento.innerText,
-                    'send_to': 'G-8D4M7PEGKL'
-                });
-            }
-            
-            return true;
-        }
-    </script>
-    <!-- 🔴🔴🔴 FIM DO TESTE A/B 🔴🔴🔴 -->
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -214,7 +112,7 @@
         }
         
         .btn:hover {
-            background: var(--hover-color, #e05a2b); /* 🔴 MODIFICADO PARA TESTE A/B */
+            background: #e05a2b;
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
         }
@@ -244,6 +142,12 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        header.hidden {
+            transform: translateY(-100%);
         }
         
         .header-container {
@@ -289,50 +193,62 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.8)), url('https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             color: white;
+            overflow: hidden;
             padding: 150px 0 80px;
+            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.8));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .hero h1 {
             font-size: 3.2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .hero p {
             font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: var(--text-light);
+            margin-bottom: 35px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
         }
         
-        /* 🔴🔴🔴 ESTILO DO VÍDEO NA HERO 🔴🔴🔴 */
+        /* Hero Video - 1280x720 (16:9) */
         .hero-video {
-            max-width: 800px;
-            margin: 30px auto;
-            border-radius: var(--radius);
+            margin: 30px auto 40px;
+            max-width: 900px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
             background: #000;
         }
         
-        .video-wrapper-hero {
-            position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
-            height: 0;
-        }
-        
-        .video-wrapper-hero iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: none;
+            border-radius: 10px;
         }
         
         .hero-btns {
@@ -340,7 +256,6 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 30px;
         }
         
         /* Benefícios */
@@ -374,7 +289,7 @@
             margin-bottom: 20px;
         }
         
-        /* Como Funciona - CORRIGIDO */
+        /* Como Funciona */
         .how-it-works {
             background: linear-gradient(135deg, #0a5c8c 0%, #1a9cda 100%);
             color: var(--text-light);
@@ -419,22 +334,96 @@
             box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
         }
         
-        .step h3 {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        /* =========================================== */
+        /* SEÇÃO CLIENTES - IMAGENS 1500x1500 (1:1)    */
+        /* =========================================== */
+        .clients {
+            background: white;
+            padding: 100px 0;
         }
         
-        .step p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .clients .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 60px;
         }
         
-        /* Depoimentos */
+        /* Grid otimizado para quadrados */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .client-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+            position: relative;
+        }
+        
+        .client-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Container quadrado perfeito */
+        .client-photo-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-bottom: 100%; /* 1:1 Aspect Ratio - QUADRADO PERFEITO */
+            background: #f8f9fa;
+        }
+        
+        .client-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Corta inteligentemente mantendo proporção */
+            transition: var(--transition);
+        }
+        
+        .client-card:hover .client-photo {
+            transform: scale(1.05);
+        }
+        
+        /* Overlay para efeito visual */
+        .client-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.3));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .client-card:hover .client-overlay {
+            opacity: 1;
+        }
+        
+        .clients-cta {
+            text-align: center;
+            margin-top: 70px;
+            padding: 40px;
+            background: linear-gradient(to right, var(--light), #fff);
+            border-radius: var(--radius);
+            border: 2px dashed var(--secondary);
+        }
+        
+        /* Depoimentos em vídeo */
         .testimonials {
-            background: #f0f7ff;
-            padding: 80px 0;
+            background: #f8f9fa;
         }
         
         .testimonials .subtitle {
@@ -458,31 +447,19 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            border: 1px solid #eee;
         }
         
         .testimonial-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .video-container {
             background: #000;
             position: relative;
-            padding-top: 56.25%;
-        }
-        
-        .video-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .video-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+            padding-top: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
         }
         
         .testimonial-info {
@@ -500,7 +477,7 @@
             margin-right: 10px;
         }
         
-        .condition, .duration {
+        .condition {
             font-size: 0.9rem;
             color: var(--gray);
             margin-bottom: 8px;
@@ -527,6 +504,37 @@
             text-align: center;
         }
         
+        /* Produtos Simplificados */
+        .products {
+            background: #f0f7ff;
+        }
+        
+        .products-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .product-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .product-item {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .product-icon {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
         /* Condições Tratadas */
         .conditions {
             background: var(--light);
@@ -545,6 +553,11 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .condition-card:hover {
+            transform: translateY(-5px);
         }
         
         .condition-card h3 i {
@@ -570,7 +583,7 @@
             color: var(--text-light);
         }
         
-        /* Formulário ATUALIZADO */
+        /* Formulário */
         .form-section {
             background: white;
         }
@@ -602,6 +615,13 @@
             color: var(--primary);
         }
         
+        .form-group.optional label::after {
+            content: " (Opcional)";
+            color: var(--gray);
+            font-weight: normal;
+            font-size: 0.9rem;
+        }
+        
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -622,11 +642,14 @@
             outline: none;
         }
         
-        .form-group small {
-            display: block;
-            margin-top: 5px;
-            color: var(--gray);
-            font-size: 0.85rem;
+        /* Select customizado */
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a5c8c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+            padding-right: 40px;
         }
         
         /* Footer */
@@ -680,22 +703,25 @@
             font-size: 0.9rem;
         }
         
-        /* Notificações */
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        /* =========================================== */
+        /* RESPONSIVIDADE OTIMIZADA PARA QUADRADOS     */
+        /* =========================================== */
+        
+        @media (max-width: 1200px) {
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        
-        /* Responsividade */
         @media (max-width: 992px) {
             h1 { font-size: 2.4rem; }
             h2 { font-size: 1.8rem; }
             section { padding: 60px 0; }
+            .clients { padding: 80px 0; }
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -719,6 +745,12 @@
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.1rem; }
             
+            .hero-video {
+                margin: 20px auto 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            
             .hero-btns {
                 flex-direction: column;
                 align-items: center;
@@ -726,57 +758,49 @@
             
             .btn { width: 100%; max-width: 300px; }
             
-            .testimonials-grid {
+            .testimonials-grid,
+            .benefits-grid,
+            .conditions-grid,
+            .clients-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
             }
             
-            .testimonial-card {
-                max-width: 500px;
-                margin: 0 auto;
+            .product-comparison {
+                grid-template-columns: 1fr;
             }
             
             .form-row {
                 grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
             }
         }
         
         @media (max-width: 480px) {
             .step { max-width: 100%; }
             .form-container { padding: 20px; }
+            .benefit-card,
+            .product-item,
+            .client-card { padding: 15px; }
+            .clients { padding: 60px 0; }
+            .clients-grid {
+                gap: 15px;
+            }
+        }
+        
+        @media (min-width: 1400px) {
+            .clients-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
     </style>
-    
-    <!-- Facebook Pixel -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'SEU_PIXEL_ID'); // SUBSTITUA PELO SEU PIXEL
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/>
-    </noscript>
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -791,43 +815,40 @@
                     <li><a href="#home">Início</a></li>
                     <li><a href="#benefits">Benefícios</a></li>
                     <li><a href="#how-it-works">Como Funciona</a></li>
+                    <li><a href="#clients">Fotos Reais</a></li>
                     <li><a href="#testimonials">Depoimentos</a></li>
-                    <li><a href="#conditions">Condições</a></li>
+                    <li><a href="#products">Produtos</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- 🔴🔴🔴 HERO SECTION MODIFICADA PARA TESTE A/B 🔴🔴🔴 -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <!-- ID ADICIONADO AQUI para teste A/B -->
-            <h1 id="titulo-teste">Trate Pé Diabético e Dores Crônicas em Casa com Ozônio Medicinal</h1>
-            
-            <!-- Este parágrafo será modificado pelo JavaScript -->
-            <p><strong>Milhares de resultados pelo Brasil!</strong> Trate pé diabético, psoríase e dores articulares no conforto do lar. Método natural aprovado pela ANVISA.</p>
-            
-            <!-- 🔴🔴🔴 ESPAÇO PARA VÍDEO DO YOUTUBE ADICIONADO AQUI 🔴🔴🔴 -->
-            <div class="hero-video">
-                <div class="video-wrapper-hero">
-                    <!-- SUBSTITUA SEU_ID_DO_VIDEO pelo ID real do seu vídeo do YouTube -->
-                    <!-- Exemplo: se o link do YouTube for https://www.youtube.com/watch?v=abc123, use abc123 -->
-                    <iframe 
-                        src="https://www.youtube.com/embed/G6t7AZLJqPY?si=NofsgbeGPIe-rPGY" 
-                        title="Vídeo demonstrativo Ozoxx - Ozonioterapia Caseira"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+            <div class="hero-content">
+                <h1>Resultados Reais com Ozonioterapia Caseira</h1>
+                <p>Veja fotos reais de pessoas que trataram <strong>pé diabético, psoríase, artrose e dores crônicas</strong> no conforto de casa. Tecnologia aprovada pela ANVISA.</p>
+                
+                <!-- VÍDEO PRINCIPAL -->
+                <div class="hero-video">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/SEU_VIDEO_PRINCIPAL" 
+                            title="Ozoxx - Resultados Reais" 
+                            frameborder="0" 
+                            allowfullscreen
+                            width="1280"
+                            height="720">
+                        </iframe>
+                    </div>
                 </div>
-            </div>
-            <!-- 🔴🔴🔴 FIM DO ESPAÇO DO VÍDEO 🔴🔴🔴 -->
-            
-            <div class="hero-btns">
-                <!-- ID ADICIONADO AQUI e onclick para rastreamento -->
-                <a href="#contact" class="btn" id="botao-teste" onclick="return rastrearCliqueAB(this, 'cta_principal')" style="background-color: rgb(40, 167, 69); --hover-color: #218838 !important;">EXPERIMENTE 30 DIAS COM GARANTIA</a>
-                <a href="#testimonials" class="btn btn-primary">VER DEPOIMENTOS</a>
+                
+                <div class="hero-btns">
+                    <a href="#clients" class="btn">VER FOTOS REAIS</a>
+                    <a href="#contact" class="btn btn-primary">FALAR COM ESPECIALISTA</a>
+                </div>
             </div>
         </div>
     </section>
@@ -835,178 +856,373 @@
     <!-- Benefícios -->
     <section class="benefits" id="benefits">
         <div class="container">
-            <h2>Por Que Escolher o Ozoxx?</h2>
+            <h2>Por Que a Ozonioterapia Funciona?</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-home"></i></div>
-                    <h3>Tratamento em Casa</h3>
-                    <p>Faça sessões de ozonioterapia quando quiser, sem precisar ir a clínicas. Economize tempo e dinheiro.</p>
+                    <div class="benefit-icon"><i class="fas fa-bacteria"></i></div>
+                    <h3>Ação Antibacteriana</h3>
+                    <p>Elimina bactérias, vírus e fungos que impedem a cicatrização de feridas e úlceras.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Seguro e Aprovado</h3>
-                    <p>Aparelho registrado na ANVISA. Tecnologia de plasma frio que garante precisão e segurança total.</p>
+                    <div class="benefit-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Melhora Circulação</h3>
+                    <p>Aumenta oxigenação dos tecidos, acelerando a recuperação e reduzindo inflamações.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Resultados Comprovados</h3>
-                    <p>Alívio da dor, cicatrização acelerada e renovação celular. Efeitos percebidos nas primeiras semanas.</p>
+                    <h3>Estimula Regeneração</h3>
+                    <p>Ativa células de defesa e produção de colágeno para cicatrização mais rápida.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Seguro e Natural</h3>
+                    <p>Terapia natural sem efeitos colaterais quando aplicada corretamente. Aprovado pela ANVISA.</p>
+                </div>
+                <!-- NOVOS ELEMENTOS ADICIONADOS -->
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3>Indicado para Todas as Idades</h3>
+                    <p>Pode ser usado com segurança por crianças, adultos e idosos, adaptando protocolos conforme necessidade.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-heartbeat"></i></div>
-                    <h3>Natural e Sem Efeitos Colaterais</h3>
-                    <p>Use o poder do ozônio medicinal, uma terapia natural que não agride o organismo quando aplicada corretamente.</p>
+                    <h3>Trata Centenas de Doenças</h3>
+                    <p>Eficaz no tratamento de mais de 100 condições, de problemas dermatológicos a doenças autoimunes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Como Funciona - CORRIGIDO -->
+    <!-- Como Funciona -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <h2>Como Funciona a Ozonioterapia Caseira</h2>
+            <h2>Como Funciona o Tratamento em Casa</h2>
             <p class="text-center" style="max-width: 800px; margin: 0 auto 40px; color: rgba(255, 255, 255, 0.9) !important;">
-                O Ozoxx transforma oxigênio do ar em ozônio medicinal através da tecnologia de plasma frio, proporcionando um tratamento eficaz e não invasivo.
+                Tratamento simples que você faz em casa, sem precisar se deslocar para clínicas.
             </p>
             
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Conecte e Ligue</h3>
-                    <p>Conecte o aparelho na tomada e pressione o botão de ligar. Ozoxx começa a gerar ozônio medicinal de forma segura e controlada.</p>
+                    <h3>Receba o Aparelho</h3>
+                    <p>Ozoxx chega na sua casa completo, com todos os acessórios e manual de uso.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Aplique no Local</h3>
-                    <p>Use a bolsa especial (bagging) para isolar a área a ser tratada ou prepare óleo ozonizado para aplicação tópica na pele.</p>
+                    <h3>Siga o Protocolo</h3>
+                    <p>Aplicamos o protocolo específico para sua condição (pé diabético, psoríase, etc.).</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Trate Regularmente</h3>
-                    <p>Siga o protocolo recomendado para sua condição específica. Em poucas semanas você sentirá a diferença na sua saúde e bem-estar.</p>
+                    <h3>Tenha Resultados</h3>
+                    <p>Em poucas semanas você verá a melhora. Acompanhamento com nossos especialistas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Depoimentos -->
+    <!-- =========================================== -->
+    <!-- SEÇÃO PRINCIPAL: FOTOS DOS CLIENTES 1500x1500 -->
+    <!-- =========================================== -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <h2>Resultados Reais dos Nossos Clientes</h2>
+            <p class="subtitle">Fotos reais de pessoas que transformaram sua saúde com o Ozoxx</p>
+            
+            <div class="clients-grid">
+                <!-- Cliente 1 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-1.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 2 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-2.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 3 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-3.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 4 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-4.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 5 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-5.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 6 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-6.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 7 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-7.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 8 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-8.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 9 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-9.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Cliente 10 - 1500x1500 -->
+                <div class="client-card">
+                    <div class="client-photo-container">
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-10.jpg" 
+                             class="client-photo"
+                             loading="lazy"
+                             width="1500"
+                             height="1500">
+                        <div class="client-overlay"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clients-cta">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">
+                    <i class="fas fa-images"></i> Mais de 5.000 Pessoas Já Transformaram Sua Saúde
+                </h3>
+                <p style="margin-bottom: 20px;">Estas são apenas algumas das milhares de pessoas que já trataram pé diabético, psoríase, artrose e outras condições com o Ozoxx. Seu resultado pode ser o próximo!</p>
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-camera"></i> QUERO TER ESSES RESULTADOS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos em vídeo -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2>Veja o que nossos pacientes estão falando</h2>
-            <p class="subtitle">Depoimentos reais de pessoas que transformaram sua saúde com a ozonioterapia caseira</p>
+            <h2>Depoimentos em Vídeo</h2>
+            <p class="subtitle">Veja e ouça diretamente dos nossos clientes</p>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="video-container">
                         <div class="video-wrapper">
-                            <!-- SUBSTITUA VIDEO_ID_1 PELO SEU VÍDEO -->
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
+                            <iframe 
+                                src="https://www.youtube.com/embed/VIDEO_1" 
+                                title="Depoimento Pé Diabético" 
+                                frameborder="0" 
+                                allowfullscreen
+                                width="1280"
+                                height="720">
+                            </iframe>
                         </div>
                     </div>
                     <div class="testimonial-info">
-                        <h3><i class="fas fa-user-circle"></i> Maria Silva, 62 anos</h3>
-                        <p class="condition"><i class="fas fa-stethoscope"></i> Tratamento: Pé Diabético</p>
+                        <h3><i class="fas fa-user-circle"></i> Tratamento: Pé Diabético</h3>
+                        <p class="condition"><i class="fas fa-clock"></i> Resultado em 45 dias</p>
                         <div class="testimonial-text">
-                            <p>"Há 5 anos sofria com feridas no pé que não cicatrizavam. Em 2 meses com o Ozoxx, minhas feridas fecharam completamente!"</p>
+                            <p>"Ferida aberta há 2 anos que não cicatrizava. Com Ozoxx, em 45 dias cicatrizou completamente!"</p>
                         </div>
                     </div>
                     <div class="testimonial-cta">
-                        <p><strong>Você também sofre com pé diabético?</strong></p>
-                        <a href="#contact" class="btn">QUERO SABER COMO TRATAR</a>
+                        <a href="#contact" class="btn">QUERO TRATAR PÉ DIABÉTICO</a>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="video-container">
                         <div class="video-wrapper">
-                            <!-- SUBSTITUA VIDEO_ID_2 PELO SEU VÍDEO -->
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
+                            <iframe 
+                                src="https://www.youtube.com/embed/VIDEO_2" 
+                                title="Depoimento Psoríase" 
+                                frameborder="0" 
+                                allowfullscreen
+                                width="1280"
+                                height="720">
+                            </iframe>
                         </div>
                     </div>
                     <div class="testimonial-info">
-                        <h3><i class="fas fa-user-circle"></i> João Santos, 45 anos</h3>
-                        <p class="condition"><i class="fas fa-stethoscope"></i> Tratamento: Psoríase Grave</p>
+                        <h3><i class="fas fa-user-circle"></i> Tratamento: Psoríase</h3>
+                        <p class="condition"><i class="fas fa-clock"></i> Resultado em 3 meses</p>
                         <div class="testimonial-text">
-                            <p>"Minha psoríase cobria 40% do corpo. Com o Ozoxx, em 3 meses as lesões reduziram 80%. Tenho pele lisa novamente!"</p>
+                            <p>"Lesões em 40% do corpo reduziram 80%. Tenho pele lisa novamente!"</p>
                         </div>
                     </div>
                     <div class="testimonial-cta">
-                        <p><strong>Psoríase afeta sua qualidade de vida?</strong></p>
-                        <a href="#contact" class="btn">QUERO ALÍVIO IMEDIATO</a>
+                        <a href="#contact" class="btn">QUERO TRATAR PSORÍASE</a>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="video-container">
                         <div class="video-wrapper">
-                            <!-- SUBSTITUA VIDEO_ID_3 PELO SEU VÍDEO -->
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Depoimento Ozoxx" frameborder="0" allowfullscreen></iframe>
+                            <iframe 
+                                src="https://www.youtube.com/embed/VIDEO_3" 
+                                title="Depoimento Artrose" 
+                                frameborder="0" 
+                                allowfullscreen
+                                width="1280"
+                                height="720">
+                            </iframe>
                         </div>
                     </div>
                     <div class="testimonial-info">
-                        <h3><i class="fas fa-user-circle"></i> Ana Costa, 58 anos</h3>
-                        <p class="condition"><i class="fas fa-stethoscope"></i> Tratamento: Artrose no Joelho</p>
+                        <h3><i class="fas fa-user-circle"></i> Tratamento: Artrose</h3>
+                        <p class="condition"><i class="fas fa-clock"></i> Resultado em 2 meses</p>
                         <div class="testimonial-text">
-                            <p>"Tinha dores tão fortes que não conseguia subir escadas. Hoje, após 2 meses com Ozoxx, voltei a fazer minhas caminhadas diárias."</p>
+                            <p>"Não conseguia subir escadas de tanta dor. Hoje caminho 5km diários!"</p>
                         </div>
                     </div>
                     <div class="testimonial-cta">
-                        <p><strong>Cansado de viver com dores?</strong></p>
-                        <a href="#contact" class="btn">QUERO VIVER SEM DOR</a>
+                        <a href="#contact" class="btn">QUERO TRATAR ARTROSE</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Condições Tratadas -->
-    <section class="conditions" id="conditions">
+    <!-- Produtos Simplificados -->
+    <section class="products" id="products">
         <div class="container">
-            <h2>Condições Tratadas com o Ozoxx</h2>
-            <div class="conditions-grid">
-                <div class="condition-card">
-                    <h3><i class="fas fa-hand-holding-medical"></i> Pé Diabético e Feridas</h3>
-                    <p>Cicatrização acelerada de úlceras diabéticas, redução do risco de infecções e amputações.</p>
-                </div>
-                <div class="condition-card">
-                    <h3><i class="fas fa-allergies"></i> Psoríase e Dermatites</h3>
-                    <p>Redução de lesões, coceira e inflamação da pele. Melhora significativa em eczemas e dermatites.</p>
-                </div>
-                <div class="condition-card">
-                    <h3><i class="fas fa-bone"></i> Dores Articulares</h3>
-                    <p>Alívio de dores na artrose, artrite reumatoide, fibromialgia e dores musculares crônicas.</p>
-                </div>
-                <div class="condition-card">
-                    <h3><i class="fas fa-tint"></i> Problemas Circulatórios</h3>
-                    <p>Melhora da circulação sanguínea, redução de inchaços, tratamento de úlceras varicosas.</p>
-                </div>
-                <div class="condition-card">
-                    <h3><i class="fas fa-bacteria"></i> Infecções Fúngicas</h3>
-                    <p>Eliminação de micoses em unhas (onicomicose) e pele. Ação antifúngica poderosa.</p>
-                </div>
-                <div class="condition-card">
-                    <h3><i class="fas fa-spa"></i> Estética e Bem-Estar</h3>
-                    <p>Redução de celulite, estrias, rejuvenescimento cutâneo e fortalecimento do sistema imunológico.</p>
+            <h2>Conheça Nossos Geradores de Ozônio</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px;">
+                Tecnologia de plasma frio aprovada para uso humano. Desenvolvidos para diferentes necessidades terapêuticas.
+            </p>
+            
+            <div class="products-container">
+                <div class="product-comparison">
+                    <div class="product-item">
+                        <div class="product-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Ozoxx MULTI</h3>
+                        <p><strong>Para uso humano e ambiental</strong></p>
+                        
+                        <ul class="product-specs-list">
+                            <li>Aprovado para exposição humana</li>
+                            <li>Laudos UFF e UNICAMP</li>
+                            <li>Emissão segura: 0,06 ppm</li>
+                            <li>Ozonização de ambientes</li>
+                            <li>Ozonização de alimentos</li>
+                            <li>Ozonização da água</li>
+                        </ul>
+                        
+                        <div style="margin-top: 25px;">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-info-circle"></i> SABER MAIS SOBRE MULTI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h3>Ozoxx AIR</h3>
+                        <p><strong>Para sanitização de ambientes</strong></p>
+                        
+                        <ul class="product-specs-list">
+                            <li>Sanitização de casas e empresas</li>
+                            <li>Elimina vírus, bactérias, fungos</li>
+                            <li>Programação automatizada</li>
+                            <li>Economia de energia</li>
+                            <li>Para salões e comércios</li>
+                            <li>Uso profissional</li>
+                        </ul>
+                        
+                        <div style="margin-top: 25px;">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-info-circle"></i> SABER MAIS SOBRE AIR
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA Final -->
     <section class="cta">
         <div class="container">
-            <h2>Não Espere Mais Para Ter Qualidade de Vida</h2>
-            <p>Mais de 5.000 pacientes já transformaram sua saúde com o Ozoxx. Agora é a sua vez de viver sem dores e limitações.</p>
-            <a href="#contact" class="btn">QUERO FALAR COM UM ESPECIALISTA</a>
+            <h2>Não Conviva Mais com Dor e Limitações</h2>
+            <p>Você viu os resultados reais. Agora é sua vez de transformar sua saúde e qualidade de vida.</p>
+            <a href="#contact" class="btn">QUERO FALAR COM UM ESPECIALISTA AGORA</a>
         </div>
     </section>
 
-    <!-- Formulário ATUALIZADO -->
+    <!-- Formulário -->
     <section class="form-section" id="contact">
         <div class="container">
             <h2>Fale Com Nossos Especialistas</h2>
             <p class="text-center" style="max-width: 700px; margin: 0 auto 40px;">
-                Preencha o formulário abaixo e um de nossos especialistas em ozonioterapia entrará em contato para tirar todas suas dúvidas e oferecer a melhor condição.
+                Preencha o formulário abaixo e um especialista em ozonioterapia entrará em contato para tirar todas suas dúvidas.
             </p>
             
             <div class="form-container">
@@ -1014,33 +1230,32 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nome Completo *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required autocomplete="name">
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Telefone/WhatsApp *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                            <small>Com DDD</small>
+                            <input type="tel" id="phone" name="phone" required autocomplete="tel">
                         </div>
                     </div>
                     
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required>
+                        <!-- E-mail NÃO obrigatório com autocomplete -->
+                        <div class="form-group optional">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="Seu e-mail para contato">
                         </div>
                         
                         <div class="form-group">
                             <label for="age">Idade *</label>
-                            <input type="number" id="age" name="age" min="18" max="120" required>
-                            <small>Idade mínima: 18 anos</small>
+                            <input type="number" id="age" name="age" min="1" max="120" required autocomplete="off">
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="state">Estado *</label>
-                            <select id="state" name="state" required>
+                            <select id="state" name="state" required autocomplete="region">
                                 <option value="">Selecione seu estado</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -1074,36 +1289,175 @@
                         
                         <div class="form-group">
                             <label for="city">Cidade *</label>
-                            <input type="text" id="city" name="city" required>
+                            <input type="text" id="city" name="city" required autocomplete="address-level2">
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="condition">Principal Condição de Interesse *</label>
-                        <select id="condition" name="condition" required>
-                            <option value="">Selecione sua condição</option>
-                            <option value="pe-diabetico">Pé Diabético/Feridas</option>
-                            <option value="psoriase">Psoríase/Dermatites</option>
-                            <option value="dores">Dores Articulares/Artrose</option>
-                            <option value="circulacao">Problemas de Circulação</option>
-                            <option value="micose">Micoses/Infecções</option>
-                            <option value="estetica">Estética/Bem-Estar</option>
-                            <option value="outra">Outra Condição</option>
-                        </select>
+                    <!-- Condições de Saúde Modernas (NÃO obrigatório) -->
+                    <div class="form-row">
+                        <div class="form-group optional">
+                            <label for="health-condition">Condição de Saúde</label>
+                            <select id="health-condition" name="health-condition">
+                                <option value="">Selecione sua condição (opcional)</option>
+                                
+                                <!-- Doenças Metabólicas e Cardiovasculares -->
+                                <optgroup label="🏥 Doenças Metabólicas e Cardiovasculares">
+                                    <option value="diabetes-tipo-2">Diabetes Tipo 2</option>
+                                    <option value="diabetes-tipo-1">Diabetes Tipo 1</option>
+                                    <option value="pre-diabetes">Pré-Diabetes</option>
+                                    <option value="hipertensao">Hipertensão Arterial</option>
+                                    <option value="colesterol-alto">Colesterol Alto</option>
+                                    <option value="obesidade">Obesidade</option>
+                                    <option value="sindrome-metabolica">Síndrome Metabólica</option>
+                                    <option value="doenca-cardiaca">Doença Cardíaca</option>
+                                    <option value="insuficiencia-cardiaca">Insuficiência Cardíaca</option>
+                                </optgroup>
+                                
+                                <!-- Doenças Autoimunes -->
+                                <optgroup label="🛡️ Doenças Autoimunes">
+                                    <option value="psoriase">Psoríase</option>
+                                    <option value="artrite-reumatoide">Artrite Reumatoide</option>
+                                    <option value="lupus">Lúpus Eritematoso</option>
+                                    <option value="esclerose-multipla">Esclerose Múltipla</option>
+                                    <option value="doenca-crohn">Doença de Crohn</option>
+                                    <option value="colite-ulcerativa">Colite Ulcerativa</option>
+                                    <option value="tiroidite-hashimoto">Tiroidite de Hashimoto</option>
+                                    <option value="doenca-celiaca">Doença Celíaca</option>
+                                    <option value="vitiligo">Vitiligo</option>
+                                    <option value="alopecia-areata">Alopecia Areata</option>
+                                </optgroup>
+                                
+                                <!-- Doenças Musculoesqueléticas -->
+                                <optgroup label="🦴 Doenças Musculoesqueléticas">
+                                    <option value="artrose">Artrose/Osteoartrite</option>
+                                    <option value="osteoporose">Osteoporose</option>
+                                    <option value="fibromialgia">Fibromialgia</option>
+                                    <option value="dor-cronica">Dor Crônica</option>
+                                    <option value="hanseniase">Hanseníase</option>
+                                    <option value="tendinite-cronica">Tendinite Crônica</option>
+                                    <option value="bursite">Bursite</option>
+                                    <option value="lombalgia">Lombalgia (Dor nas Costas)</option>
+                                    <option value="cervicalgia">Cervicalgia (Dor no Pescoço)</option>
+                                </optgroup>
+                                
+                                <!-- Problemas Dermatológicos -->
+                                <optgroup label="👩‍⚕️ Problemas Dermatológicos">
+                                    <option value="pe-diabetico">Pé Diabético</option>
+                                    <option value="ulcera-venosa">Úlcera Venosa</option>
+                                    <option value="ulcera-arterial">Úlcera Arterial</option>
+                                    <option value="feridas-cronicas">Feridas Crônicas</option>
+                                    <option value="dermatite">Dermatite/Eczema</option>
+                                    <option value="acne-severa">Acne Severa</option>
+                                    <option value="rosacea">Rosácea</option>
+                                    <option value="micose-resistente">Micose Resistente</option>
+                                    <option value="herpes">Herpes Recorrente</option>
+                                    <option value="queloides">Queloides</option>
+                                </optgroup>
+                                
+                                <!-- Doenças Respiratórias -->
+                                <optgroup label="🌬️ Doenças Respiratórias">
+                                    <option value="asma">Asma</option>
+                                    <option value="dpoc">DPOC (Doença Pulmonar Obstrutiva Crônica)</option>
+                                    <option value="bronquite-cronica">Bronquite Crônica</option>
+                                    <option value="enfisema">Enfisema Pulmonar</option>
+                                    <option value="rinite-alergica">Rinite Alérgica</option>
+                                    <option value="sinusite-cronica">Sinusite Crônica</option>
+                                    <option value="apneia-sono">Apneia do Sono</option>
+                                    <option value="fibrose-pulmonar">Fibrose Pulmonar</option>
+                                </optgroup>
+                                
+                                <!-- Doenças Neurológicas -->
+                                <optgroup label="🧠 Doenças Neurológicas">
+                                    <option value="alzheimer">Alzheimer/Demência</option>
+                                    <option value="parkinson">Parkinson</option>
+                                    <option value="enxaqueca-cronica">Enxaqueca Crônica</option>
+                                    <option value="nevralgia">Nevralgia</option>
+                                    <option value="neuropatia-diabetica">Neuropatia Diabética</option>
+                                    <option value="sciatica">Ciática</option>
+                                    <option value="epilepsia">Epilepsia</option>
+                                    <option value="tourette">Síndrome de Tourette</option>
+                                    <option value="autismo">TEA (Autismo)</option>
+                                    <option value="tdah">TDAH</option>
+                                </optgroup>
+                                
+                                <!-- Doenças Gastrointestinais -->
+                                <optgroup label="🍽️ Doenças Gastrointestinais">
+                                    <option value="refluxo">Refluxo Gastroesofágico</option>
+                                    <option value="gastrite">Gastrite Crônica</option>
+                                    <option value="sii">Síndrome do Intestino Irritável</option>
+                                    <option value="diverticulite">Diverticulite</option>
+                                    <option value="pancreatite">Pancreatite</option>
+                                    <option value="doenca-hepatica">Doença Hepática</option>
+                                    <option value="esteatose-hepatica">Esteatose Hepática (Fígado Gorduroso)</option>
+                                    <option value="cirrose">Cirrose</option>
+                                </optgroup>
+                                
+                                <!-- Doenças Oncológicas -->
+                                <optgroup label="🎗️ Acompanhamento Oncológico">
+                                    <option value="cancer-pele">Câncer de Pele</option>
+                                    <option value="cancer-mama">Câncer de Mama</option>
+                                    <option value="cancer-prostata">Câncer de Próstata</option>
+                                    <option value="cancer-colorretal">Câncer Colorretal</option>
+                                    <option value="cancer-pulmao">Câncer de Pulmão</option>
+                                    <option value="efeitos-quimioterapia">Efeitos Colaterais da Quimioterapia</option>
+                                    <option value="feridas-pos-cirurgia">Feridas Pós-Cirúrgicas</option>
+                                    <option value="linfedema">Linfedema</option>
+                                </optgroup>
+                                
+                                <!-- Problemas Imunológicos e Infecciosos -->
+                                <optgroup label="🦠 Problemas Imunológicos e Infecciosos">
+                                    <option value="imunidade-baixa">Imunidade Baixa</option>
+                                    <option value="infeccoes-recorrentes">Infecções Recorrentes</option>
+                                    <option value="covid-longa">COVID Longa</option>
+                                    <option value="sindrome-fadiga-cronica">Síndrome da Fadiga Crônica</option>
+                                    <option value="candidiase-cronica">Candidíase Crônica</option>
+                                    <option value="hpv">HPV (Papilomavírus)</option>
+                                    <option value="hepatite">Hepatite Viral</option>
+                                    <option value="hiv-aids">HIV/AIDS</option>
+                                </optgroup>
+                                
+                                <!-- Saúde Mental e Hormonal -->
+                                <optgroup label="💊 Saúde Mental e Hormonal">
+                                    <option value="depressao">Depressão</option>
+                                    <option value="ansiedade">Transtorno de Ansiedade</option>
+                                    <option value="estresse-cronico">Estresse Crônico</option>
+                                    <option value="insonia">Insônia</option>
+                                    <option value="menopausa">Sintomas da Menopausa</option>
+                                    <option value="andropausa">Andropausa (Baixa Testosterona)</option>
+                                    <option value="tireoide">Problemas de Tireoide</option>
+                                    <option value="sindrome-ovario-policistico">Síndrome do Ovário Policístico</option>
+                                    <option value="endometriose">Endometriose</option>
+                                    <option value="infertilidade">Infertilidade</option>
+                                </optgroup>
+                                
+                                <!-- Condições Especiais -->
+                                <optgroup label="🌟 Condições Especiais">
+                                    <option value="envelhecimento-saudavel">Envelhecimento Saudável</option>
+                                    <option value="prevencao-doencas">Prevenção de Doenças</option>
+                                    <option value="melhora-imunidade">Melhora da Imunidade</option>
+                                    <option value="desempenho-esportivo">Desempenho Esportivo</option>
+                                    <option value="recuperacao-pos-cirurgica">Recuperação Pós-Cirúrgica</option>
+                                    <option value="bem-estar-geral">Bem-estar Geral</option>
+                                    <option value="outra-condicao">Outra Condição não listada</option>
+                                </optgroup>
+                            </select>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="message">Mensagem (Opcional)</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Conte-nos mais sobre sua situação, sintomas, há quanto tempo sofre com isso..."></textarea>
+                    <!-- Campo para especificar "outra condição" -->
+                    <div class="form-group optional" id="other-condition-group" style="display: none;">
+                        <label for="other-condition">Especifique sua condição</label>
+                        <input type="text" id="other-condition" name="other-condition" placeholder="Digite aqui sua condição de saúde">
+                    </div>
+                    
+                    <div class="form-group optional">
+                        <label for="message">Conte mais sobre seu caso (Opcional)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Há quanto tempo sofre com isso? Quais tratamentos já tentou?"></textarea>
                     </div>
                     
                     <button type="submit" class="btn" style="width: 100%; padding: 18px;">
-                        <i class="fas fa-paper-plane"></i> ENVIAR MINHA SOLICITAÇÃO
+                        <i class="fas fa-paper-plane"></i> QUERO SABER MAIS
                     </button>
-                    
-                    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
-                        <i class="fas fa-lock"></i> Seus dados estão seguros conosco. Não compartilhamos informações com terceiros.
-                    </p>
                 </form>
             </div>
         </div>
@@ -1124,8 +1478,7 @@
                         <li><a href="#home">Início</a></li>
                         <li><a href="#benefits">Benefícios</a></li>
                         <li><a href="#how-it-works">Como Funciona</a></li>
-                        <li><a href="#testimonials">Depoimentos</a></li>
-                        <li><a href="#conditions">Condições Tratadas</a></li>
+                        <li><a href="#clients">Fotos Reais</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
@@ -1133,21 +1486,19 @@
                 <div class="footer-links">
                     <h3>Contato</h3>
                     <ul>
-                        <li><i class="fas fa-phone"></i> (45) 98819-5137</li>
-                        <li><i class="fas fa-envelope"></i> ozoxx.venda@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> São Paulo/SP</li>
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@ozoxx.com.br</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
                 <p>© 2023 Ozoxx - Ozonioterapia Caseira. Todos os direitos reservados.</p>
-                <p>Este site não faz parte do Google ou Facebook. O Google e o Facebook não endossam este produto.</p>
+                <p>Registro ANVISA: xxxxxx. Este site não faz parte do Google ou Facebook.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         // Menu Mobile
         document.querySelector('.mobile-menu').addEventListener('click', function() {
@@ -1178,159 +1529,70 @@
             });
         });
         
-        // 📍📍📍 SEU LINK DO GOOGLE SCRIPT JÁ INSERIDO AQUI 📍📍📍
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqA_cCPi5_c9q6wr5DUBeeecxohfp4H_FNxXwyiIVbdHc3KeFWqHD0d9e1XvRa_PqpyA/exec";
+        // Header hide on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
         
-        // Formulário para Google Sheets
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 🔴 ADICIONA VERSÃO DO TESTE A/B AO FORMULÁRIO
-            const versaoTeste = typeof versaoAB !== 'undefined' ? versaoAB : 'N/A';
-            
-            // Dados do formulário
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                age: document.getElementById('age').value,
-                state: document.getElementById('state').value,
-                city: document.getElementById('city').value.trim(),
-                condition: document.getElementById('condition').value,
-                message: document.getElementById('message').value.trim(),
-                teste_ab: versaoTeste, // 🔴 NOVO CAMPO PARA ANÁLISE
-                timestamp: new Date().toISOString()
-            };
-            
-            // Loading
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
             submitBtn.disabled = true;
             
-            try {
-                // Enviar para Google Sheets
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                
-                // Facebook Pixel com versão A/B
-                if(typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead', {
-                        lead_name: formData.name,
-                        lead_condition: formData.condition,
-                        teste_ab_version: versaoTeste // 🔴 RASTREAMENTO DA VERSÃO
-                    });
-                }
-                
-                // Google Tag Manager com versão A/B
-                if(typeof dataLayer !== 'undefined') {
-                    dataLayer.push({
-                        'event': 'form_submit_success',
-                        'form_type': 'contact',
-                        'test_ab_version': versaoTeste // 🔴 RASTREAMENTO DA VERSÃO
-                    });
-                }
-                
-                // 🔴 RASTREAMENTO ESPECÍFICO PARA TESTE A/B
-                console.log('🎯 Lead da versão ' + versaoTeste + ' convertido!');
-                
-                // Notificação de sucesso
-                showNotification('success', '✅ Solicitação enviada com sucesso! Entraremos em contato em até 24h.');
-                
-                // Resetar formulário
+            // Coletar dados do formulário
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Log para depuração (remover em produção)
+            console.log('Dados do formulário:', data);
+            
+            setTimeout(() => {
+                alert('✅ Solicitação enviada com sucesso! Entraremos em contato em até 24h.');
                 this.reset();
-                
-            } catch(error) {
-                // Fallback para e-mail
-                showNotification('error', '⚠️ Ocorreu um erro. Enviando por e-mail alternativo...');
-                
-                const subject = `Novo Lead Ozoxx - ${formData.name} [V${versaoTeste}]`;
-                const body = `Nome: ${formData.name}%0ATelefone: ${formData.phone}%0AE-mail: ${formData.email}%0AIdade: ${formData.age}%0AEstado: ${formData.state}%0ACidade: ${formData.city}%0ACondição: ${formData.condition}%0ATeste A/B: ${versaoTeste}%0AMensagem: ${formData.message}`;
-                window.location.href = `mailto:contato@ozoxx.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                
-            } finally {
-                // Restaurar botão
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // Validação de idade
+        document.getElementById('age').addEventListener('input', function() {
+            if (this.value < 1) this.value = 1;
+            if (this.value > 120) this.value = 120;
+        });
+        
+        // Mostrar/ocultar campo "outra condição"
+        document.getElementById('health-condition').addEventListener('change', function() {
+            const otherConditionGroup = document.getElementById('other-condition-group');
+            if (this.value === 'outra-condicao') {
+                otherConditionGroup.style.display = 'block';
+            } else {
+                otherConditionGroup.style.display = 'none';
+                document.getElementById('other-condition').value = '';
             }
         });
         
-        // Função de notificação
-        function showNotification(type, message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 15px 20px;
-                border-radius: 5px;
-                color: white;
-                font-weight: bold;
-                z-index: 9999;
-                min-width: 300px;
-                max-width: 400px;
-                animation: slideIn 0.3s ease;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-                background: ${type === 'success' ? 'linear-gradient(to right, #28a745, #20c997)' : 'linear-gradient(to right, #dc3545, #fd7e14)'};
-            `;
-            
-            notification.innerHTML = `
-                <p style="margin: 0;">${message}</p>
-                <button style="background: none; border: none; color: white; font-size: 24px; cursor: pointer; position: absolute; top: 10px; right: 15px;">&times;</button>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Fechar notificação
-            notification.querySelector('button').addEventListener('click', function() {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            });
-            
-            // Auto-remove
-            setTimeout(() => {
-                if(document.body.contains(notification)) {
-                    notification.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => notification.remove(), 300);
-                }
-            }, 8000);
-        }
-        
-        // Depoimentos tracking
-        document.querySelectorAll('.testimonial-cta .btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                if(typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead', { 
-                        content_category: 'testimonial_cta',
-                        teste_ab_version: typeof versaoAB !== 'undefined' ? versaoAB : 'N/A'
-                    });
-                }
-                
-                const formSection = document.getElementById('contact');
-                if(formSection) {
-                    window.scrollTo({
-                        top: formSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+        // Foco automático no campo de e-mail quando usuário clicar em qualquer campo
+        document.querySelectorAll('#contact-form input, #contact-form select').forEach(field => {
+            field.addEventListener('focus', function() {
+                // Se o campo de e-mail estiver vazio, focar nele
+                const emailField = document.getElementById('email');
+                if (emailField.value === '') {
+                    emailField.focus();
                 }
             });
-        });
-        
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('✅ Landing Page Ozoxx carregada com sucesso!');
-            console.log('✅ Google Script URL:', GOOGLE_SCRIPT_URL);
-            
-            // 🔴 CONFIRMAÇÃO DO TESTE A/B
-            if(typeof versaoAB !== 'undefined') {
-                console.log('✅ Teste A/B ativo - Versão: ' + versaoAB);
-            }
         });
     </script>
 </body>
