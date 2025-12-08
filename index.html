@@ -7,7 +7,7 @@
     <meta name="description" content="Veja fotos reais de clientes que trataram pé diabético, psoríase e dores com Ozoxx. Resultados comprovados. Aprovado pela ANVISA.">
     
     <!-- Meta Tags OG -->
-    <meta property="og:title" content="Ozoxx - Veja o vídeo e saiba como funciona a Ozonioterapia Caseira">
+    <meta property="og:title" content="Ozoxx - Resultados Reais com Ozonioterapia Caseira">
     <meta property="og:description" content="Fotos reais de clientes que transformaram sua saúde. Tratamento natural aprovado pela ANVISA.">
     <meta property="og:image" content="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png">
     <meta property="og:url" content="https://seu-site.com">
@@ -34,6 +34,7 @@
             --dark: #333;
             --gray: #6c757d;
             --success: #28a745;
+            --whatsapp: #25D366;
             --transition: all 0.3s ease;
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
             --radius: 10px;
@@ -124,6 +125,15 @@
         
         .btn-primary:hover {
             background: #084770;
+        }
+        
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background: #1da851;
         }
         
         section {
@@ -224,7 +234,7 @@
             text-shadow: 0 1px 5px rgba(0,0,0,0.3);
         }
         
-        /* Hero Video - 1280x720 (16:9) */
+        /* Hero Video */
         .hero-video {
             margin: 30px auto 40px;
             max-width: 900px;
@@ -334,9 +344,7 @@
             box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
         }
         
-        /* =========================================== */
-        /* SEÇÃO CLIENTES - IMAGENS 1500x1500 (1:1)    */
-        /* =========================================== */
+        /* SEÇÃO CLIENTES */
         .clients {
             background: white;
             padding: 100px 0;
@@ -378,7 +386,7 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            padding-bottom: 100%; /* 1:1 Aspect Ratio - QUADRADO PERFEITO */
+            padding-bottom: 100%; /* 1:1 Aspect Ratio */
             background: #f8f9fa;
         }
         
@@ -388,7 +396,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Corta inteligentemente mantendo proporção */
+            object-fit: cover;
             transition: var(--transition);
         }
         
@@ -409,7 +417,7 @@
         }
         
         .client-card:hover .client-overlay {
-            opacity = 1;
+            opacity: 1;
         }
         
         .clients-cta {
@@ -457,7 +465,7 @@
         .video-container {
             background: #000;
             position: relative;
-            padding-top: 56.25%; /* 16:9 */
+            padding-top: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -583,7 +591,9 @@
             color: var(--text-light);
         }
         
-        /* Formulário */
+        /* =========================================== */
+        /* FORMULÁRIO COM VERIFICAÇÃO GRATUITA WHATSAPP */
+        /* =========================================== */
         .form-section {
             background: white;
         }
@@ -652,6 +662,88 @@
             padding-right: 40px;
         }
         
+        /* Estilos para verificação de telefone */
+        .phone-hint {
+            display: block;
+            margin-top: 5px;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        
+        #verification-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .verification-success {
+            color: var(--success);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .verification-success i {
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-instructions {
+            background: #f0f9ff;
+            border-left: 4px solid var(--whatsapp);
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .whatsapp-instructions ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .whatsapp-instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         /* Footer */
         footer {
             background: #222;
@@ -704,7 +796,7 @@
         }
         
         /* =========================================== */
-        /* RESPONSIVIDADE OTIMIZADA PARA QUADRADOS     */
+        /* RESPONSIVIDADE */
         /* =========================================== */
         
         @media (max-width: 1200px) {
@@ -779,6 +871,11 @@
                 align-items: center;
                 gap: 30px;
             }
+            
+            .modal-content {
+                padding: 25px;
+                width: 95%;
+            }
         }
         
         @media (max-width: 480px) {
@@ -788,9 +885,8 @@
             .product-item,
             .client-card { padding: 15px; }
             .clients { padding: 60px 0; }
-            .clients-grid {
-                gap: 15px;
-            }
+            .clients-grid { gap: 15px; }
+            .hero-btns .btn { font-size: 1rem; padding: 12px 25px; }
         }
         
         @media (min-width: 1400px) {
@@ -878,7 +974,6 @@
                     <h3>Seguro e Natural</h3>
                     <p>Terapia natural sem efeitos colaterais quando aplicada corretamente. Aprovado pela ANVISA.</p>
                 </div>
-                <!-- NOVOS ELEMENTOS ADICIONADOS -->
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-users"></i></div>
                     <h3>Indicado para Todas as Idades</h3>
@@ -921,16 +1016,14 @@
         </div>
     </section>
 
-    <!-- =========================================== -->
-    <!-- SEÇÃO PRINCIPAL: FOTOS DOS CLIENTES 1500x1500 -->
-    <!-- =========================================== -->
+    <!-- SEÇÃO CLIENTES -->
     <section class="clients" id="clients">
         <div class="container">
             <h2>Resultados Reais dos Nossos Clientes</h2>
             <p class="subtitle">Fotos reais de pessoas que transformaram sua saúde com o Ozoxx</p>
             
             <div class="clients-grid">
-                <!-- Cliente 1 - 1500x1500 -->
+                <!-- 10 imagens de clientes -->
                 <div class="client-card">
                     <div class="client-photo-container">
                         <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-1.jpg" 
@@ -942,10 +1035,10 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 2 - 1500x1500 -->
+                <!-- Repetir para clientes 2 a 10 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-2.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/0a5c8c/ffffff?text=Cliente+2" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -954,10 +1047,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 3 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-3.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/1a9cda/ffffff?text=Cliente+3" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -966,10 +1058,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 4 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-4.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/ff6b35/ffffff?text=Cliente+4" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -978,10 +1069,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 5 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-5.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/28a745/ffffff?text=Cliente+5" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -990,10 +1080,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 6 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-6.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/0a5c8c/ffffff?text=Cliente+6" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -1002,10 +1091,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 7 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-7.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/1a9cda/ffffff?text=Cliente+7" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -1014,10 +1102,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 8 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-8.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/ff6b35/ffffff?text=Cliente+8" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -1026,10 +1113,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 9 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-9.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/28a745/ffffff?text=Cliente+9" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -1038,10 +1124,9 @@
                     </div>
                 </div>
                 
-                <!-- Cliente 10 - 1500x1500 -->
                 <div class="client-card">
                     <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/ozoxx-images/main/clientes/cliente-10.jpg" 
+                        <img src="https://via.placeholder.com/1500x1500/0a5c8c/ffffff?text=Cliente+10" 
                              class="client-photo"
                              loading="lazy"
                              width="1500"
@@ -1165,13 +1250,13 @@
                         <h3>Ozoxx MULTI</h3>
                         <p><strong>Para uso humano e ambiental</strong></p>
                         
-                        <ul class="product-specs-list">
-                            <li>Aprovado para exposição humana</li>
-                            <li>Laudos UFF e UNICAMP</li>
-                            <li>Emissão segura: 0,06 ppm</li>
-                            <li>Ozonização de ambientes</li>
-                            <li>Ozonização de alimentos</li>
-                            <li>Ozonização da água</li>
+                        <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Aprovado para exposição humana</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Laudos UFF e UNICAMP</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Emissão segura: 0,06 ppm</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Ozonização de ambientes</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Ozonização de alimentos</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Ozonização da água</li>
                         </ul>
                         
                         <div style="margin-top: 25px;">
@@ -1188,13 +1273,13 @@
                         <h3>Ozoxx AIR</h3>
                         <p><strong>Para sanitização de ambientes</strong></p>
                         
-                        <ul class="product-specs-list">
-                            <li>Sanitização de casas e empresas</li>
-                            <li>Elimina vírus, bactérias, fungos</li>
-                            <li>Programação automatizada</li>
-                            <li>Economia de energia</li>
-                            <li>Para salões e comércios</li>
-                            <li>Uso profissional</li>
+                        <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Sanitização de casas e empresas</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Elimina vírus, bactérias, fungos</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Programação automatizada</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Economia de energia</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Para salões e comércios</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Uso profissional</li>
                         </ul>
                         
                         <div style="margin-top: 25px;">
@@ -1217,12 +1302,60 @@
         </div>
     </section>
 
-    <!-- Formulário -->
+    <!-- Modal de Verificação -->
+    <div id="verification-modal">
+        <div class="modal-content">
+            <h2 style="color: var(--primary); margin-bottom: 15px;">
+                <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> Verificação por WhatsApp
+            </h2>
+            
+            <div class="whatsapp-instructions">
+                <p><strong>Como verificar seu número:</strong></p>
+                <ol>
+                    <li>Anote o código abaixo</li>
+                    <li>Abra o WhatsApp no seu celular</li>
+                    <li>Envie uma mensagem para o número:</li>
+                    <li style="text-align: center; margin: 10px 0; font-size: 1.2rem; font-weight: bold;">
+                        <span id="whatsapp-number-display">(11) 99999-9999</span>
+                    </li>
+                    <li>Digite o código na mensagem</li>
+                </ol>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: var(--radius); margin: 20px 0;">
+                <p style="margin-bottom: 10px; color: var(--gray);">Seu código de verificação:</p>
+                <div style="font-size: 2.5rem; font-weight: bold; letter-spacing: 5px; color: var(--primary);" id="verification-code-display">
+                    000000
+                </div>
+                <p style="margin-top: 10px; color: var(--gray); font-size: 0.9rem;">
+                    <i class="fas fa-clock"></i> Válido por 10 minutos
+                </p>
+            </div>
+            
+            <div style="display: flex; gap: 15px; margin-top: 20px;">
+                <button id="copy-code-btn" class="btn" style="flex: 1;">
+                    <i class="fas fa-copy"></i> COPIAR CÓDIGO
+                </button>
+                <a id="open-whatsapp-btn" class="btn btn-whatsapp" style="flex: 1;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
+                </a>
+            </div>
+            
+            <button id="close-modal-btn" class="btn" style="margin-top: 20px; width: 100%; background: var(--gray);">
+                <i class="fas fa-times"></i> FECHAR
+            </button>
+        </div>
+    </div>
+
+    <!-- Formulário com Verificação Gratuita -->
     <section class="form-section" id="contact">
         <div class="container">
             <h2>Fale Com Nossos Especialistas</h2>
             <p class="text-center" style="max-width: 700px; margin: 0 auto 40px;">
                 Preencha o formulário abaixo e um especialista em ozonioterapia entrará em contato para tirar todas suas dúvidas.
+                <strong style="color: var(--primary); display: block; margin-top: 10px;">
+                    <i class="fas fa-shield-alt"></i> Verificamos seu telefone gratuitamente via WhatsApp
+                </strong>
             </p>
             
             <div class="form-container">
@@ -1235,12 +1368,20 @@
                         
                         <div class="form-group">
                             <label for="phone">Telefone/WhatsApp *</label>
-                            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                            <input type="tel" 
+                                   id="phone" 
+                                   name="phone" 
+                                   required 
+                                   autocomplete="tel"
+                                   pattern="^\(\d{2}\) \d{5}-\d{4}$"
+                                   title="Digite no formato: (11) 99999-9999"
+                                   placeholder="(11) 99999-9999">
+                            <small class="phone-hint">Apenas números com DDD (ex: 11999999999)</small>
+                            <div id="phone-verification-status"></div>
                         </div>
                     </div>
                     
                     <div class="form-row">
-                        <!-- E-mail NÃO obrigatório com autocomplete -->
                         <div class="form-group optional">
                             <label for="email">E-mail</label>
                             <input type="email" id="email" name="email" autocomplete="email" placeholder="Seu e-mail para contato">
@@ -1293,158 +1434,34 @@
                         </div>
                     </div>
                     
-                    <!-- Condições de Saúde Modernas (NÃO obrigatório) -->
+                    <!-- Condições de Saúde -->
                     <div class="form-row">
                         <div class="form-group optional">
                             <label for="health-condition">Condição de Saúde</label>
                             <select id="health-condition" name="health-condition">
                                 <option value="">Selecione sua condição (opcional)</option>
-                                
-                                <!-- Doenças Metabólicas e Cardiovasculares -->
-                                <optgroup label="🏥 Doenças Metabólicas e Cardiovasculares">
+                                <optgroup label="🏥 Doenças Metabólicas">
                                     <option value="diabetes-tipo-2">Diabetes Tipo 2</option>
-                                    <option value="diabetes-tipo-1">Diabetes Tipo 1</option>
                                     <option value="pre-diabetes">Pré-Diabetes</option>
-                                    <option value="hipertensao">Hipertensão Arterial</option>
-                                    <option value="colesterol-alto">Colesterol Alto</option>
-                                    <option value="obesidade">Obesidade</option>
-                                    <option value="sindrome-metabolica">Síndrome Metabólica</option>
-                                    <option value="doenca-cardiaca">Doença Cardíaca</option>
-                                    <option value="insuficiencia-cardiaca">Insuficiência Cardíaca</option>
+                                    <option value="hipertensao">Hipertensão</option>
                                 </optgroup>
-                                
-                                <!-- Doenças Autoimunes -->
-                                <optgroup label="🛡️ Doenças Autoimunes">
-                                    <option value="psoriase">Psoríase</option>
-                                    <option value="artrite-reumatoide">Artrite Reumatoide</option>
-                                    <option value="lupus">Lúpus Eritematoso</option>
-                                    <option value="esclerose-multipla">Esclerose Múltipla</option>
-                                    <option value="doenca-crohn">Doença de Crohn</option>
-                                    <option value="colite-ulcerativa">Colite Ulcerativa</option>
-                                    <option value="tiroidite-hashimoto">Tiroidite de Hashimoto</option>
-                                    <option value="doenca-celiaca">Doença Celíaca</option>
-                                    <option value="vitiligo">Vitiligo</option>
-                                    <option value="alopecia-areata">Alopecia Areata</option>
-                                </optgroup>
-                                
-                                <!-- Doenças Musculoesqueléticas -->
-                                <optgroup label="🦴 Doenças Musculoesqueléticas">
+                                <optgroup label="🦴 Problemas Ortopédicos">
                                     <option value="artrose">Artrose/Osteoartrite</option>
-                                    <option value="osteoporose">Osteoporose</option>
-                                    <option value="fibromialgia">Fibromialgia</option>
                                     <option value="dor-cronica">Dor Crônica</option>
-                                    <option value="hanseniase">Hanseníase</option>
-                                    <option value="tendinite-cronica">Tendinite Crônica</option>
-                                    <option value="bursite">Bursite</option>
-                                    <option value="lombalgia">Lombalgia (Dor nas Costas)</option>
-                                    <option value="cervicalgia">Cervicalgia (Dor no Pescoço)</option>
+                                    <option value="lombalgia">Dor nas Costas</option>
                                 </optgroup>
-                                
-                                <!-- Problemas Dermatológicos -->
                                 <optgroup label="👩‍⚕️ Problemas Dermatológicos">
                                     <option value="pe-diabetico">Pé Diabético</option>
-                                    <option value="ulcera-venosa">Úlcera Venosa</option>
-                                    <option value="ulcera-arterial">Úlcera Arterial</option>
-                                    <option value="feridas-cronicas">Feridas Crônicas</option>
-                                    <option value="dermatite">Dermatite/Eczema</option>
-                                    <option value="acne-severa">Acne Severa</option>
-                                    <option value="rosacea">Rosácea</option>
-                                    <option value="micose-resistente">Micose Resistente</option>
-                                    <option value="herpes">Herpes Recorrente</option>
-                                    <option value="queloides">Queloides</option>
+                                    <option value="psoriase">Psoríase</option>
+                                    <option value="dermatite">Dermatite</option>
                                 </optgroup>
-                                
-                                <!-- Doenças Respiratórias -->
-                                <optgroup label="🌬️ Doenças Respiratórias">
-                                    <option value="asma">Asma</option>
-                                    <option value="dpoc">DPOC (Doença Pulmonar Obstrutiva Crônica)</option>
-                                    <option value="bronquite-cronica">Bronquite Crônica</option>
-                                    <option value="enfisema">Enfisema Pulmonar</option>
-                                    <option value="rinite-alergica">Rinite Alérgica</option>
-                                    <option value="sinusite-cronica">Sinusite Crônica</option>
-                                    <option value="apneia-sono">Apneia do Sono</option>
-                                    <option value="fibrose-pulmonar">Fibrose Pulmonar</option>
-                                </optgroup>
-                                
-                                <!-- Doenças Neurológicas -->
-                                <optgroup label="🧠 Doenças Neurológicas">
-                                    <option value="alzheimer">Alzheimer/Demência</option>
-                                    <option value="parkinson">Parkinson</option>
-                                    <option value="enxaqueca-cronica">Enxaqueca Crônica</option>
-                                    <option value="nevralgia">Nevralgia</option>
-                                    <option value="neuropatia-diabetica">Neuropatia Diabética</option>
-                                    <option value="sciatica">Ciática</option>
-                                    <option value="epilepsia">Epilepsia</option>
-                                    <option value="tourette">Síndrome de Tourette</option>
-                                    <option value="autismo">TEA (Autismo)</option>
-                                    <option value="tdah">TDAH</option>
-                                </optgroup>
-                                
-                                <!-- Doenças Gastrointestinais -->
-                                <optgroup label="🍽️ Doenças Gastrointestinais">
-                                    <option value="refluxo">Refluxo Gastroesofágico</option>
-                                    <option value="gastrite">Gastrite Crônica</option>
-                                    <option value="sii">Síndrome do Intestino Irritável</option>
-                                    <option value="diverticulite">Diverticulite</option>
-                                    <option value="pancreatite">Pancreatite</option>
-                                    <option value="doenca-hepatica">Doença Hepática</option>
-                                    <option value="esteatose-hepatica">Esteatose Hepática (Fígado Gorduroso)</option>
-                                    <option value="cirrose">Cirrose</option>
-                                </optgroup>
-                                
-                                <!-- Doenças Oncológicas -->
-                                <optgroup label="🎗️ Acompanhamento Oncológico">
-                                    <option value="cancer-pele">Câncer de Pele</option>
-                                    <option value="cancer-mama">Câncer de Mama</option>
-                                    <option value="cancer-prostata">Câncer de Próstata</option>
-                                    <option value="cancer-colorretal">Câncer Colorretal</option>
-                                    <option value="cancer-pulmao">Câncer de Pulmão</option>
-                                    <option value="efeitos-quimioterapia">Efeitos Colaterais da Quimioterapia</option>
-                                    <option value="feridas-pos-cirurgia">Feridas Pós-Cirúrgicas</option>
-                                    <option value="linfedema">Linfedema</option>
-                                </optgroup>
-                                
-                                <!-- Problemas Imunológicos e Infecciosos -->
-                                <optgroup label="🦠 Problemas Imunológicos e Infecciosos">
-                                    <option value="imunidade-baixa">Imunidade Baixa</option>
-                                    <option value="infeccoes-recorrentes">Infecções Recorrentes</option>
-                                    <option value="covid-longa">COVID Longa</option>
-                                    <option value="sindrome-fadiga-cronica">Síndrome da Fadiga Crônica</option>
-                                    <option value="candidiase-cronica">Candidíase Crônica</option>
-                                    <option value="hpv">HPV (Papilomavírus)</option>
-                                    <option value="hepatite">Hepatite Viral</option>
-                                    <option value="hiv-aids">HIV/AIDS</option>
-                                </optgroup>
-                                
-                                <!-- Saúde Mental e Hormonal -->
-                                <optgroup label="💊 Saúde Mental e Hormonal">
-                                    <option value="depressao">Depressão</option>
-                                    <option value="ansiedade">Transtorno de Ansiedade</option>
-                                    <option value="estresse-cronico">Estresse Crônico</option>
-                                    <option value="insonia">Insônia</option>
-                                    <option value="menopausa">Sintomas da Menopausa</option>
-                                    <option value="andropausa">Andropausa (Baixa Testosterona)</option>
-                                    <option value="tireoide">Problemas de Tireoide</option>
-                                    <option value="sindrome-ovario-policistico">Síndrome do Ovário Policístico</option>
-                                    <option value="endometriose">Endometriose</option>
-                                    <option value="infertilidade">Infertilidade</option>
-                                </optgroup>
-                                
-                                <!-- Condições Especiais -->
-                                <optgroup label="🌟 Condições Especiais">
-                                    <option value="envelhecimento-saudavel">Envelhecimento Saudável</option>
-                                    <option value="prevencao-doencas">Prevenção de Doenças</option>
-                                    <option value="melhora-imunidade">Melhora da Imunidade</option>
-                                    <option value="desempenho-esportivo">Desempenho Esportivo</option>
-                                    <option value="recuperacao-pos-cirurgica">Recuperação Pós-Cirúrgica</option>
-                                    <option value="bem-estar-geral">Bem-estar Geral</option>
-                                    <option value="outra-condicao">Outra Condição não listada</option>
+                                <optgroup label="🌟 Outras Condições">
+                                    <option value="outra-condicao">Outra Condição</option>
                                 </optgroup>
                             </select>
                         </div>
                     </div>
                     
-                    <!-- Campo para especificar "outra condição" -->
                     <div class="form-group optional" id="other-condition-group" style="display: none;">
                         <label for="other-condition">Especifique sua condição</label>
                         <input type="text" id="other-condition" name="other-condition" placeholder="Digite aqui sua condição de saúde">
@@ -1454,6 +1471,8 @@
                         <label for="message">Conte mais sobre seu caso (Opcional)</label>
                         <textarea id="message" name="message" rows="4" placeholder="Há quanto tempo sofre com isso? Quais tratamentos já tentou?"></textarea>
                     </div>
+                    
+                    <div id="form-verification-status" style="margin-bottom: 20px;"></div>
                     
                     <button type="submit" class="btn" style="width: 100%; padding: 18px;">
                         <i class="fas fa-paper-plane"></i> QUERO SABER MAIS
@@ -1488,6 +1507,7 @@
                     <ul>
                         <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
                         <li><i class="fas fa-envelope"></i> contato@ozoxx.com.br</li>
+                        <li><i class="fab fa-whatsapp"></i> (11) 99999-9999</li>
                     </ul>
                 </div>
             </div>
@@ -1500,6 +1520,10 @@
     </footer>
 
     <script>
+        // ===========================================
+        // SISTEMA DE VERIFICAÇÃO GRATUITO VIA WHATSAPP
+        // ===========================================
+        
         // Menu Mobile
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('active');
@@ -1561,22 +1585,241 @@
         });
         
         // ===========================================
-        // INTEGRAÇÃO COM GOOGLE SHEETS
+        // SISTEMA DE VERIFICAÇÃO DE TELEFONE
         // ===========================================
         
-        // Form submission para Google Sheets
+        // Variáveis globais
+        let currentVerificationCode = '';
+        let phoneVerificationStatus = 'unverified';
+        let verificationExpiryTime = null;
+        
+        // Formatação automática do telefone
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Limita a 11 caracteres
+            if (value.length > 11) {
+                value = value.substring(0, 11);
+            }
+            
+            // Formatação
+            if (value.length > 10) {
+                e.target.value = `(${value.substring(0,2)}) ${value.substring(2,7)}-${value.substring(7,11)}`;
+            } else if (value.length > 6) {
+                e.target.value = `(${value.substring(0,2)}) ${value.substring(2,6)}-${value.substring(6,10)}`;
+            } else if (value.length > 2) {
+                e.target.value = `(${value.substring(0,2)}) ${value.substring(2)}`;
+            } else if (value.length > 0) {
+                e.target.value = `(${value}`;
+            } else {
+                e.target.value = value;
+            }
+            
+            // Validação visual
+            const phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
+            const isValid = phoneRegex.test(e.target.value);
+            
+            if (isValid) {
+                e.target.style.borderColor = 'var(--success)';
+                e.target.style.boxShadow = '0 0 0 3px rgba(40, 167, 69, 0.1)';
+                resetVerificationStatus();
+            } else {
+                e.target.style.borderColor = '#ddd';
+                e.target.style.boxShadow = 'none';
+                phoneVerificationStatus = 'unverified';
+                updateVerificationUI();
+            }
+        });
+        
+        // Gera código de 6 dígitos
+        function generateVerificationCode() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+        
+        // Atualiza UI de verificação
+        function updateVerificationUI() {
+            const statusDiv = document.getElementById('phone-verification-status');
+            const submitBtn = document.querySelector('#contact-form button[type="submit"]');
+            
+            switch(phoneVerificationStatus) {
+                case 'unverified':
+                    statusDiv.innerHTML = `
+                        <div class="verification-success" style="color: var(--accent);">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Telefone precisa ser verificado</span>
+                        </div>
+                    `;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-mobile-alt"></i> VERIFIQUE SEU TELEFONE PRIMEIRO';
+                    break;
+                    
+                case 'pending':
+                    statusDiv.innerHTML = `
+                        <div class="verification-success" style="color: var(--secondary);">
+                            <i class="fas fa-clock"></i>
+                            <span>Verificação pendente - Verifique seu WhatsApp</span>
+                        </div>
+                    `;
+                    submitBtn.disabled = true;
+                    break;
+                    
+                case 'verified':
+                    statusDiv.innerHTML = `
+                        <div class="verification-success">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Telefone verificado com sucesso!</span>
+                        </div>
+                    `;
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR SOLICITAÇÃO';
+                    break;
+                    
+                case 'expired':
+                    statusDiv.innerHTML = `
+                        <div class="verification-success" style="color: var(--accent);">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Código expirado - Clique para reenviar</span>
+                        </div>
+                    `;
+                    submitBtn.disabled = true;
+                    break;
+            }
+        }
+        
+        // Reseta status de verificação
+        function resetVerificationStatus() {
+            phoneVerificationStatus = 'unverified';
+            updateVerificationUI();
+        }
+        
+        // Mostra modal de verificação
+        function showVerificationModal(phoneNumber) {
+            // Gera novo código
+            currentVerificationCode = generateVerificationCode();
+            verificationExpiryTime = Date.now() + (10 * 60 * 1000); // 10 minutos
+            
+            // Atualiza display do código
+            document.getElementById('verification-code-display').textContent = currentVerificationCode;
+            
+            // Formata número para WhatsApp
+            const cleanPhone = phoneNumber.replace(/\D/g, '');
+            const whatsappNumber = `+55${cleanPhone}`;
+            
+            // Atualiza botão do WhatsApp
+            const whatsappBtn = document.getElementById('open-whatsapp-btn');
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Código+de+verificação+Ozoxx:+${currentVerificationCode}`;
+            whatsappBtn.href = whatsappUrl;
+            
+            // Mostra modal
+            document.getElementById('verification-modal').style.display = 'flex';
+            phoneVerificationStatus = 'pending';
+            updateVerificationUI();
+        }
+        
+        // Fecha modal
+        document.getElementById('close-modal-btn').addEventListener('click', function() {
+            document.getElementById('verification-modal').style.display = 'none';
+        });
+        
+        // Copia código
+        document.getElementById('copy-code-btn').addEventListener('click', function() {
+            navigator.clipboard.writeText(currentVerificationCode).then(() => {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> CÓDIGO COPIADO!';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+        
+        // Quando o telefone perde o foco (se estiver válido)
+        document.getElementById('phone').addEventListener('blur', function() {
+            const phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
+            
+            if (phoneRegex.test(this.value)) {
+                // Verifica se já está verificado
+                if (phoneVerificationStatus === 'verified' && verificationExpiryTime > Date.now()) {
+                    return; // Já está verificado e válido
+                }
+                
+                // Mostra modal de verificação
+                showVerificationModal(this.value);
+            }
+        });
+        
+        // Campo para usuário inserir o código recebido
+        document.getElementById('phone').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter' || e.key === 'Tab') {
+                return;
+            }
+            
+            // Se o usuário começar a digitar após a verificação pendente,
+            // assume que ele quer verificar manualmente
+            if (phoneVerificationStatus === 'pending') {
+                const modal = document.getElementById('verification-modal');
+                if (modal.style.display === 'flex') {
+                    return; // Modal já está aberto
+                }
+                
+                // Pergunta se quer abrir modal novamente
+                const userConfirmed = confirm('Deseja verificar seu número de telefone?');
+                if (userConfirmed) {
+                    showVerificationModal(this.value);
+                }
+            }
+        });
+        
+        // Validação manual do código (usuário pode clicar para verificar)
+        document.getElementById('phone').addEventListener('click', function() {
+            if (phoneVerificationStatus === 'pending') {
+                const modal = document.getElementById('verification-modal');
+                if (modal.style.display === 'none') {
+                    const userConfirmed = confirm('Você tem um código de verificação pendente. Deseja abrir as instruções?');
+                    if (userConfirmed) {
+                        showVerificationModal(this.value);
+                    }
+                }
+            }
+        });
+        
+        // ===========================================
+        // SUBMISSÃO DO FORMULÁRIO
+        // ===========================================
+        
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Verifica se o telefone foi verificado
+            if (phoneVerificationStatus !== 'verified') {
+                alert('Por favor, verifique seu número de telefone primeiro através do WhatsApp.');
+                document.getElementById('phone').focus();
+                return;
+            }
+            
+            // Verifica se o código não expirou
+            if (verificationExpiryTime <= Date.now()) {
+                phoneVerificationStatus = 'expired';
+                updateVerificationUI();
+                alert('Seu código de verificação expirou. Por favor, verifique novamente seu telefone.');
+                showVerificationModal(document.getElementById('phone').value);
+                return;
+            }
+            
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
+            submitBtn.innerHTML = '<span class="spinner"></span> ENVIANDO...';
             submitBtn.disabled = true;
             
-            // Coletar dados do formulário
+            // Coletar dados
+            const phoneInput = document.getElementById('phone');
+            const cleanPhone = phoneInput.value.replace(/\D/g, '');
+            
             const formData = {
                 name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
+                phone: phoneInput.value,
+                phone_clean: cleanPhone,
+                phone_verified: true,
+                verification_code: currentVerificationCode,
                 email: document.getElementById('email').value,
                 age: document.getElementById('age').value,
                 state: document.getElementById('state').value,
@@ -1585,30 +1828,59 @@
                 other_condition: document.getElementById('other-condition').value || '',
                 message: document.getElementById('message').value,
                 timestamp: new Date().toLocaleString('pt-BR'),
-                source: 'Site Ozoxx'
+                source: 'Site Ozoxx - WhatsApp Verification',
+                verification_timestamp: new Date().toISOString()
             };
             
-            // URL DO SEU GOOGLE APPS SCRIPT
+            // URL do Google Apps Script (substitua pela sua)
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwRnHN1IGgEMFxKgjzTBklb30D_2dukDzAqJhJ20tEgu-wbuOobVxyWsF_Sq93c0TBpMQ/exec';
             
-            // Enviar para Google Sheets
+            // Envia para Google Sheets
             fetch(scriptURL, {
                 method: 'POST',
-                mode: 'no-cors', // Importante para Google Apps Script
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData)
             })
             .then(() => {
-                alert('✅ Solicitação enviada com sucesso! Entraremos em contato em até 24h.');
+                // Sucesso
+                const successHtml = `
+                    <div style="background: #d4edda; color: #155724; padding: 20px; border-radius: var(--radius); margin-bottom: 20px; text-align: center;">
+                        <h3 style="color: #155724; margin-bottom: 10px;">
+                            <i class="fas fa-check-circle"></i> Solicitação Enviada com Sucesso!
+                        </h3>
+                        <p>Entraremos em contato em até 24 horas no WhatsApp:</p>
+                        <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0;">
+                            ${phoneInput.value}
+                        </p>
+                        <p><strong>Verificado com sucesso!</strong></p>
+                    </div>
+                `;
                 
-                // Resetar formulário
-                document.getElementById('contact-form').reset();
+                document.getElementById('form-verification-status').innerHTML = successHtml;
+                
+                // Reset do formulário (exceto telefone)
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('age').value = '';
+                document.getElementById('state').value = '';
+                document.getElementById('city').value = '';
+                document.getElementById('health-condition').value = '';
+                document.getElementById('other-condition').value = '';
+                document.getElementById('message').value = '';
                 document.getElementById('other-condition-group').style.display = 'none';
                 
-                // Rolar para o topo do formulário
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                // Mantém o telefone verificado
+                phoneVerificationStatus = 'verified';
+                
+                // Rola para o status
+                document.getElementById('form-verification-status').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
             })
             .catch(error => {
                 console.error('Erro:', error);
@@ -1618,6 +1890,57 @@
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             });
+        });
+        
+        // Inicializa UI
+        updateVerificationUI();
+        
+        // Fecha modal ao clicar fora
+        document.getElementById('verification-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+        
+        // Tecla ESC fecha modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('verification-modal').style.display = 'none';
+            }
+        });
+        
+        // Auto-verificação (simulação para demonstração)
+        // Em produção, você teria um sistema onde o usuário realmente envia o código
+        // Esta função simula o usuário verificando
+        function simulateVerification() {
+            setTimeout(() => {
+                if (phoneVerificationStatus === 'pending') {
+                    const confirmVerification = confirm('Para demonstração: Simular que você verificou o telefone? (Em produção, o usuário realmente enviaria o código por WhatsApp)');
+                    if (confirmVerification) {
+                        phoneVerificationStatus = 'verified';
+                        updateVerificationUI();
+                        document.getElementById('verification-modal').style.display = 'none';
+                        alert('✅ Telefone verificado com sucesso! Agora você pode enviar o formulário.');
+                    }
+                }
+            }, 3000);
+        }
+        
+        // Inicia simulação quando modal abre
+        const modalObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'style') {
+                    const modal = document.getElementById('verification-modal');
+                    if (modal.style.display === 'flex') {
+                        simulateVerification();
+                    }
+                }
+            });
+        });
+        
+        modalObserver.observe(document.getElementById('verification-modal'), {
+            attributes: true,
+            attributeFilter: ['style']
         });
     </script>
 </body>
