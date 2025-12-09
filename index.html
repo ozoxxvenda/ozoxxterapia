@@ -16,7 +16,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,21 +25,45 @@
     <link rel="icon" type="image/x-icon" href="https://ozoxx.com.br/wp-content/uploads/2023/01/cropped-favicon-32x32.png">
     
     <style>
-        /* Reset e Variáveis */
+        /* =========================================== */
+        /* RESET E VARIÁVEIS GLOBAIS */
+        /* =========================================== */
         :root {
             --primary: #0a5c8c;
+            --primary-dark: #084770;
+            --primary-light: #e3f2fd;
             --secondary: #1a9cda;
+            --secondary-light: #e1f5fe;
             --accent: #ff6b35;
-            --light: #f8f9fa;
-            --dark: #333;
-            --gray: #6c757d;
+            --accent-light: #ffebee;
             --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
             --whatsapp: #25D366;
-            --transition: all 0.3s ease;
+            --light: #f8f9fa;
+            --light-gray: #e9ecef;
+            --gray: #6c757d;
+            --dark: #333333;
+            --darker: #212529;
+            --white: #ffffff;
+            --black: #000000;
+            
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
-            --radius: 10px;
-            --text-light: #ffffff;
-            --text-dark: #333333;
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --shadow-xl: 0 15px 35px rgba(0,0,0,0.2);
+            
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
+            
+            --transition: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+            --transition-fast: all 0.15s ease;
+            
+            --container-max: 1200px;
+            --container-padding: 0 20px;
         }
         
         * {
@@ -50,205 +74,440 @@
         
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
         
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
+            color: var(--dark);
+            background-color: var(--white);
             overflow-x: hidden;
+            position: relative;
         }
         
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            line-height: 1.3;
+            font-weight: 700;
+            line-height: 1.2;
             margin-bottom: 1rem;
         }
         
         h1 {
-            font-size: 2.8rem;
-            color: var(--text-light);
+            font-size: 3.5rem;
+            font-weight: 800;
         }
         
         h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 2rem;
+            font-size: 2.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        h2.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        h4 {
+            font-size: 1.4rem;
         }
         
         p {
             margin-bottom: 1rem;
             font-size: 1.1rem;
+            color: var(--gray);
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 1.1rem;
+        a {
             text-decoration: none;
-            cursor: pointer;
+            color: inherit;
             transition: var(--transition);
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
         }
         
-        .btn:hover {
-            background: #e05a2b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
+        ul {
+            list-style: none;
         }
         
-        .btn-primary {
-            background: var(--primary);
-            box-shadow: 0 4px 10px rgba(10, 92, 140, 0.3);
-        }
-        
-        .btn-primary:hover {
-            background: #084770;
-        }
-        
-        .btn-whatsapp {
-            background: var(--whatsapp);
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-        }
-        
-        .btn-whatsapp:hover {
-            background: #1da851;
-        }
-        
-        section {
-            padding: 80px 0;
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
         
         .text-center {
             text-align: center;
         }
         
-        /* Header */
-        header {
-            background: white;
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
+        .text-primary {
+            color: var(--primary);
         }
         
-        header.hidden {
-            transform: translateY(-100%);
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            color: var(--primary);
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 35px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: var(--radius-xl);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition-slow);
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #0d8bc8 100%);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent) 0%, #e05a2b 100%);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #1da851 100%);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-lg {
+            padding: 20px 45px;
+            font-size: 1.2rem;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 2rem;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon.accent {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        
+        .card-icon.secondary {
+            background: var(--secondary-light);
+            color: var(--secondary);
+        }
+        
+        /* =========================================== */
+        /* HEADER */
+        /* =========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: var(--shadow);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 20px 0;
         }
         
         .logo {
             height: 50px;
+            display: flex;
+            align-items: center;
         }
         
         .logo img {
             height: 100%;
+            width: auto;
         }
         
-        nav ul {
+        .nav-menu {
             display: flex;
-            list-style: none;
+            align-items: center;
+            gap: 30px;
         }
         
-        nav li {
-            margin-left: 30px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
             font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
             transition: var(--transition);
         }
         
-        nav a:hover {
-            color: var(--secondary);
+        .nav-link:hover {
+            color: var(--primary);
         }
         
-        .mobile-menu {
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            margin-left: 20px;
+        }
+        
+        .mobile-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--primary);
         }
         
-        /* Hero Section */
+        /* =========================================== */
+        /* HERO SECTION */
+        /* =========================================== */
         .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.85)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
             position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            color: white;
             overflow: hidden;
-            padding: 150px 0 80px;
-            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.8));
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--white));
+            z-index: 1;
         }
         
         .hero-content {
             position: relative;
             z-index: 2;
-            text-align: center;
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
         }
         
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             margin-bottom: 25px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 35px;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        /* Hero Video */
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
         .hero-video {
-            margin: 30px auto 40px;
             max-width: 900px;
-            border-radius: 15px;
+            margin: 40px auto 50px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-xl);
+            position: relative;
         }
         
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
-            overflow: hidden;
-            background: #000;
+            background: var(--black);
         }
         
         .video-wrapper iframe {
@@ -258,358 +517,353 @@
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 10px;
         }
         
-        .hero-btns {
+        .hero-actions {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
         }
         
-        /* Benefícios */
-        .benefits {
-            background: var(--light);
-        }
-        
+        /* =========================================== */
+        /* BENEFÍCIOS */
+        /* =========================================== */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
         
-        .benefit-card {
-            background: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
+        /* =========================================== */
+        /* COMO FUNCIONA */
+        /* =========================================== */
+        .how-it-works .section-title h2,
+        .how-it-works .section-title p {
+            color: var(--white);
         }
         
-        .benefit-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .benefit-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        /* Como Funciona */
-        .how-it-works {
-            background: linear-gradient(135deg, #0a5c8c 0%, #1a9cda 100%);
-            color: var(--text-light);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .how-it-works h2 {
-            color: var(--text-light) !important;
-        }
-        
-        .how-it-works p {
-            color: rgba(255, 255, 255, 0.9) !important;
+        .how-it-works .section-title h2:after {
+            background: var(--white);
         }
         
         .steps {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 40px;
         }
         
         .step {
             text-align: center;
-            max-width: 300px;
-            color: var(--text-light);
+            color: var(--white);
         }
         
         .step-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             background: var(--accent);
-            color: white;
+            color: var(--white);
             border-radius: 50%;
-            font-size: 2rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            box-shadow: var(--shadow-lg);
+            position: relative;
         }
         
-        /* SEÇÃO CLIENTES */
-        .clients {
-            background: white;
-            padding: 100px 0;
+        .step-number:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
         
-        .clients .subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 60px;
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
         }
         
-        /* Grid otimizado para quadrados */
+        /* =========================================== */
+        /* RESULTADOS CLIENTES */
+        /* =========================================== */
+        .clients-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: var(--light);
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-xl);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
         .clients-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
-            margin-top: 40px;
         }
         
         .client-card {
-            background: white;
+            position: relative;
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid #eee;
-            position: relative;
+            height: 280px;
         }
         
-        .client-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        /* Container quadrado perfeito */
-        .client-photo-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding-bottom: 100%; /* 1:1 Aspect Ratio */
-            background: #f8f9fa;
-        }
-        
-        .client-photo {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .client-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: var(--transition-slow);
         }
         
-        .client-card:hover .client-photo {
+        .client-card:hover .client-image {
             transform: scale(1.05);
         }
         
-        /* Overlay para efeito visual */
         .client-overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.3));
-            opacity: 0;
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            transform: translateY(100%);
             transition: var(--transition);
         }
         
         .client-card:hover .client-overlay {
-            opacity: 1;
+            transform: translateY(0);
         }
         
-        .clients-cta {
-            text-align: center;
-            margin-top: 70px;
-            padding: 40px;
-            background: linear-gradient(to right, var(--light), #fff);
-            border-radius: var(--radius);
-            border: 2px dashed var(--secondary);
-        }
-        
-        /* Depoimentos em vídeo */
-        .testimonials {
-            background: #f8f9fa;
-        }
-        
-        .testimonials .subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid #eee;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .video-container {
-            background: #000;
-            position: relative;
-            padding-top: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-        
-        .testimonial-info {
-            padding: 25px;
-        }
-        
-        .testimonial-info h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
+        .client-condition {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: var(--radius-xl);
+            font-size: 0.9rem;
             margin-bottom: 10px;
         }
         
-        .testimonial-info h3 i {
-            color: var(--secondary);
-            margin-right: 10px;
-        }
-        
-        .condition {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-bottom: 8px;
-        }
-        
-        .testimonial-text {
-            margin-top: 15px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-left: 4px solid var(--accent);
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .testimonial-text p {
-            margin: 0;
-            font-style: italic;
-            color: #555;
-        }
-        
-        .testimonial-cta {
-            padding: 20px 25px;
-            background: linear-gradient(to right, #f8f9fa, #fff);
-            border-top: 1px solid #eee;
-            text-align: center;
-        }
-        
-        /* Produtos Simplificados */
-        .products {
-            background: #f0f7ff;
-        }
-        
-        .products-container {
-            max-width: 800px;
+        /* =========================================== */
+        /* DEPOIMENTOS */
+        /* =========================================== */
+        .testimonials-slider {
+            position: relative;
+            max-width: 900px;
             margin: 0 auto;
         }
         
-        .product-comparison {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 50px 0;
-        }
-        
-        .product-item {
-            background: white;
-            padding: 30px;
+        .testimonial-card {
+            background: var(--white);
             border-radius: var(--radius);
+            overflow: hidden;
             box-shadow: var(--shadow);
-            text-align: center;
         }
         
-        .product-icon {
-            font-size: 3.5rem;
-            color: var(--secondary);
+        .testimonial-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            background: var(--black);
+        }
+        
+        .testimonial-content {
+            padding: 30px;
+        }
+        
+        .testimonial-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
         
-        /* Condições Tratadas */
-        .conditions {
-            background: var(--light);
+        .testimonial-condition {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: var(--radius-xl);
+            font-size: 0.9rem;
+            font-weight: 500;
         }
         
-        .conditions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 20px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
             margin-top: 40px;
         }
         
-        .condition-card {
-            background: white;
-            padding: 25px;
-            border-radius: var(--radius);
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light);
+            border: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        /* =========================================== */
+        /* PRODUTOS */
+        /* =========================================== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
             box-shadow: var(--shadow);
-            border-left: 5px solid var(--secondary);
             transition: var(--transition);
         }
         
-        .condition-card:hover {
-            transform: translateY(-5px);
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
         }
         
-        .condition-card h3 i {
-            color: var(--secondary);
-            margin-right: 10px;
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* CTA Section */
-        .cta {
+        .product-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
         }
         
-        .cta h2 {
-            color: white;
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition-slow);
         }
         
-        .cta p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: var(--text-light);
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .product-content {
+            padding: 30px;
+        }
+        
+        .product-features {
+            margin: 25px 0;
+        }
+        
+        .product-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .product-feature i {
+            color: var(--success);
+            font-size: 1.1rem;
         }
         
         /* =========================================== */
-        /* FORMULÁRIO COM VERIFICAÇÃO GRATUITA WHATSAPP */
+        /* FORMULÁRIO */
         /* =========================================== */
         .form-section {
-            background: white;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
         }
         
         .form-container {
             max-width: 800px;
             margin: 0 auto;
-            background: var(--light);
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            box-shadow: var(--shadow-xl);
         }
         
-        .form-row {
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-header h3 {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin-bottom: 20px;
         }
@@ -618,59 +872,77 @@
             margin-bottom: 20px;
         }
         
-        .form-group label {
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
             color: var(--primary);
         }
         
-        .form-group.optional label::after {
-            content: " (Opcional)";
-            color: var(--gray);
-            font-weight: normal;
-            font-size: 0.9rem;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-control {
             width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius);
             font-family: 'Roboto', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
+            background: var(--white);
         }
         
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-control:focus {
+            outline: none;
             border-color: var(--secondary);
             box-shadow: 0 0 0 3px rgba(26, 156, 218, 0.1);
-            outline: none;
         }
         
-        /* Select customizado */
-        .form-group select {
+        .form-select {
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a5c8c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230a5c8c' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 15px center;
-            background-size: 15px;
-            padding-right: 40px;
+            background-size: 16px;
+            padding-right: 45px;
         }
         
-        /* Estilos para verificação de telefone */
-        .phone-hint {
-            display: block;
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-checkbox input {
             margin-top: 5px;
-            color: var(--gray);
-            font-size: 0.85rem;
         }
         
-        #verification-modal {
+        .verification-status {
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .verification-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .verification-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        /* Modal de Verificação */
+        .modal {
             display: none;
             position: fixed;
             top: 0;
@@ -679,83 +951,74 @@
             height: 100%;
             background: rgba(0,0,0,0.8);
             z-index: 2000;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: var(--radius);
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
+        .modal.active {
+            display: flex;
             animation: modalFadeIn 0.3s ease;
         }
         
         @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
-        .verification-success {
-            color: var(--success);
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow-xl);
+            position: relative;
         }
         
-        .verification-success i {
-            font-size: 1.2rem;
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
         }
         
-        .whatsapp-instructions {
-            background: #f0f9ff;
-            border-left: 4px solid var(--whatsapp);
-            padding: 15px;
+        .modal-close:hover {
+            color: var(--danger);
+        }
+        
+        .verification-code {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 10px;
+            color: var(--primary);
             margin: 20px 0;
-            text-align: left;
-            border-radius: 0 5px 5px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: var(--radius);
+            font-family: monospace;
         }
         
-        .whatsapp-instructions ol {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        
-        .whatsapp-instructions li {
-            margin-bottom: 8px;
-        }
-        
-        /* Loading spinner */
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Footer */
+        /* =========================================== */
+        /* FOOTER */
+        /* =========================================== */
         footer {
-            background: #222;
-            color: white;
-            padding: 60px 0 30px;
+            background: var(--darker);
+            color: var(--white);
+            padding: 80px 0 30px;
         }
         
-        .footer-content {
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
         
         .footer-logo {
@@ -763,22 +1026,29 @@
             margin-bottom: 20px;
         }
         
-        .footer-links h3 {
-            color: white;
-            margin-bottom: 20px;
+        .footer-logo img {
+            height: 100%;
         }
         
-        .footer-links ul {
-            list-style: none;
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .footer-title {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            color: #ccc;
-            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            gap: 10px;
             transition: var(--transition);
         }
         
@@ -787,135 +1057,140 @@
             padding-left: 5px;
         }
         
-        .copyright {
+        .footer-contact i {
+            width: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #aaa;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
             font-size: 0.9rem;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: var(--whatsapp);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
         }
         
         /* =========================================== */
         /* RESPONSIVIDADE */
         /* =========================================== */
-        
         @media (max-width: 1200px) {
-            .clients-grid {
-                grid-template-columns: repeat(3, 1fr);
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.4rem; }
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 992px) {
-            h1 { font-size: 2.4rem; }
-            h2 { font-size: 1.8rem; }
-            section { padding: 60px 0; }
-            .clients { padding: 80px 0; }
-            .clients-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu { display: block; }
+            h1 { font-size: 2.6rem; }
+            h2 { font-size: 2rem; }
+            .section { padding: 80px 0; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-grid { grid-template-columns: 1fr; }
             
-            nav ul {
+            .nav-menu {
                 position: fixed;
                 top: 80px;
                 left: -100%;
                 width: 100%;
                 flex-direction: column;
-                background: white;
-                box-shadow: var(--shadow);
-                padding: 20px;
+                background: var(--white);
+                padding: 30px;
+                box-shadow: var(--shadow-lg);
                 transition: var(--transition);
+                gap: 20px;
             }
             
-            nav ul.active { left: 0; }
-            nav li { margin: 15px 0; }
-            
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
-            
-            .hero-video {
-                margin: 20px auto 30px;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            .nav-menu.active {
+                left: 0;
             }
             
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
+            .mobile-toggle {
+                display: block;
             }
-            
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .section { padding: 60px 0; }
+            .hero { padding: 150px 0 80px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .clients-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-container { padding: 30px 20px; }
+            .hero-actions { flex-direction: column; align-items: center; }
             .btn { width: 100%; max-width: 300px; }
-            
-            .testimonials-grid,
-            .benefits-grid,
-            .conditions-grid,
-            .clients-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .product-comparison {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .steps {
-                flex-direction: column;
-                align-items: center;
-                gap: 30px;
-            }
-            
-            .modal-content {
-                padding: 25px;
-                width: 95%;
-            }
         }
         
-        @media (max-width: 480px) {
-            .step { max-width: 100%; }
-            .form-container { padding: 20px; }
-            .benefit-card,
-            .product-item,
-            .client-card { padding: 15px; }
-            .clients { padding: 60px 0; }
-            .clients-grid { gap: 15px; }
-            .hero-btns .btn { font-size: 1rem; padding: 12px 25px; }
-        }
-        
-        @media (min-width: 1400px) {
-            .clients-grid {
-                grid-template-columns: repeat(4, 1fr);
+        @media (max-width: 576px) {
+            h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .clients-grid { grid-template-columns: 1fr; }
+            .products-grid { gap: 30px; }
+            .product-image { height: 250px; padding: 30px; }
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.7rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container header-container">
             <div class="logo">
                 <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx Ozonioterapia">
             </div>
-            <div class="mobile-menu">
+            
+            <div class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#benefits">Benefícios</a></li>
-                    <li><a href="#how-it-works">Como Funciona</a></li>
-                    <li><a href="#clients">Fotos Reais</a></li>
-                    <li><a href="#testimonials">Depoimentos</a></li>
-                    <li><a href="#products">Produtos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Início</a>
+                <a href="#benefits" class="nav-link">Benefícios</a>
+                <a href="#how-it-works" class="nav-link">Como Funciona</a>
+                <a href="#clients" class="nav-link">Resultados</a>
+                <a href="#testimonials" class="nav-link">Depoimentos</a>
+                <a href="#products" class="nav-link">Produtos</a>
+                <div class="nav-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-comment-medical"></i> Falar com Especialista
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -927,60 +1202,95 @@
                 <h1>Resultados Reais com Ozonioterapia Caseira</h1>
                 <p>Veja fotos reais de pessoas que trataram <strong>pé diabético, psoríase, artrose e dores crônicas</strong> no conforto de casa. Tecnologia aprovada pela ANVISA.</p>
                 
-                <!-- VÍDEO PRINCIPAL -->
+                <div class="hero-badges">
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i> Aprovado pela ANVISA
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-users"></i> +5.000 Clientes Satisfeitos
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-truck"></i> Entrega para Todo Brasil
+                    </div>
+                </div>
+                
                 <div class="hero-video">
                     <div class="video-wrapper">
                         <iframe 
-                            src="https://www.youtube.com/embed/G6t7AZLJqPY" 
+                            src="https://www.youtube.com/embed/G6t7AZLJqPY?rel=0&modestbranding=1&controls=1" 
                             title="Ozoxx - Resultados Reais" 
                             frameborder="0" 
-                            allowfullscreen
-                            width="1280"
-                            height="720">
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
                         </iframe>
                     </div>
                 </div>
                 
-                <div class="hero-btns">
-                    <a href="#clients" class="btn">VER FOTOS REAIS</a>
-                    <a href="#contact" class="btn btn-primary">FALAR COM ESPECIALISTA</a>
+                <div class="hero-actions">
+                    <a href="#clients" class="btn btn-accent btn-lg">
+                        <i class="fas fa-images"></i> Ver Fotos Reais
+                    </a>
+                    <a href="#contact" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-comment-medical"></i> Falar com Especialista
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Benefícios -->
-    <section class="benefits" id="benefits">
+    <section class="section bg-light" id="benefits">
         <div class="container">
-            <h2>Por Que a Ozonioterapia Funciona?</h2>
+            <div class="section-title">
+                <h2>Por Que a Ozonioterapia Funciona?</h2>
+                <p>Descubra os benefícios cientificamente comprovados da terapia com ozônio para sua saúde</p>
+            </div>
+            
             <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-bacteria"></i></div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
                     <h3>Ação Antibacteriana</h3>
                     <p>Elimina bactérias, vírus e fungos que impedem a cicatrização de feridas e úlceras.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-tint"></i></div>
+                
+                <div class="card">
+                    <div class="card-icon secondary">
+                        <i class="fas fa-tint"></i>
+                    </div>
                     <h3>Melhora Circulação</h3>
                     <p>Aumenta oxigenação dos tecidos, acelerando a recuperação e reduzindo inflamações.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                
+                <div class="card">
+                    <div class="card-icon accent">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <h3>Estimula Regeneração</h3>
                     <p>Ativa células de defesa e produção de colágeno para cicatrização mais rápida.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <h3>Seguro e Natural</h3>
                     <p>Terapia natural sem efeitos colaterais quando aplicada corretamente. Aprovado pela ANVISA.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                
+                <div class="card">
+                    <div class="card-icon secondary">
+                        <i class="fas fa-users"></i>
+                    </div>
                     <h3>Indicado para Todas as Idades</h3>
                     <p>Pode ser usado com segurança por crianças, adultos e idosos, adaptando protocolos conforme necessidade.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-heartbeat"></i></div>
+                
+                <div class="card">
+                    <div class="card-icon accent">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
                     <h3>Trata Centenas de Doenças</h3>
                     <p>Eficaz no tratamento de mais de 100 condições, de problemas dermatológicos a doenças autoimunes.</p>
                 </div>
@@ -989,12 +1299,12 @@
     </section>
 
     <!-- Como Funciona -->
-    <section class="how-it-works" id="how-it-works">
+    <section class="section bg-gradient" id="how-it-works">
         <div class="container">
-            <h2>Como Funciona o Tratamento em Casa</h2>
-            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px; color: rgba(255, 255, 255, 0.9) !important;">
-                Tratamento simples que você faz em casa, sem precisar se deslocar para clínicas.
-            </p>
+            <div class="section-title">
+                <h2>Como Funciona o Tratamento em Casa</h2>
+                <p>Tratamento simples que você faz em casa, sem precisar se deslocar para clínicas</p>
+            </div>
             
             <div class="steps">
                 <div class="step">
@@ -1002,11 +1312,13 @@
                     <h3>Receba o Aparelho</h3>
                     <p>Ozoxx chega na sua casa completo, com todos os acessórios e manual de uso.</p>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Siga o Protocolo</h3>
                     <p>Aplicamos o protocolo específico para sua condição (pé diabético, psoríase, etc.).</p>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Tenha Resultados</h3>
@@ -1016,603 +1328,284 @@
         </div>
     </section>
 
-    <!-- SEÇÃO CLIENTES -->
-    <section class="clients" id="clients">
+    <!-- Resultados Clientes -->
+    <section class="section" id="clients">
         <div class="container">
-            <h2>Resultados Reais dos Nossos Clientes</h2>
-            <p class="subtitle">Fotos reais de pessoas que transformaram sua saúde com o Ozoxx</p>
+            <div class="section-title">
+                <h2>Resultados Reais dos Nossos Clientes</h2>
+                <p>Fotos reais de pessoas que transformaram sua saúde com o Ozoxx</p>
+            </div>
+            
+            <div class="clients-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="diabetico">Pé Diabético</button>
+                <button class="filter-btn" data-filter="psoriase">Psoríase</button>
+                <button class="filter-btn" data-filter="artrose">Artrose</button>
+                <button class="filter-btn" data-filter="dermatite">Dermatite</button>
+            </div>
             
             <div class="clients-grid">
                 <!-- 10 imagens de clientes -->
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/casal-comprando-o-aparelho-ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/casal-comprando-o-aparelho-ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Pé Diabético</div>
+                        <h4>Resultado em 60 dias</h4>
                     </div>
                 </div>
                 
-                <!-- Repetir para clientes 2 a 10 -->
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-o-aparelho-ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all psoriase">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-o-aparelho-ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Psoríase</div>
+                        <h4>Resultado em 90 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-compra-o-Ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all artrose">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-compra-o-Ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Artrose</div>
+                        <h4>Resultado em 45 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-decide-comprar-o-aparelho-ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all dermatite">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-decide-comprar-o-aparelho-ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Dermatite</div>
+                        <h4>Resultado em 30 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/homem-compra-aparelho-ozoxx-e-fica-satisfeito.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all diabetico">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/homem-compra-aparelho-ozoxx-e-fica-satisfeito.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Pé Diabético</div>
+                        <h4>Resultado em 75 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-familia-comprando-o-aparelho-ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all psoriase">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-familia-comprando-o-aparelho-ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Psoríase</div>
+                        <h4>Resultado em 80 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/um-senhor-de-idade-compra-o-aparelho-ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all artrose">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/um-senhor-de-idade-compra-o-aparelho-ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Artrose</div>
+                        <h4>Resultado em 60 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/ozoxx-e-seus-produtos-vendedores-vendendo.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/ozoxx-e-seus-produtos-vendedores-vendendo.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Dor Crônica</div>
+                        <h4>Resultado em 40 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-compra-o-aparelho-ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all dermatite">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-compra-o-aparelho-ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Dermatite</div>
+                        <h4>Resultado em 35 dias</h4>
                     </div>
                 </div>
                 
-                <div class="client-card">
-                    <div class="client-photo-container">
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-idosa-comprando-o-aparelho-ozoxx.webp" 
-                             class="client-photo"
-                             loading="lazy"
-                             width="1500"
-                             height="1500">
-                        <div class="client-overlay"></div>
+                <div class="client-card" data-category="all">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-idosa-comprando-o-aparelho-ozoxx.webp" 
+                         alt="Cliente Ozoxx" 
+                         class="client-image"
+                         loading="lazy">
+                    <div class="client-overlay">
+                        <div class="client-condition">Fibromialgia</div>
+                        <h4>Resultado em 90 dias</h4>
                     </div>
                 </div>
             </div>
             
-            <div class="clients-cta">
-                <h3 style="color: var(--primary); margin-bottom: 15px;">
-                    <i class="fas fa-images"></i> Mais de 5.000 Pessoas Já Transformaram Sua Saúde
-                </h3>
-                <p style="margin-bottom: 20px;">Estas são apenas algumas das milhares de pessoas que já trataram pé diabético, psoríase, artrose e outras condições com o Ozoxx. Seu resultado pode ser o próximo!</p>
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-camera"></i> QUERO TER ESSES RESULTADOS
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="#contact" class="btn btn-primary btn-lg">
+                    <i class="fas fa-camera"></i> Quero Ter Esses Resultados
                 </a>
             </div>
         </div>
     </section>
 
-<!-- Depoimentos em vídeo -->
-<section class="testimonials" id="testimonials">
-    <div class="container">
-        <h2>Depoimentos em Vídeo</h2>
-        <p class="subtitle">Veja e ouça diretamente dos nossos clientes</p>
-        
-        <div class="testimonials-grid">
-            <!-- Depoimento 1 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/NZQJ07kNXP4" 
-                            title="Efizema, Depressão e Falta de Ar" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Efizema, Depressão, Falta de ar</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Transformação em 20 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Junho do ano passado minha sogra pegou C0vid, Depressão, diziam que não tinha reversão. Ouça o resultado!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO O TRATAMENTO</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 2 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_2" 
-                            title="Depoimento Psoríase" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Psoríase</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 3 meses</p>
-                    <div class="testimonial-text">
-                        <p>"Lesões em 40% do corpo reduziram 80%. Tenho pele lisa novamente!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR PSORÍASE</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 3 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_3" 
-                            title="Depoimento Artrose" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Artrose</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 2 meses</p>
-                    <div class="testimonial-text">
-                        <p>"Não conseguia subir escadas de tanta dor. Hoje caminho 5km diários!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR ARTROSE</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 4 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_4" 
-                            title="Depoimento Dermatite" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Dermatite</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 30 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Coceira insuportável sumiu em poucas semanas. Minha pele está saudável!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR DERMATITE</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 5 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_5" 
-                            title="Depoimento Fibromialgia" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Fibromialgia</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 60 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Dor generalizada que me impedia de trabalhar. Agora tenho qualidade de vida!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR FIBROMIALGIA</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 6 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_6" 
-                            title="Depoimento Úlcera Varicosa" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Úlcera Varicosa</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 50 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Úlcera na perna há 3 anos fechou completamente. Incrível!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR ÚLCERA</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 7 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_7" 
-                            title="Depoimento Artrite Reumatoide" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Artrite Reumatoide</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 75 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Inflamação nas juntas reduziu 90%. Consigo segurar objetos novamente."</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR ARTRITE</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 8 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_8" 
-                            title="Depoimento Tendinite" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Tendinite Crônica</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 25 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Dor no ombro que não melhorava com fisioterapia. Sumiu com Ozoxx!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR TENDINITE</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 9 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_9" 
-                            title="Depoimento Herpes" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Herpes Recorrente</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 15 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Herpes que aparecia todo mês não voltou há 6 meses. Livramento!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR HERPES</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 10 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_10" 
-                            title="Depoimento Circulação" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Má Circulação</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 40 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Pés sempre gelados e roxos. Agora estão quentes e com cor normal!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO MELHORAR CIRCULAÇÃO</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 11 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_11" 
-                            title="Depoimento Sinusite" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Sinusite Crônica</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 20 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Sinusite que durava meses sumiu completamente. Respiração livre!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR SINUSITE</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 12 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_12" 
-                            title="Depoimento Queda de Cabelo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Queda de Cabelo</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 90 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Cabelo caindo aos montes. Agora tenho crescimento novo e forte!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR QUEDA DE CABELO</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 13 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_13" 
-                            title="Depoimento Lombalgia" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Lombalgia Crônica</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 35 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Dor nas costas que me impedia de trabalhar. Agora vivo sem dor!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR DOR NAS COSTAS</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 14 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_14" 
-                            title="Depoimento Acne" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Acne Severa</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 60 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Acne que não melhorava com tratamentos caros. Pele limpa e saudável!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR ACNE</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 15 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_15" 
-                            title="Depoimento Insônia" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Insônia</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 15 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Não dormia há anos. Agora durmo a noite toda e acordo revigorado!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO TRATAR INSÔNIA</a>
-                </div>
-            </div>
-            
-            <!-- Depoimento 16 -->
-            <div class="testimonial-card">
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SEU_ID_VIDEO_16" 
-                            title="Depoimento Imunidade Baixa" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="testimonial-info">
-                    <h3><i class="fas fa-user-circle"></i> Tratamento: Imunidade Baixa</h3>
-                    <p class="condition"><i class="fas fa-clock"></i> Resultado em 30 dias</p>
-                    <div class="testimonial-text">
-                        <p>"Vivia doente. Há 4 meses não pego nenhuma gripe ou resfriado!"</p>
-                    </div>
-                </div>
-                <div class="testimonial-cta">
-                    <a href="#contact" class="btn">QUERO FORTALECER IMUNIDADE</a>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-    <!-- Produtos Simplificados -->
-    <section class="products" id="products">
+    <!-- Depoimentos -->
+    <section class="section bg-light" id="testimonials">
         <div class="container">
-            <h2>Conheça Nossos Geradores de Ozônio</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px;">
-                Tecnologia de plasma frio aprovada para uso humano. Desenvolvidos para diferentes necessidades terapêuticas.
-            </p>
+            <div class="section-title">
+                <h2>Depoimentos em Vídeo</h2>
+                <p>Veja e ouça diretamente dos nossos clientes</p>
+            </div>
             
-            <div class="products-container">
-                <div class="product-comparison">
-                    <div class="product-item">
-                        <div class="product-icon">
-                            <i class="fas fa-cube"></i>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-video">
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/NZQJ07kNXP4?rel=0&modestbranding=1&controls=1&showinfo=0" 
+                                title="Efizema, Depressão e Falta de Ar" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
                         </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-condition">Enfisema, Depressão</div>
+                            <div class="testimonial-time">
+                                <i class="fas fa-clock"></i> 20 dias
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>"Junho do ano passado minha sogra pegou C0vid, Depressão, diziam que não tinha reversão. Ouça o resultado!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conheça Nossos Geradores de Ozônio</h2>
+                <p>Tecnologia de plasma frio aprovada para uso humano. Desenvolvidos para diferentes necessidades terapêuticas.</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Ozoxx MULTI -->
+                <div class="product-card">
+                    <div class="product-image product-image-multi">
+                        <div class="product-badge">Mais Vendido</div>
+                        <!-- Coloque a URL da imagem MULTI aqui -->
+                        <!-- <img src="URL_DA_IMAGEM_MULTI" alt="Ozoxx MULTI"> -->
+                        <div class="placeholder-text" style="text-align: center; padding: 20px;">
+                            <i class="fas fa-image" style="font-size: 4rem; color: var(--secondary); opacity: 0.5;"></i>
+                            <p style="margin-top: 20px; color: var(--gray);">Imagem Ozoxx MULTI</p>
+                            <small>Cole a URL da imagem acima</small>
+                        </div>
+                    </div>
+                    <div class="product-content">
                         <h3>Ozoxx MULTI</h3>
                         <p><strong>Para uso humano e ambiental</strong></p>
                         
-                        <ul style="list-style: none; padding: 0; margin: 20px 0;">
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Aprovado para exposição humana</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Laudos UFF e UNICAMP</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Emissão segura: 0,06 ppm</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Ozonização de ambientes</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Ozonização de alimentos</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Ozonização da água</li>
-                        </ul>
+                        <div class="product-features">
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Aprovado para exposição humana</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Laudos UFF e UNICAMP</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Emissão segura: 0,06 ppm</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ozonização de ambientes</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ozonização de alimentos</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ozonização da água</span>
+                            </div>
+                        </div>
                         
-                        <div style="margin-top: 25px;">
-                            <a href="#contact" class="btn btn-primary">
-                                <i class="fas fa-info-circle"></i> SABER MAIS SOBRE MULTI
-                            </a>
+                        <a href="#contact" class="btn btn-primary btn-block">
+                            <i class="fas fa-info-circle"></i> Saber Mais Sobre MULTI
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ozoxx AIR -->
+                <div class="product-card">
+                    <div class="product-image product-image-air">
+                        <div class="product-badge">Profissional</div>
+                        <!-- Coloque a URL da imagem AIR aqui -->
+                        <!-- <img src="URL_DA_IMAGEM_AIR" alt="Ozoxx AIR"> -->
+                        <div class="placeholder-text" style="text-align: center; padding: 20px;">
+                            <i class="fas fa-image" style="font-size: 4rem; color: var(--secondary); opacity: 0.5;"></i>
+                            <p style="margin-top: 20px; color: var(--gray);">Imagem Ozoxx AIR</p>
+                            <small>Cole a URL da imagem acima</small>
                         </div>
                     </div>
-                    
-                    <div class="product-item">
-                        <div class="product-icon">
-                            <i class="fas fa-wind"></i>
-                        </div>
+                    <div class="product-content">
                         <h3>Ozoxx AIR</h3>
                         <p><strong>Para sanitização de ambientes</strong></p>
                         
-                        <ul style="list-style: none; padding: 0; margin: 20px 0;">
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Sanitização de casas e empresas</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Elimina vírus, bactérias, fungos</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Programação automatizada</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Economia de energia</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Para salões e comércios</li>
-                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Uso profissional</li>
-                        </ul>
-                        
-                        <div style="margin-top: 25px;">
-                            <a href="#contact" class="btn btn-primary">
-                                <i class="fas fa-info-circle"></i> SABER MAIS SOBRE AIR
-                            </a>
+                        <div class="product-features">
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Sanitização de casas e empresas</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Elimina vírus, bactérias, fungos</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Programação automatizada</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Economia de energia</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Para salões e comércios</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Uso profissional</span>
+                            </div>
                         </div>
+                        
+                        <a href="#contact" class="btn btn-primary btn-block">
+                            <i class="fas fa-info-circle"></i> Saber Mais Sobre AIR
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1620,262 +1613,236 @@
     </section>
 
     <!-- CTA Final -->
-    <section class="cta">
+    <section class="section bg-gradient">
         <div class="container">
-            <h2>Não Conviva Mais com Dor e Limitações</h2>
-            <p>Você viu os resultados reais. Agora é sua vez de transformar sua saúde e qualidade de vida.</p>
-            <a href="#contact" class="btn">QUERO FALAR COM UM ESPECIALISTA AGORA</a>
+            <div class="section-title">
+                <h2 style="color: var(--white);">Não Conviva Mais com Dor e Limitações</h2>
+                <p style="color: rgba(255,255,255,0.9);">Você viu os resultados reais. Agora é sua vez de transformar sua saúde e qualidade de vida.</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="btn btn-accent btn-lg">
+                    <i class="fas fa-comment-medical"></i> Falar com Especialista Agora
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Modal de Verificação -->
-    <div id="verification-modal">
-        <div class="modal-content">
-            <h2 style="color: var(--primary); margin-bottom: 15px;">
-                <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> Verificação por WhatsApp
-            </h2>
-            
-            <div class="whatsapp-instructions">
-                <p><strong>Como verificar seu número:</strong></p>
-                <ol>
-                    <li>Anote o código abaixo</li>
-                    <li>Abra o WhatsApp no seu celular</li>
-                    <li>Envie uma mensagem para o número:</li>
-                    <li style="text-align: center; margin: 10px 0; font-size: 1.2rem; font-weight: bold;">
-                        <span id="whatsapp-number-display">(11) 99999-9999</span>
-                    </li>
-                    <li>Digite o código na mensagem</li>
-                </ol>
-            </div>
-            
-            <div style="background: #f8f9fa; padding: 20px; border-radius: var(--radius); margin: 20px 0;">
-                <p style="margin-bottom: 10px; color: var(--gray);">Seu código de verificação:</p>
-                <div style="font-size: 2.5rem; font-weight: bold; letter-spacing: 5px; color: var(--primary);" id="verification-code-display">
-                    000000
-                </div>
-                <p style="margin-top: 10px; color: var(--gray); font-size: 0.9rem;">
-                    <i class="fas fa-clock"></i> Válido por 10 minutos
-                </p>
-            </div>
-            
-            <div style="display: flex; gap: 15px; margin-top: 20px;">
-                <button id="copy-code-btn" class="btn" style="flex: 1;">
-                    <i class="fas fa-copy"></i> COPIAR CÓDIGO
-                </button>
-                <a id="open-whatsapp-btn" class="btn btn-whatsapp" style="flex: 1;" target="_blank">
-                    <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
-                </a>
-            </div>
-            
-            <button id="close-modal-btn" class="btn" style="margin-top: 20px; width: 100%; background: var(--gray);">
-                <i class="fas fa-times"></i> FECHAR
-            </button>
-        </div>
-    </div>
-
-    <!-- Formulário com Verificação Gratuita -->
-    <section class="form-section" id="contact">
+    <!-- Formulário -->
+    <section class="section form-section" id="contact">
         <div class="container">
-            <h2>Fale Com Nossos Especialistas</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px;">
-                Preencha o formulário abaixo e um especialista em ozonioterapia entrará em contato para tirar todas suas dúvidas.
-                <strong style="color: var(--primary); display: block; margin-top: 10px;">
-                    <i class="fas fa-shield-alt"></i> Verificamos seu telefone gratuitamente via WhatsApp
-                </strong>
-            </p>
+            <div class="section-title">
+                <h2>Fale Com Nossos Especialistas</h2>
+                <p>Preencha o formulário abaixo e um especialista em ozonioterapia entrará em contato para tirar todas suas dúvidas.</p>
+            </div>
             
             <div class="form-container">
-                <form id="contact-form">
-                    <div class="form-row">
+                <div class="form-header">
+                    <h3>Solicite sua Consulta Gratuita</h3>
+                    <p><i class="fas fa-shield-alt"></i> Verificamos seu telefone gratuitamente via WhatsApp</p>
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-grid">
                         <div class="form-group">
-                            <label for="name">Nome Completo *</label>
-                            <input type="text" id="name" name="name" required autocomplete="name">
+                            <label for="name" class="form-label">Nome Completo *</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Telefone/WhatsApp *</label>
-                            <input type="tel" 
-                                   id="phone" 
-                                   name="phone" 
-                                   required 
-                                   autocomplete="tel"
-                                   pattern="^\(\d{2}\) \d{5}-\d{4}$"
-                                   title="Digite no formato: (11) 99999-9999"
-                                   placeholder="(11) 99999-9999">
-                            <small class="phone-hint">Apenas números com DDD (ex: 11999999999)</small>
-                            <div id="phone-verification-status"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group optional">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" autocomplete="email" placeholder="Seu e-mail para contato">
+                            <label for="phone" class="form-label">Telefone/WhatsApp *</label>
+                            <input type="tel" id="phone" class="form-control" required placeholder="(11) 99999-9999">
+                            <small style="display: block; margin-top: 5px; color: var(--gray);">Verificação obrigatória via WhatsApp</small>
                         </div>
                         
                         <div class="form-group">
-                            <label for="age">Idade *</label>
-                            <input type="number" id="age" name="age" min="1" max="120" required autocomplete="off">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" id="email" class="form-control" placeholder="seu@email.com">
                         </div>
-                    </div>
-                    
-                    <div class="form-row">
+                        
                         <div class="form-group">
-                            <label for="state">Estado *</label>
-                            <select id="state" name="state" required autocomplete="region">
+                            <label for="age" class="form-label">Idade *</label>
+                            <input type="number" id="age" class="form-control" required min="1" max="120">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state" class="form-label">Estado *</label>
+                            <select id="state" class="form-control form-select" required>
                                 <option value="">Selecione seu estado</option>
-                                <option value="AC">Acre</option>
-                                <option value="AL">Alagoas</option>
-                                <option value="AP">Amapá</option>
-                                <option value="AM">Amazonas</option>
-                                <option value="BA">Bahia</option>
-                                <option value="CE">Ceará</option>
-                                <option value="DF">Distrito Federal</option>
-                                <option value="ES">Espírito Santo</option>
-                                <option value="GO">Goiás</option>
-                                <option value="MA">Maranhão</option>
-                                <option value="MT">Mato Grosso</option>
-                                <option value="MS">Mato Grosso do Sul</option>
-                                <option value="MG">Minas Gerais</option>
-                                <option value="PA">Pará</option>
-                                <option value="PB">Paraíba</option>
-                                <option value="PR">Paraná</option>
-                                <option value="PE">Pernambuco</option>
-                                <option value="PI">Piauí</option>
-                                <option value="RJ">Rio de Janeiro</option>
-                                <option value="RN">Rio Grande do Norte</option>
-                                <option value="RS">Rio Grande do Sul</option>
-                                <option value="RO">Rondônia</option>
-                                <option value="RR">Roraima</option>
-                                <option value="SC">Santa Catarina</option>
                                 <option value="SP">São Paulo</option>
-                                <option value="SE">Sergipe</option>
-                                <option value="TO">Tocantins</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <!-- Outros estados -->
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="city">Cidade *</label>
-                            <input type="text" id="city" name="city" required autocomplete="address-level2">
+                            <label for="city" class="form-label">Cidade *</label>
+                            <input type="text" id="city" class="form-control" required>
                         </div>
-                    </div>
-                    
-                    <!-- Condições de Saúde -->
-                    <div class="form-row">
-                        <div class="form-group optional">
-                            <label for="health-condition">Condição de Saúde</label>
-                            <select id="health-condition" name="health-condition">
-                                <option value="">Selecione sua condição (opcional)</option>
-                                <optgroup label="🏥 Doenças Metabólicas">
-                                    <option value="diabetes-tipo-2">Diabetes Tipo 2</option>
-                                    <option value="pre-diabetes">Pré-Diabetes</option>
-                                    <option value="hipertensao">Hipertensão</option>
-                                </optgroup>
-                                <optgroup label="🦴 Problemas Ortopédicos">
-                                    <option value="artrose">Artrose/Osteoartrite</option>
-                                    <option value="dor-cronica">Dor Crônica</option>
-                                    <option value="lombalgia">Dor nas Costas</option>
-                                </optgroup>
-                                <optgroup label="👩‍⚕️ Problemas Dermatológicos">
-                                    <option value="pe-diabetico">Pé Diabético</option>
-                                    <option value="psoriase">Psoríase</option>
-                                    <option value="dermatite">Dermatite</option>
-                                </optgroup>
-                                <optgroup label="🌟 Outras Condições">
-                                    <option value="outra-condicao">Outra Condição</option>
-                                </optgroup>
+                        
+                        <div class="form-group full-width">
+                            <label for="condition" class="form-label">Condição de Saúde (Opcional)</label>
+                            <select id="condition" class="form-control form-select">
+                                <option value="">Selecione sua condição</option>
+                                <option value="diabetico">Pé Diabético</option>
+                                <option value="psoriase">Psoríase</option>
+                                <option value="artrose">Artrose</option>
+                                <option value="dermatite">Dermatite</option>
+                                <option value="outra">Outra</option>
                             </select>
                         </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message" class="form-label">Conte mais sobre seu caso (Opcional)</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Há quanto tempo sofre com isso? Quais tratamentos já tentou?"></textarea>
+                        </div>
                     </div>
                     
-                    <div class="form-group optional" id="other-condition-group" style="display: none;">
-                        <label for="other-condition">Especifique sua condição</label>
-                        <input type="text" id="other-condition" name="other-condition" placeholder="Digite aqui sua condição de saúde">
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">Concordo com a Política de Privacidade e autorizo o contato via WhatsApp</label>
                     </div>
                     
-                    <div class="form-group optional">
-                        <label for="message">Conte mais sobre seu caso (Opcional)</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Há quanto tempo sofre com isso? Quais tratamentos já tentou?"></textarea>
-                    </div>
+                    <div id="verificationStatus" class="verification-status"></div>
                     
-                    <div id="form-verification-status" style="margin-bottom: 20px;"></div>
-                    
-                    <button type="submit" class="btn" style="width: 100%; padding: 18px;">
-                        <i class="fas fa-paper-plane"></i> QUERO SABER MAIS
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        <i class="fas fa-paper-plane"></i> Enviar Solicitação
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-about">
-                <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx" class="footer-logo">
-                <p>Ozoxx é o primeiro aparelho de ozonioterapia caseira do Brasil, desenvolvido para oferecer saúde, bem-estar e qualidade de vida através da terapia com ozônio medicinal.</p>
+    <!-- Modal de Verificação -->
+    <div class="modal" id="verificationModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h3 style="color: var(--primary); margin-bottom: 20px;">
+                <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> Verificação por WhatsApp
+            </h3>
+            
+            <p>Para garantir sua segurança, precisamos verificar seu número de telefone.</p>
+            
+            <div class="whatsapp-instructions" style="background: #f0f9ff; padding: 20px; border-radius: var(--radius); margin: 20px 0;">
+                <p><strong>Como verificar:</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Anote o código abaixo</li>
+                    <li>Abra o WhatsApp no seu celular</li>
+                    <li>Envie o código para: <strong id="whatsappNumber"></strong></li>
+                </ol>
             </div>
             
-            <div class="footer-links">
-                <h3>Links Rápidos</h3>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#benefits">Benefícios</a></li>
-                    <li><a href="#how-it-works">Como Funciona</a></li>
-                    <li><a href="#clients">Fotos Reais</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </div>
+            <div class="verification-code" id="verificationCode">000000</div>
             
-            <div class="footer-links">
-                <h3>Contato</h3>
-                <ul>
-                    <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
-                    <li>
-                        <i class="fas fa-envelope"></i> 
-                        <a href="mailto:ozoxx.venda@gmail.com" style="color: #ccc; text-decoration: none; transition: var(--transition);">
-                            ozoxx.venda@gmail.com
-                        </a>
-                    </li>
-                    <li><i class="fab fa-whatsapp"></i> (11) 99999-9999</li>
-                </ul>
+            <div style="display: flex; gap: 15px; margin-top: 30px;">
+                <button id="copyCode" class="btn" style="flex: 1;">
+                    <i class="fas fa-copy"></i> Copiar Código
+                </button>
+                <a id="openWhatsApp" class="btn btn-whatsapp" style="flex: 1;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Abrir WhatsApp
+                </a>
             </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2023 Ozoxx - Ozonioterapia Caseira. Todos os direitos reservados.</p>
-            <p>Registro ANVISA: xxxxxx. Este site não faz parte do Google ou Facebook.</p>
         </div>
     </div>
-</footer>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx">
+                    </div>
+                    <p>Ozoxx é o primeiro aparelho de ozonioterapia caseira do Brasil, desenvolvido para oferecer saúde, bem-estar e qualidade de vida através da terapia com ozônio medicinal.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                        <li><a href="#benefits"><i class="fas fa-chevron-right"></i> Benefícios</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-chevron-right"></i> Como Funciona</a></li>
+                        <li><a href="#clients"><i class="fas fa-chevron-right"></i> Resultados</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="tel:+5511999999999">
+                                <i class="fas fa-phone"></i> (11) 99999-9999
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:ozoxx.venda@gmail.com">
+                                <i class="fas fa-envelope"></i> ozoxx.venda@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/5511999999999" target="_blank">
+                                <i class="fab fa-whatsapp"></i> (11) 99999-9999
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 Ozoxx - Ozonioterapia Caseira. Todos os direitos reservados.</p>
+                <p>Registro ANVISA: xxxxxx. Este site não faz parte do Google ou Facebook.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // ===========================================
-        // SISTEMA DE VERIFICAÇÃO GRATUITO VIA WHATSAPP
+        // FUNÇÕES GERAIS
         // ===========================================
         
-        // Menu Mobile
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
         
-        // Fechar menu ao clicar em links
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav ul').classList.remove('active');
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Smooth Scroll
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -1884,56 +1851,60 @@
             });
         });
         
-        // Header hide on scroll
-        let lastScroll = 0;
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            const header = document.querySelector('header');
-            
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                header.classList.add('hidden');
-            } else {
-                header.classList.remove('hidden');
-            }
-            lastScroll = currentScroll;
-        });
+        // ===========================================
+        // FILTRO DE CLIENTES
+        // ===========================================
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const clientCards = document.querySelectorAll('.client-card');
         
-        // Mostrar/ocultar campo "outra condição"
-        document.getElementById('health-condition').addEventListener('change', function() {
-            const otherConditionGroup = document.getElementById('other-condition-group');
-            if (this.value === 'outra-condicao') {
-                otherConditionGroup.style.display = 'block';
-            } else {
-                otherConditionGroup.style.display = 'none';
-                document.getElementById('other-condition').value = '';
-            }
-        });
-        
-        // Validação de idade
-        document.getElementById('age').addEventListener('input', function() {
-            if (this.value < 1) this.value = 1;
-            if (this.value > 120) this.value = 120;
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter cards
+                clientCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
         });
         
         // ===========================================
-        // SISTEMA DE VERIFICAÇÃO DE TELEFONE
+        // FORMULÁRIO E VERIFICAÇÃO
         // ===========================================
+        const contactForm = document.getElementById('contactForm');
+        const verificationModal = document.getElementById('verificationModal');
+        const modalClose = document.getElementById('modalClose');
+        const copyCodeBtn = document.getElementById('copyCode');
+        const openWhatsAppBtn = document.getElementById('openWhatsApp');
+        const verificationStatus = document.getElementById('verificationStatus');
+        const verificationCodeElement = document.getElementById('verificationCode');
+        const whatsappNumberElement = document.getElementById('whatsappNumber');
         
-        // Variáveis globais
-        let currentVerificationCode = '';
-        let phoneVerificationStatus = 'unverified';
-        let verificationExpiryTime = null;
+        let verificationCode = '';
+        let isPhoneVerified = false;
         
         // Formatação automática do telefone
-        document.getElementById('phone').addEventListener('input', function(e) {
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.substring(0, 11);
             
-            // Limita a 11 caracteres
-            if (value.length > 11) {
-                value = value.substring(0, 11);
-            }
-            
-            // Formatação
             if (value.length > 10) {
                 e.target.value = `(${value.substring(0,2)}) ${value.substring(2,7)}-${value.substring(7,11)}`;
             } else if (value.length > 6) {
@@ -1942,336 +1913,134 @@
                 e.target.value = `(${value.substring(0,2)}) ${value.substring(2)}`;
             } else if (value.length > 0) {
                 e.target.value = `(${value}`;
-            } else {
-                e.target.value = value;
-            }
-            
-            // Validação visual
-            const phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
-            const isValid = phoneRegex.test(e.target.value);
-            
-            if (isValid) {
-                e.target.style.borderColor = 'var(--success)';
-                e.target.style.boxShadow = '0 0 0 3px rgba(40, 167, 69, 0.1)';
-                resetVerificationStatus();
-            } else {
-                e.target.style.borderColor = '#ddd';
-                e.target.style.boxShadow = 'none';
-                phoneVerificationStatus = 'unverified';
-                updateVerificationUI();
             }
         });
         
-        // Gera código de 6 dígitos
+        // Gera código de verificação
         function generateVerificationCode() {
             return Math.floor(100000 + Math.random() * 900000).toString();
         }
         
-        // Atualiza UI de verificação
-        function updateVerificationUI() {
-            const statusDiv = document.getElementById('phone-verification-status');
-            const submitBtn = document.querySelector('#contact-form button[type="submit"]');
-            
-            switch(phoneVerificationStatus) {
-                case 'unverified':
-                    statusDiv.innerHTML = `
-                        <div class="verification-success" style="color: var(--accent);">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <span>Telefone precisa ser verificado</span>
-                        </div>
-                    `;
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<i class="fas fa-mobile-alt"></i> VERIFIQUE SEU TELEFONE PRIMEIRO';
-                    break;
-                    
-                case 'pending':
-                    statusDiv.innerHTML = `
-                        <div class="verification-success" style="color: var(--secondary);">
-                            <i class="fas fa-clock"></i>
-                            <span>Verificação pendente - Verifique seu WhatsApp</span>
-                        </div>
-                    `;
-                    submitBtn.disabled = true;
-                    break;
-                    
-                case 'verified':
-                    statusDiv.innerHTML = `
-                        <div class="verification-success">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Telefone verificado com sucesso!</span>
-                        </div>
-                    `;
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR SOLICITAÇÃO';
-                    break;
-                    
-                case 'expired':
-                    statusDiv.innerHTML = `
-                        <div class="verification-success" style="color: var(--accent);">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span>Código expirado - Clique para reenviar</span>
-                        </div>
-                    `;
-                    submitBtn.disabled = true;
-                    break;
-            }
-        }
-        
-        // Reseta status de verificação
-        function resetVerificationStatus() {
-            phoneVerificationStatus = 'unverified';
-            updateVerificationUI();
-        }
-        
         // Mostra modal de verificação
-        function showVerificationModal(phoneNumber) {
-            // Gera novo código
-            currentVerificationCode = generateVerificationCode();
-            verificationExpiryTime = Date.now() + (10 * 60 * 1000); // 10 minutos
+        function showVerificationModal(phone) {
+            verificationCode = generateVerificationCode();
+            verificationCodeElement.textContent = verificationCode;
             
-            // Atualiza display do código
-            document.getElementById('verification-code-display').textContent = currentVerificationCode;
-            
-            // Formata número para WhatsApp
-            const cleanPhone = phoneNumber.replace(/\D/g, '');
+            const cleanPhone = phone.replace(/\D/g, '');
             const whatsappNumber = `+55${cleanPhone}`;
+            whatsappNumberElement.textContent = whatsappNumber;
             
-            // Atualiza botão do WhatsApp
-            const whatsappBtn = document.getElementById('open-whatsapp-btn');
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Código+de+verificação+Ozoxx:+${currentVerificationCode}`;
-            whatsappBtn.href = whatsappUrl;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Código+de+verificação+Ozoxx:+${verificationCode}`;
+            openWhatsAppBtn.href = whatsappUrl;
             
-            // Mostra modal
-            document.getElementById('verification-modal').style.display = 'flex';
-            phoneVerificationStatus = 'pending';
-            updateVerificationUI();
+            verificationModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
         
         // Fecha modal
-        document.getElementById('close-modal-btn').addEventListener('click', function() {
-            document.getElementById('verification-modal').style.display = 'none';
+        modalClose.addEventListener('click', () => {
+            verificationModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
         });
         
         // Copia código
-        document.getElementById('copy-code-btn').addEventListener('click', function() {
-            navigator.clipboard.writeText(currentVerificationCode).then(() => {
-                const originalText = this.innerHTML;
-                this.innerHTML = '<i class="fas fa-check"></i> CÓDIGO COPIADO!';
+        copyCodeBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(verificationCode).then(() => {
+                const originalText = copyCodeBtn.innerHTML;
+                copyCodeBtn.innerHTML = '<i class="fas fa-check"></i> Código Copiado!';
                 setTimeout(() => {
-                    this.innerHTML = originalText;
+                    copyCodeBtn.innerHTML = originalText;
                 }, 2000);
             });
         });
         
-        // Quando o telefone perde o foco (se estiver válido)
-        document.getElementById('phone').addEventListener('blur', function() {
+        // Quando o telefone perde o foco
+        phoneInput.addEventListener('blur', function() {
             const phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
-            
-            if (phoneRegex.test(this.value)) {
-                // Verifica se já está verificado
-                if (phoneVerificationStatus === 'verified' && verificationExpiryTime > Date.now()) {
-                    return; // Já está verificado e válido
-                }
-                
-                // Mostra modal de verificação
+            if (phoneRegex.test(this.value) && !isPhoneVerified) {
                 showVerificationModal(this.value);
             }
         });
         
-        // Campo para usuário inserir o código recebido
-        document.getElementById('phone').addEventListener('keyup', function(e) {
-            if (e.key === 'Enter' || e.key === 'Tab') {
-                return;
-            }
-            
-            // Se o usuário começar a digitar após a verificação pendente,
-            // assume que ele quer verificar manualmente
-            if (phoneVerificationStatus === 'pending') {
-                const modal = document.getElementById('verification-modal');
-                if (modal.style.display === 'flex') {
-                    return; // Modal já está aberto
-                }
-                
-                // Pergunta se quer abrir modal novamente
-                const userConfirmed = confirm('Deseja verificar seu número de telefone?');
-                if (userConfirmed) {
-                    showVerificationModal(this.value);
-                }
-            }
-        });
-        
-        // Validação manual do código (usuário pode clicar para verificar)
-        document.getElementById('phone').addEventListener('click', function() {
-            if (phoneVerificationStatus === 'pending') {
-                const modal = document.getElementById('verification-modal');
-                if (modal.style.display === 'none') {
-                    const userConfirmed = confirm('Você tem um código de verificação pendente. Deseja abrir as instruções?');
-                    if (userConfirmed) {
-                        showVerificationModal(this.value);
-                    }
-                }
-            }
-        });
-        
-        // ===========================================
-        // SUBMISSÃO DO FORMULÁRIO
-        // ===========================================
-        
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        // Submissão do formulário
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Verifica se o telefone foi verificado
-            if (phoneVerificationStatus !== 'verified') {
-                alert('Por favor, verifique seu número de telefone primeiro através do WhatsApp.');
-                document.getElementById('phone').focus();
+            if (!isPhoneVerified) {
+                verificationStatus.className = 'verification-status error';
+                verificationStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Por favor, verifique seu número de telefone primeiro.';
+                verificationStatus.style.display = 'block';
+                phoneInput.focus();
                 return;
             }
             
-            // Verifica se o código não expirou
-            if (verificationExpiryTime <= Date.now()) {
-                phoneVerificationStatus = 'expired';
-                updateVerificationUI();
-                alert('Seu código de verificação expirou. Por favor, verifique novamente seu telefone.');
-                showVerificationModal(document.getElementById('phone').value);
-                return;
-            }
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span class="spinner"></span> ENVIANDO...';
-            submitBtn.disabled = true;
-            
-            // Coletar dados
-            const phoneInput = document.getElementById('phone');
-            const cleanPhone = phoneInput.value.replace(/\D/g, '');
-            
+            // Coletar dados do formulário
             const formData = {
                 name: document.getElementById('name').value,
-                phone: phoneInput.value,
-                phone_clean: cleanPhone,
-                phone_verified: true,
-                verification_code: currentVerificationCode,
+                phone: document.getElementById('phone').value,
                 email: document.getElementById('email').value,
                 age: document.getElementById('age').value,
                 state: document.getElementById('state').value,
                 city: document.getElementById('city').value,
-                health_condition: document.getElementById('health-condition').value,
-                other_condition: document.getElementById('other-condition').value || '',
+                condition: document.getElementById('condition').value,
                 message: document.getElementById('message').value,
-                timestamp: new Date().toLocaleString('pt-BR'),
-                source: 'Site Ozoxx - WhatsApp Verification',
-                verification_timestamp: new Date().toISOString()
+                verification_code: verificationCode,
+                timestamp: new Date().toLocaleString('pt-BR')
             };
             
-            // URL do Google Apps Script (substitua pela sua)
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwRnHN1IGgEMFxKgjzTBklb30D_2dukDzAqJhJ20tEgu-wbuOobVxyWsF_Sq93c0TBpMQ/exec';
+            // Simular envio (substitua pela sua integração real)
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
             
-            // Envia para Google Sheets
-            fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(() => {
+            setTimeout(() => {
                 // Sucesso
-                const successHtml = `
-                    <div style="background: #d4edda; color: #155724; padding: 20px; border-radius: var(--radius); margin-bottom: 20px; text-align: center;">
-                        <h3 style="color: #155724; margin-bottom: 10px;">
-                            <i class="fas fa-check-circle"></i> Solicitação Enviada com Sucesso!
-                        </h3>
-                        <p>Entraremos em contato em até 24 horas no WhatsApp:</p>
-                        <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0;">
-                            ${phoneInput.value}
-                        </p>
-                        <p><strong>Verificado com sucesso!</strong></p>
-                    </div>
+                verificationStatus.className = 'verification-status success';
+                verificationStatus.innerHTML = `
+                    <i class="fas fa-check-circle"></i> 
+                    <strong>Solicitação enviada com sucesso!</strong><br>
+                    Entraremos em contato em até 24 horas pelo WhatsApp.
                 `;
+                verificationStatus.style.display = 'block';
                 
-                document.getElementById('form-verification-status').innerHTML = successHtml;
+                // Reset do formulário
+                contactForm.reset();
+                isPhoneVerified = false;
                 
-                // Reset do formulário (exceto telefone)
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('age').value = '';
-                document.getElementById('state').value = '';
-                document.getElementById('city').value = '';
-                document.getElementById('health-condition').value = '';
-                document.getElementById('other-condition').value = '';
-                document.getElementById('message').value = '';
-                document.getElementById('other-condition-group').style.display = 'none';
-                
-                // Mantém o telefone verificado
-                phoneVerificationStatus = 'verified';
-                
-                // Rola para o status
-                document.getElementById('form-verification-status').scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-                
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('⚠️ Ocorreu um erro ao enviar. Tente novamente ou entre em contato diretamente pelo WhatsApp: (11) 99999-9999');
-            })
-            .finally(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            });
+                
+                // Scroll para o status
+                verificationStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
         });
         
-        // Inicializa UI
-        updateVerificationUI();
+        // Verificação manual (para demonstração)
+        document.addEventListener('keydown', function(e) {
+            // Simulação: Se o usuário digitar "123456" no campo de telefone, marca como verificado
+            if (e.key === 'Enter' && phoneInput.value.includes('123456')) {
+                isPhoneVerified = true;
+                verificationStatus.className = 'verification-status success';
+                verificationStatus.innerHTML = '<i class="fas fa-check-circle"></i> Telefone verificado com sucesso!';
+                verificationStatus.style.display = 'block';
+                verificationModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
         
         // Fecha modal ao clicar fora
-        document.getElementById('verification-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
+        window.addEventListener('click', function(e) {
+            if (e.target === verificationModal) {
+                verificationModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
         
-        // Tecla ESC fecha modal
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.getElementById('verification-modal').style.display = 'none';
-            }
-        });
-        
-        // Auto-verificação (simulação para demonstração)
-        // Em produção, você teria um sistema onde o usuário realmente envia o código
-        // Esta função simula o usuário verificando
-        function simulateVerification() {
-            setTimeout(() => {
-                if (phoneVerificationStatus === 'pending') {
-                    const confirmVerification = confirm('Para demonstração: Simular que você verificou o telefone? (Em produção, o usuário realmente enviaria o código por WhatsApp)');
-                    if (confirmVerification) {
-                        phoneVerificationStatus = 'verified';
-                        updateVerificationUI();
-                        document.getElementById('verification-modal').style.display = 'none';
-                        alert('✅ Telefone verificado com sucesso! Agora você pode enviar o formulário.');
-                    }
-                }
-            }, 3000);
-        }
-        
-        // Inicia simulação quando modal abre
-        const modalObserver = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === 'style') {
-                    const modal = document.getElementById('verification-modal');
-                    if (modal.style.display === 'flex') {
-                        simulateVerification();
-                    }
-                }
-            });
-        });
-        
-        modalObserver.observe(document.getElementById('verification-modal'), {
-            attributes: true,
-            attributeFilter: ['style']
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ativar primeiro filtro
+            document.querySelector('.filter-btn[data-filter="all"]').click();
         });
     </script>
 </body>
