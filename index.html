@@ -1,6 +1,15 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8D4M7PEGKL');
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ozoxx - Ozonioterapia Caseira | Resultados Reais Comprovados</title>
@@ -13,266 +22,39 @@
     <meta property="og:url" content="https://seu-site.com">
     <meta property="og:type" content="website">
     
-    <!-- Preconnect para recursos críticos -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://ozoxx.com.br/wp-content/uploads/2023/01/cropped-favicon-32x32.png">
     
-    <!-- CSS Crítico Inline (Otimizado) -->
     <style>
-        /* CSS Crítico - Apenas o necessário para renderização inicial */
+        /* =========================================== */
+        /* RESET E VARIÁVEIS GLOBAIS */
+        /* =========================================== */
         :root {
             --primary: #0a5c8c;
             --primary-dark: #084770;
-            --secondary: #1a9cda;
-            --accent: #ff6b35;
-            --whatsapp: #25D366;
-            --light: #f8f9fa;
-            --dark: #333333;
-            --white: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--white);
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Estilos críticos para header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: var(--white);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            height: 50px;
-        }
-        
-        .logo img {
-            height: 100%;
-            width: auto;
-            max-width: 100%;
-        }
-        
-        /* Hero section crítica */
-        .hero {
-            padding: 180px 20px 100px;
-            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.85));
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.8rem);
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Botões críticos */
-        .btn {
-            display: inline-block;
-            padding: 16px 35px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-weight: 600;
-            text-align: center;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-        }
-        
-        /* Imagens otimizadas */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: var(--whatsapp);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 999;
-            text-decoration: none;
-        }
-        
-        /* Mobile menu básico */
-        .mobile-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary);
-        }
-        
-        @media (max-width: 992px) {
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .hero {
-                padding: 150px 20px 80px;
-            }
-        }
-    </style>
-    
-    <!-- CSS não-crítico carregado assíncrono -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"></noscript>
-    
-    <!-- Font Awesome carregada assíncrona -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    
-    <!-- Google Analytics otimizado -->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8D4M7PEGKL', { 'transport_type': 'beacon' });
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL"></script>
-</head>
-<body>
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
-
-    <!-- Header -->
-    <header id="header">
-        <div class="header-container">
-            <div class="logo">
-                <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx Ozonioterapia" width="150" height="50">
-            </div>
-            
-            <div class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            
-            <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
-                <a href="#home" class="nav-link">Início</a>
-                <a href="#benefits" class="nav-link">Benefícios</a>
-                <a href="#how-it-works" class="nav-link">Como Funciona</a>
-                <a href="#clients" class="nav-link">Resultados</a>
-                <a href="#testimonials" class="nav-link">Depoimentos</a>
-                <a href="#products" class="nav-link">Produtos</a>
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-comment-medical"></i> Falar com Especialista
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Resultados Reais com Ozonioterapia Caseira</h1>
-                <p>Veja fotos reais de pessoas que trataram <strong>pé diabético, psoríase, artrose e dores crônicas</strong> no conforto de casa. Tecnologia aprovada pela ANVISA.</p>
-                
-                <div class="hero-badges">
-                    <div class="badge">
-                        <i class="fas fa-shield-alt"></i> Aprovado pela ANVISA
-                    </div>
-                    <div class="badge">
-                        <i class="fas fa-users"></i> +5.000 Clientes Satisfeitos
-                    </div>
-                    <div class="badge">
-                        <i class="fas fa-truck"></i> Entrega para Todo Brasil
-                    </div>
-                </div>
-                
-                <div class="hero-video">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/G6t7AZLJqPY?rel=0&modestbranding=1&controls=1" title="Ozoxx - Resultados Reais" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-                
-                <div class="hero-actions">
-                    <a href="#clients" class="btn btn-accent btn-lg">
-                        <i class="fas fa-images"></i> Ver Fotos Reais
-                    </a>
-                    <a href="#contact" class="btn btn-secondary btn-lg">
-                        <i class="fas fa-comment-medical"></i> Falar com Especialista
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resto do conteúdo permanece igual, mas com otimizações -->
-
-    <!-- CSS não-crítico (carregado após renderização inicial) -->
-    <style id="non-critical-css">
-        /* =========================================== */
-        /* ESTILOS NÃO-CRÍTICOS */
-        /* =========================================== */
-        :root {
             --primary-light: #e3f2fd;
+            --secondary: #1a9cda;
             --secondary-light: #e1f5fe;
+            --accent: #ff6b35;
             --accent-light: #ffebee;
             --success: #28a745;
             --warning: #ffc107;
             --danger: #dc3545;
+            --whatsapp: #25D366;
+            --light: #f8f9fa;
             --light-gray: #e9ecef;
             --gray: #6c757d;
+            --dark: #333333;
             --darker: #212529;
+            --white: #ffffff;
             --black: #000000;
             
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
@@ -290,17 +72,26 @@
             --transition-fast: all 0.15s ease;
             
             --container-max: 1200px;
+            --container-padding: 0 20px;
         }
         
-        .container {
-            width: 100%;
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .section {
-            padding: 100px 0;
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
             position: relative;
         }
         
@@ -309,6 +100,11 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
         }
         
         h2 {
@@ -337,14 +133,72 @@
             font-size: 1.8rem;
         }
         
+        h4 {
+            font-size: 1.4rem;
+        }
+        
         p {
             margin-bottom: 1rem;
             font-size: 1.1rem;
             color: var(--gray);
         }
         
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
         .text-center {
             text-align: center;
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
         }
         
         .section-title {
@@ -352,18 +206,60 @@
             margin-bottom: 60px;
         }
         
+        .section-title h2 {
+            color: var(--primary);
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            padding: 16px 35px;
             font-family: 'Poppins', sans-serif;
+            font-weight: 600;
             font-size: 1.1rem;
+            border: none;
+            border-radius: var(--radius-xl);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         
-        .btn-lg {
-            padding: 20px 45px;
-            font-size: 1.2rem;
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition-slow);
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
         .btn-secondary {
@@ -372,90 +268,1986 @@
             box-shadow: var(--shadow);
         }
         
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
         .btn-accent {
             background: linear-gradient(135deg, var(--accent) 0%, #e05a2b 100%);
             color: var(--white);
             box-shadow: var(--shadow);
         }
         
-        .btn-primary:hover,
-        .btn-secondary:hover,
         .btn-accent:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
         
-        .hero {
-            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.85)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #1da851 100%);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-lg {
+            padding: 20px 45px;
+            font-size: 1.2rem;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
             position: relative;
             overflow: hidden;
         }
         
-        /* Resto dos estilos não-críticos */
-        /* ... (mantenha o restante do CSS original aqui) ... */
-    </style>
-
-    <!-- Scripts otimizados -->
-    <script>
-        // Carrega CSS não-crítico após a renderização
-        if (window.addEventListener) {
-            window.addEventListener('load', function() {
-                var nonCriticalCSS = document.getElementById('non-critical-css');
-                if (nonCriticalCSS) {
-                    nonCriticalCSS.disabled = false;
-                }
-            });
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
         
-        // Scripts críticos mínimos
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 2rem;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon.accent {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        
+        .card-icon.secondary {
+            background: var(--secondary-light);
+            color: var(--secondary);
+        }
+        
+        /* =========================================== */
+        /* HEADER */
+        /* =========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            margin-left: 20px;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* =========================================== */
+        /* HERO SECTION */
+        /* =========================================== */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(10, 92, 140, 0.9), rgba(26, 156, 218, 0.85)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--white));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .hero-video {
+            max-width: 900px;
+            margin: 40px auto 50px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: var(--black);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* =========================================== */
+        /* BENEFÍCIOS */
+        /* =========================================== */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        /* =========================================== */
+        /* COMO FUNCIONA - CONTRASTE CORRIGIDO */
+        /* =========================================== */
+        .how-it-works {
+            background: linear-gradient(135deg, #0a5c8c 0%, #1a9cda 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .how-it-works .section-title h2 {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .how-it-works .section-title p {
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-size: 1.3rem;
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .how-it-works .section-title h2:after {
+            background: #FFFFFF !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            text-align: center;
+            color: var(--white);
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+        
+        .step:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .step h3 {
+            color: #FFFFFF !important;
+            font-size: 1.8rem;
+            margin: 20px 0 15px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .step p {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .step-number:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        /* =========================================== */
+        /* RESULTADOS CLIENTES - COM 14 IMAGENS AGORA */
+        /* =========================================== */
+        .clients-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: var(--light);
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-xl);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .client-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 280px;
+            cursor: pointer;
+        }
+        
+        .client-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .client-card:hover .client-image {
+            transform: scale(1.05);
+        }
+        
+        .client-overlay,
+        .client-condition,
+        .client-card h4 {
+            display: none !important;
+        }
+        
+        /* =========================================== */
+        /* DEPOIMENTOS EM VÍDEO - 12 VÍDEOS REAIS */
+        /* =========================================== */
+        .testimonials-video-section {
+            background: var(--light);
+        }
+        
+        .testimonials-video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-video-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .testimonial-video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: var(--black);
+        }
+        
+        .testimonial-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .testimonial-video-content {
+            padding: 25px;
+        }
+        
+        .testimonial-video-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+            min-height: 65px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-video-description {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.5;
+            min-height: 120px;
+        }
+        
+        .testimonial-video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .testimonial-video-condition {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: var(--radius-xl);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .testimonial-video-duration {
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .testimonial-video-duration i {
+            color: var(--secondary);
+        }
+        
+        /* =========================================== */
+        /* PRODUTOS */
+        /* =========================================== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition-slow);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .product-content {
+            padding: 30px;
+        }
+        
+        .product-features {
+            margin: 25px 0;
+        }
+        
+        .product-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .product-feature i {
+            color: var(--success);
+            font-size: 1.1rem;
+        }
+        
+        /* =========================================== */
+        /* FORMULÁRIO */
+        /* =========================================== */
+        .form-section {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-header h3 {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(26, 156, 218, 0.1);
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230a5c8c' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            padding-right: 45px;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-checkbox input {
+            margin-top: 5px;
+        }
+        
+        .verification-status {
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .verification-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .verification-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        /* Modal de Verificação */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            color: var(--danger);
+        }
+        
+        .verification-code {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 10px;
+            color: var(--primary);
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: var(--radius);
+            font-family: monospace;
+        }
+        
+        /* =========================================== */
+        /* FOOTER */
+        /* =========================================== */
+        footer {
+            background: var(--darker);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 100%;
+        }
+        
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .footer-title {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact i {
+            width: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: var(--whatsapp);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* =========================================== */
+        /* RESPONSIVIDADE */
+        /* =========================================== */
+        @media (max-width: 1200px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.4rem; }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+        
+        @media (max-width: 992px) {
+            h1 { font-size: 2.6rem; }
+            h2 { font-size: 2rem; }
+            .section { padding: 80px 0; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-grid { grid-template-columns: 1fr; }
+            .testimonials-video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: var(--white);
+                padding: 30px;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+                gap: 20px;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .section { padding: 60px 0; }
+            .hero { padding: 150px 0 80px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .clients-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-container { padding: 30px 20px; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; }
+            .steps { grid-template-columns: 1fr; gap: 30px; }
+            .step { padding: 25px; }
+            .testimonials-video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 25px;
+            }
+            .testimonial-video-title {
+                font-size: 1.3rem;
+                min-height: 60px;
+            }
+            .testimonial-video-description {
+                min-height: 110px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .clients-grid { grid-template-columns: 1fr; }
+            .products-grid { gap: 30px; }
+            .product-image { height: 250px; padding: 30px; }
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.7rem;
+            }
+            .testimonials-video-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .testimonial-video-content {
+                padding: 20px;
+            }
+            .testimonial-video-title {
+                font-size: 1.2rem;
+                min-height: auto;
+                margin-bottom: 10px;
+            }
+            .testimonial-video-description {
+                min-height: auto;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header" class="">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx Ozonioterapia">
+            </div>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Início</a>
+                <a href="#benefits" class="nav-link">Benefícios</a>
+                <a href="#how-it-works" class="nav-link">Como Funciona</a>
+                <a href="#clients" class="nav-link">Resultados</a>
+                <a href="#testimonials" class="nav-link">Depoimentos</a>
+                <a href="#products" class="nav-link">Produtos</a>
+                <div class="nav-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-comment-medical"></i> Falar com Especialista
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Resultados Reais com Ozonioterapia Caseira</h1>
+                <p>Veja fotos reais de pessoas que trataram <strong>pé diabético, psoríase, artrose e dores crônicas</strong> no conforto de casa. Tecnologia aprovada pela ANVISA.</p>
+                
+                <div class="hero-badges">
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i> Aprovado pela ANVISA
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-users"></i> +5.000 Clientes Satisfeitos
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-truck"></i> Entrega para Todo Brasil
+                    </div>
+                </div>
+                
+                <div class="hero-video">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/G6t7AZLJqPY?rel=0&amp;modestbranding=1&amp;controls=1" title="Ozoxx - Resultados Reais" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#clients" class="btn btn-accent btn-lg">
+                        <i class="fas fa-images"></i> Ver Fotos Reais
+                    </a>
+                    <a href="#contact" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-comment-medical"></i> Falar com Especialista
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="section bg-light" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por Que a Ozonioterapia Funciona?</h2>
+                <p>Descubra os benefícios cientificamente comprovados da terapia com ozônio para sua saúde</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
+                    <h3>Ação Antibacteriana</h3>
+                    <p>Elimina bactérias, vírus e fungos que impedem a cicatrização de feridas e úlceras.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon secondary">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Melhora Circulação</h3>
+                    <p>Aumenta oxigenação dos tecidos, acelerando a recuperação e reduzindo inflamações.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon accent">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Estimula Regeneração</h3>
+                    <p>Ativa células de defesa e produção de colágeno para cicatrização mais rápida.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguro e Natural</h3>
+                    <p>Terapia natural sem efeitos colaterais quando aplicada corretamente. Aprovado pela ANVISA.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon secondary">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Indicado para Todas as Idades</h3>
+                    <p>Pode ser usado com segurança por crianças, adultos e idosos, adaptando protocolos conforme necessidade.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon accent">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Trata Centenas de Doenças</h3>
+                    <p>Eficaz no tratamento de mais de 100 condições, de problemas dermatológicos a doenças autoimunes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona o Tratamento em Casa</h2>
+                <p>Tratamento simples que você faz em casa, sem precisar se deslocar para clínicas</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Receba o Aparelho</h3>
+                    <p>Ozoxx chega na sua casa completo, com todos os acessórios e manual de uso.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Siga o Protocolo</h3>
+                    <p>Aplicamos o protocolo específico para sua condição (pé diabético, psoríase, etc.).</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Tenha Resultados</h3>
+                    <p>Em poucas semanas você verá a melhora. Acompanhamento com nossos especialistas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados Clientes - COM 14 IMAGENS AGORA -->
+    <section class="section" id="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resultados Reais dos Nossos Clientes</h2>
+                <p>Fotos reais de pessoas que transformaram sua saúde com o Ozoxx</p>
+            </div>
+            
+            <div class="clients-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="diabetico">Pé Diabético</button>
+                <button class="filter-btn" data-filter="psoriase">Psoríase</button>
+                <button class="filter-btn" data-filter="artrose">Artrose</button>
+                <button class="filter-btn" data-filter="dermatite">Dermatite</button>
+            </div>
+            
+            <div class="clients-grid">
+                <!-- Cards existentes (10 imagens originais) -->
+                <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/casal-comprando-o-aparelho-ozoxx.webp" alt="Casal comprando Ozoxx" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all psoriase" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-o-aparelho-ozoxx.webp" alt="Família com Ozoxx" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all artrose" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-compra-o-Ozoxx.webp" alt="Família feliz com Ozoxx" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all dermatite" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-decide-comprar-o-aparelho-ozoxx.webp" alt="Família decidindo comprar" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all diabetico" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/homem-compra-aparelho-ozoxx-e-fica-satisfeito.webp" alt="Homem satisfeito com Ozoxx" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all psoriase" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-familia-comprando-o-aparelho-ozoxx.webp" alt="Outra família comprando" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all artrose" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/um-senhor-de-idade-compra-o-aparelho-ozoxx.webp" alt="Senhor de idade comprando" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/ozoxx-e-seus-produtos-vendedores-vendendo.webp" alt="Produtos Ozoxx" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all dermatite" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-compra-o-aparelho-ozoxx.webp" alt="Senhora comprando" class="client-image" loading="lazy">
+                </div>
+                
+                <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-idosa-comprando-o-aparelho-ozoxx.webp" alt="Senhora idosa comprando" class="client-image" loading="lazy">
+                </div>
+                
+                <!-- NOVAS IMAGENS ADICIONADAS - 4 NOVOS CARDS -->
+                <!-- Imagem 11 -->
+                <div class="client-card" data-category="all diabetico" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/Tratamento-com-aparelho-ozoxx-Muitas-dores-Joelhos-Bico-de-Papagaio-Glaucoma-Ca%CC%83imbras.webp" alt="" class="client-image" loading="lazy">
+                </div>
+                
+                <!-- Imagem 12 -->
+                <div class="client-card" data-category="all psoriase artrose" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/Tratamento-com-ozonio-usando-aparelho-ozoxx.webp" alt="" class="client-image" loading="lazy">
+                </div>
+                
+                <!-- Imagem 13 -->
+                <div class="client-card" data-category="all dermatite" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-aparelho-ozoxx.webp" alt="" class="client-image" loading="lazy">
+                </div>
+                
+                <!-- Imagem 14 -->
+                <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/mais-uma-familia-compra-aparelho-ozoxx.webp">
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="#contact" class="btn btn-primary btn-lg">
+                    <i class="fas fa-camera"></i> Quero Ter Esses Resultados
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos em Vídeo - COM 12 VÍDEOS REAIS -->
+    <section class="section testimonials-video-section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Depoimentos em Vídeo</h2>
+                <p>Veja e ouça diretamente dos nossos clientes sobre suas experiências com o Ozoxx</p>
+            </div>
+            
+            <div class="testimonials-video-grid">
+                <!-- Depoimento 1 - KmPiKwxT8MM -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/KmPiKwxT8MM?rel=0&amp;modestbranding=1&amp;controls=1" title="Radioterapia e Câncer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Radioterapia e Câncer"</h3>
+                        <p class="testimonial-video-description">"Médica diz: "Seu marido está praticamente curado! O que ele fez?"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Câncer</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 20 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 2 - 3BhXyv1lOQk -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/3BhXyv1lOQk?rel=0&amp;modestbranding=1&amp;controls=1" title="Autismo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Autismo"</h3>
+                        <p class="testimonial-video-description">"Avô diz: "Meu neto tinha autismo grau "3", depois de usar o Ozoxx por 30 dias ele ficou 50% mais inteligente, na escola ele já faz tudo"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Autismo</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 30 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 3 - z_E1DD77NPo -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/z_E1DD77NPo?rel=0&amp;modestbranding=1&amp;controls=1" title="Rinite, Bronquite Asmática, Sinusite e Enxaqueca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Rinite, Bronquite Asmática, Sinusite e Enxaqueca"</h3>
+                        <p class="testimonial-video-description">"Tomava 3 remédios, não conseguia trabalhar, usei o Ozoxx e melhorei 50% em poucos dias, meu filho com rinite melhorou 90%"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Bronquite</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 2 meses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 4 - KdqQ2LR3CdY -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/KdqQ2LR3CdY?rel=0&amp;modestbranding=1&amp;controls=1" title="Problema de Próstata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Problema de Próstata"</h3>
+                        <p class="testimonial-video-description">"Acordava mais de 5x na noite pra ir ao banheiro, hoje graças ao Ozoxx não tenho mais problema na próstata!"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Próstata</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 30 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 5 - hyfFEvJba3Y -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/hyfFEvJba3Y?rel=0&amp;modestbranding=1&amp;controls=1" title="Hemodiálise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Meu irmão fazia Hemodiálise"</h3>
+                        <p class="testimonial-video-description">"Em menos 60 dias a vida do meu irmão mudou, não precisa mais fazer Hemodiálise"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Hemodiálise</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 60 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 6 - HosXRSccjGk -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/HosXRSccjGk?rel=0&amp;modestbranding=1&amp;controls=1" title="Osteoartrite, Artrose, derrame articular, bico de papagaio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Osteoartrite, Artrose, derrame articular, bico de papagaio"</h3>
+                        <p class="testimonial-video-description">"Em 10 dias de uso do Ozoxx, 90% das dores sumiram. Fazia anos que não vivia bem, comecei a dormir melhor. Eu tinha todos esses problemas, "especialistas" indicavam prótese de quadril, não conseguia subir escada, não conseguia entrar no carro. Ozoxx mudou minha vida!"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Artrose e Bico de Papagaio</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 50 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 7 - NuI72xpM_io -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/NuI72xpM_io?rel=0&amp;modestbranding=1&amp;controls=1" title="Sinusite, e Rinite Alérgica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Sinusite, e Rinite Alérgica"</h3>
+                        <p class="testimonial-video-description">"Nunca respirei tão bem na minha vida"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Sinusite e Rinite</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 25 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 8 - Short 28PuLrL9FYg -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/28PuLrL9FYg?rel=0&amp;modestbranding=1&amp;controls=1" title="Enxaqueca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Enxaqueca"</h3>
+                        <p class="testimonial-video-description">"Eu tinha 2 crises por semana, ficava 2 dias trancado no quarto de tanta dor. Graças ao Ozoxx não tenho mais!"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Enxaqueca</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 25 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 9 - Short N8_nMV_6Ldo -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/N8_nMV_6Ldo?rel=0&amp;modestbranding=1&amp;controls=1" title="Hemodiálise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Fazendo hemodiálise"</h3>
+                        <p class="testimonial-video-description">"Não conseguia nem levantar da cama, graças a essa máquina(Ozoxx) Não precisa mais andar de cadeira de rodas"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Cadeirante</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 15 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 10 - Short rEYB9kj9HbI -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/rEYB9kj9HbI?rel=0&amp;modestbranding=1&amp;controls=1" title="Lúpus Doença Autoimune" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Lúpus Doença Autoimune"</h3>
+                        <p class="testimonial-video-description">"Minhas feridas praticamente secaram. Minha vida mudou depois de usar o Ozoxx."</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Lúpus</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 40 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 11 - Short dWucrzbatRk -->
+                <div class="testimonial-video-card">
+                    <div class="testimonial-video-container">
+                        <iframe src="https://www.youtube.com/embed/dWucrzbatRk?rel=0&amp;modestbranding=1&amp;controls=1" title="Trombose" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <div class="testimonial-video-content">
+                        <h3 class="testimonial-video-title">"Trombose nas Pernas"</h3>
+                        <p class="testimonial-video-description">"Médicos diziam que eu não podia fazer o uso do ozônio. Depois de usar o Ozoxx por 30 dias consegui dormi até as 8 horas da manhã"</p>
+                        <div class="testimonial-video-meta">
+                            <div class="testimonial-video-condition">Trombose</div>
+                            <div class="testimonial-video-duration">
+                                <i class="fas fa-clock"></i> 30 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--gray);">
+                    <i class="fas fa-info-circle" style="color: var(--primary);"></i> 
+                    Estes são apenas alguns dos milhares de depoimentos que recebemos diariamente
+                </p>
+                <a href="#contact" class="btn btn-primary btn-lg">
+                    <i class="fas fa-play-circle"></i> Quero saber mais!
+                </a>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- Produtos -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conheça Nossos Geradores de Ozônio</h2>
+                <p>Tecnologia de plasma frio aprovada para uso humano. Desenvolvidos para diferentes necessidades terapêuticas.</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Ozoxx MULTI -->
+                <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/maquina-de-ozonio-terapia-Ozoxx-Multi.webp" alt="Ozoxx MULTI - Gerador de Ozônio" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Ozoxx MULTI</h3>
+                        <p><strong>Para uso humano e ambiental</strong></p>
+                        
+                        <div class="product-features">
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Aprovado para exposição humana</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Laudos UFF e UNICAMP</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Emissão segura: 0,06 ppm</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ozonização de ambientes</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ozonização de alimentos</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ozonização da água</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="btn btn-primary btn-block">
+                            <i class="fas fa-info-circle"></i> Saber Mais Sobre MULTI
+                        </a>
+                    </div>
+                
+                
+                <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/maquina-de-ozonio-terapia-Ozoxx-AIR.webp" alt="Ozoxx AIR - Sanitizador Profissional" loading="lazy">
+                        
+                    
+                    <div class="product-content">
+                        <h3>Ozoxx AIR</h3>
+                        <p><strong>Para sanitização de ambientes</strong></p>
+                        
+                        <div class="product-features">
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Sanitização de casas e empresas</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Elimina vírus, bactérias, fungos</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Programação automatizada</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Economia de energia</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Para salões e comércios</span>
+                            </div>
+                            <div class="product-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Uso profissional</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="btn btn-primary btn-block">
+                            <i class="fas fa-info-circle"></i> Saber Mais Sobre AIR
+                        </a>
+                    </div>
+                
+            
+        
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section bg-gradient">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--white);">Não Conviva Mais com Dor e Limitações</h2>
+                <p style="color: rgba(255,255,255,0.9);">Você viu os resultados reais. Agora é sua vez de transformar sua saúde e qualidade de vida.</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="btn btn-accent btn-lg">
+                    <i class="fas fa-comment-medical"></i> Falar com Especialista Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário -->
+    <section class="section form-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fale Com Nossos Especialistas</h2>
+                <p>Preencha o formulário abaixo e um especialista em ozonioterapia entrará em contato para tirar todas suas dúvidas.</p>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Solicite sua Consulta Gratuita</h3>
+                    <p><i class="fas fa-shield-alt"></i> Verificamos seu telefone gratuitamente via WhatsApp</p>
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nome Completo *</label>
+                            <input type="text" id="name" class="form-control" required="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefone/WhatsApp *</label>
+                            <input type="tel" id="phone" class="form-control" required="" placeholder="(11) 99999-9999">
+                            <small style="display: block; margin-top: 5px; color: var(--gray);">Verificação obrigatória via WhatsApp</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" id="email" class="form-control" placeholder="seu@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age" class="form-label">Idade *</label>
+                            <input type="number" id="age" class="form-control" required="" min="1" max="120">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state" class="form-label">Estado *</label>
+                            <select id="state" class="form-control form-select" required="">
+                                <option value="">Selecione seu estado</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <!-- Outros estados -->
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city" class="form-label">Cidade *</label>
+                            <input type="text" id="city" class="form-control" required="">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="condition" class="form-label">Condição de Saúde (Opcional)</label>
+                            <select id="condition" class="form-control form-select">
+                                <option value="">Selecione sua condição</option>
+                                <option value="diabetico">Pé Diabético</option>
+                                <option value="psoriase">Psoríase</option>
+                                <option value="artrose">Artrose</option>
+                                <option value="dermatite">Dermatite</option>
+                                <option value="outra">Outra</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message" class="form-label">Conte mais sobre seu caso (Opcional)</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Há quanto tempo sofre com isso? Quais tratamentos já tentou?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy" required="">
+                        <label for="privacy">Concordo com a Política de Privacidade e autorizo o contato via WhatsApp</label>
+                    </div>
+                    
+                    <div id="verificationStatus" class="verification-status"></div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Verificação -->
+    <div class="modal" id="verificationModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h3 style="color: var(--primary); margin-bottom: 20px;">
+                <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> Verificação por WhatsApp
+            </h3>
+            
+            <p>Para garantir sua segurança, precisamos verificar seu número de telefone.</p>
+            
+            <div class="whatsapp-instructions" style="background: #f0f9ff; padding: 20px; border-radius: var(--radius); margin: 20px 0;">
+                <p><strong>Como verificar:</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Anote o código abaixo</li>
+                    <li>Abra o WhatsApp no seu celular</li>
+                    <li>Envie o código para: <strong id="whatsappNumber"></strong></li>
+                </ol>
+            </div>
+            
+            <div class="verification-code" id="verificationCode">000000</div>
+            
+            <div style="display: flex; gap: 15px; margin-top: 30px;">
+                <button id="copyCode" class="btn" style="flex: 1;">
+                    <i class="fas fa-copy"></i> Copiar Código
+                </button>
+                <a id="openWhatsApp" class="btn btn-whatsapp" style="flex: 1;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Abrir WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx">
+                    </div>
+                    <p>Ozoxx é o primeiro aparelho de ozonioterapia caseira do Brasil, desenvolvido para oferecer saúde, bem-estar e qualidade de vida através da terapia com ozônio medicinal.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                        <li><a href="#benefits"><i class="fas fa-chevron-right"></i> Benefícios</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-chevron-right"></i> Como Funciona</a></li>
+                        <li><a href="#clients"><i class="fas fa-chevron-right"></i> Resultados</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Depoimentos</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="tel:+5511999999999">
+                                <i class="fas fa-phone"></i> (11) 99999-9999
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:ozoxx.venda@gmail.com">
+                                <i class="fas fa-envelope"></i> ozoxx.venda@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/5511999999999" target="_blank">
+                                <i class="fab fa-whatsapp"></i> (11) 99999-9999
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 Ozoxx - Ozonioterapia Caseira. Todos os direitos reservados.</p>
+                <p>Registro ANVISA: xxxxxx. Este site não faz parte do Google ou Facebook.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===========================================
+        // FUNÇÕES GERAIS
+        // ===========================================
+        
+        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
-            header.classList.toggle('scrolled', window.scrollY > 100);
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
         
         // Mobile menu toggle
-        document.getElementById('mobileToggle')?.addEventListener('click', function() {
-            const navMenu = document.getElementById('navMenu');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
-            this.innerHTML = navMenu.classList.contains('active') 
+            mobileToggle.innerHTML = navMenu.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Smooth scroll otimizado
-        document.addEventListener('click', function(e) {
-            if (e.target.matches('a[href^="#"]')) {
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(e.target.getAttribute('href'));
-                if (target) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+        
+        // ===========================================
+        // FILTRO DE CLIENTES
+        // ===========================================
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const clientCards = document.querySelectorAll('.client-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter cards
+                clientCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // ===========================================
+        // FORMULÁRIO E VERIFICAÇÃO
+        // ===========================================
+        const contactForm = document.getElementById('contactForm');
+        const verificationModal = document.getElementById('verificationModal');
+        const modalClose = document.getElementById('modalClose');
+        const copyCodeBtn = document.getElementById('copyCode');
+        const openWhatsAppBtn = document.getElementById('openWhatsApp');
+        const verificationStatus = document.getElementById('verificationStatus');
+        const verificationCodeElement = document.getElementById('verificationCode');
+        const whatsappNumberElement = document.getElementById('whatsappNumber');
+        
+        let verificationCode = '';
+        let isPhoneVerified = false;
+        
+        // Formatação automática do telefone
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.substring(0, 11);
+            
+            if (value.length > 10) {
+                e.target.value = `(${value.substring(0,2)}) ${value.substring(2,7)}-${value.substring(7,11)}`;
+            } else if (value.length > 6) {
+                e.target.value = `(${value.substring(0,2)}) ${value.substring(2,6)}-${value.substring(6,10)}`;
+            } else if (value.length > 2) {
+                e.target.value = `(${value.substring(0,2)}) ${value.substring(2)}`;
+            } else if (value.length > 0) {
+                e.target.value = `(${value}`;
             }
         });
-    </script>
-    
-    <!-- Scripts não-críticos carregados após a renderização -->
-    <script defer>
-        // Carrega scripts não-críticos aqui
-        // Filtro de clientes, formulário, etc.
-        // ... (mantenha o restante do JavaScript original aqui) ...
         
-        // Lazy loading para iframes
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframes = document.querySelectorAll('iframe[loading="lazy"]');
-            iframes.forEach(iframe => {
-                iframe.setAttribute('loading', 'lazy');
-            });
+        // Gera código de verificação
+        function generateVerificationCode() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+        
+        // Mostra modal de verificação
+        function showVerificationModal(phone) {
+            verificationCode = generateVerificationCode();
+            verificationCodeElement.textContent = verificationCode;
             
-            // Inicializa filtro
-            document.querySelector('.filter-btn[data-filter="all"]')?.click();
+            const cleanPhone = phone.replace(/\D/g, '');
+            const whatsappNumber = `+55${cleanPhone}`;
+            whatsappNumberElement.textContent = whatsappNumber;
+            
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Código+de+verificação+Ozoxx:+${verificationCode}`;
+            openWhatsAppBtn.href = whatsappUrl;
+            
+            verificationModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Fecha modal
+        modalClose.addEventListener('click', () => {
+            verificationModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Copia código
+        copyCodeBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(verificationCode).then(() => {
+                const originalText = copyCodeBtn.innerHTML;
+                copyCodeBtn.innerHTML = '<i class="fas fa-check"></i> Código Copiado!';
+                setTimeout(() => {
+                    copyCodeBtn.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+        
+        // Quando o telefone perde o foco
+        phoneInput.addEventListener('blur', function() {
+            const phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
+            if (phoneRegex.test(this.value) && !isPhoneVerified) {
+                showVerificationModal(this.value);
+            }
+        });
+        
+        // Submissão do formulário
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!isPhoneVerified) {
+                verificationStatus.className = 'verification-status error';
+                verificationStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Por favor, verifique seu número de telefone primeiro.';
+                verificationStatus.style.display = 'block';
+                phoneInput.focus();
+                return;
+            }
+            
+            // Coletar dados do formulário
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                age: document.getElementById('age').value,
+                state: document.getElementById('state').value,
+                city: document.getElementById('city').value,
+                condition: document.getElementById('condition').value,
+                message: document.getElementById('message').value,
+                verification_code: verificationCode,
+                timestamp: new Date().toLocaleString('pt-BR')
+            };
+            
+            // Simular envio (substitua pela sua integração real)
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Sucesso
+                verificationStatus.className = 'verification-status success';
+                verificationStatus.innerHTML = `
+                    <i class="fas fa-check-circle"></i> 
+                    <strong>Solicitação enviada com sucesso!</strong><br>
+                    Entraremos em contato em até 24 horas pelo WhatsApp.
+                `;
+                verificationStatus.style.display = 'block';
+                
+                // Reset do formulário
+                contactForm.reset();
+                isPhoneVerified = false;
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Scroll para o status
+                verificationStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
+        });
+        
+        // Verificação manual (para demonstração)
+        document.addEventListener('keydown', function(e) {
+            // Simulação: Se o usuário digitar "123456" no campo de telefone, marca como verificado
+            if (e.key === 'Enter' && phoneInput.value.includes('123456')) {
+                isPhoneVerified = true;
+                verificationStatus.className = 'verification-status success';
+                verificationStatus.innerHTML = '<i class="fas fa-check-circle"></i> Telefone verificado com sucesso!';
+                verificationStatus.style.display = 'block';
+                verificationModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Fecha modal ao clicar fora
+        window.addEventListener('click', function(e) {
+            if (e.target === verificationModal) {
+                verificationModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ativar primeiro filtro
+            document.querySelector('.filter-btn[data-filter="all"]').click();
         });
     </script>
+
+
 </body>
 </html>
