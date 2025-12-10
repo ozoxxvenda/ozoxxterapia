@@ -6,9 +6,6 @@
     <title>Ozoxx - Ozonioterapia Caseira | Resultados Reais Comprovados</title>
     <meta name="description" content="Veja fotos reais de clientes que trataram pé diabético, psoríase e dores com Ozoxx. Resultados comprovados. Aprovado pela ANVISA.">
     <meta name="author" content="Ozoxx - Ozonioterapia Caseira">
-    <meta name="keywords" content="ozonioterapia caseira, tratamento pé diabético, psoríase tratamento, dor crônica, gerador de ozônio, tratamento natural, saúde em casa, anvisa aprovado">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://seu-site.com">
     
     <!-- Meta Tags OG -->
     <meta property="og:title" content="Ozoxx - Conheço o Ozoxx e veja depoimentos de pessoas reais">
@@ -88,16 +85,6 @@
         .fonts-loaded h5,
         .fonts-loaded h6 {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        /* Reduced motion para acessibilidade */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
         }
     </style>
     
@@ -527,8 +514,6 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--primary);
-            background: none;
-            border: none;
         }
         
         /* =========================================== */
@@ -758,7 +743,6 @@
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
-            border: none;
         }
         
         .filter-btn.active,
@@ -1351,10 +1335,60 @@
         }
     </style>
     
+    <!-- JavaScript para controle de fontes -->
+    <script>
+        // Detectar quando as fontes são carregadas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adicionar classe quando fontes estiverem carregadas
+            function handleFontsLoaded() {
+                document.documentElement.classList.add('fonts-loaded');
+            }
+            
+            // Usar Font Face Observer para detectar carregamento das fontes
+            if (typeof FontFaceObserver !== 'undefined') {
+                const poppins = new FontFaceObserver('Poppins');
+                const roboto = new FontFaceObserver('Roboto');
+                
+                Promise.all([poppins.load(), roboto.load()])
+                    .then(handleFontsLoaded)
+                    .catch(handleFontsLoaded); // Fallback se falhar
+            } else {
+                // Fallback simples
+                setTimeout(handleFontsLoaded, 100);
+            }
+            
+            // Forçar FOIT para fontes do Font Awesome
+            const style = document.createElement('style');
+            style.textContent = `
+                .fa-solid:before {
+                    font-family: 'Font Awesome 6 Free' !important;
+                    font-weight: 900;
+                    content: var(--fa-content);
+                    mask-image: none !important;
+                    background: transparent !important;
+                    -webkit-mask-image: none !important;
+                }
+                
+                .fa-brands:before {
+                    font-family: 'Font Awesome 6 Brands' !important;
+                    font-weight: 400;
+                    content: var(--fa-content);
+                }
+            `;
+            
+            // Adicionar após 1s (tempo para fontes carregarem)
+            setTimeout(() => {
+                document.head.appendChild(style);
+            }, 1000);
+        });
+    </script>
+    
+    <!-- Carregar Font Face Observer async -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.standalone.js" async onload="this.onload=null;this.rel='preload';"></script>
 </head>
 <body>
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Ozoxx" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Ozoxx" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1362,14 +1396,14 @@
     <header id="header" class="">
         <div class="container header-container">
             <div class="logo">
-                <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx Ozonioterapia" loading="eager" width="150" height="50">
+                <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx Ozonioterapia" loading="eager">
             </div>
             
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu de navegação" aria-expanded="false">
+            <div class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
-            </button>
+            </div>
             
-            <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
+            <nav class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link">Início</a>
                 <a href="#benefits" class="nav-link">Benefícios</a>
                 <a href="#how-it-works" class="nav-link">Como Funciona</a>
@@ -1406,7 +1440,7 @@
                 
                 <div class="hero-video">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/G6t7AZLJqPY?rel=0&amp;modestbranding=1&amp;controls=1" title="Ozoxx - Resultados Reais" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo sobre resultados do Ozoxx">
+                        <iframe src="https://www.youtube.com/embed/G6t7AZLJqPY?rel=0&amp;modestbranding=1&amp;controls=1" title="Ozoxx - Resultados Reais" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                 </div>
@@ -1522,75 +1556,75 @@
             </div>
             
             <div class="clients-filter">
-                <button class="filter-btn active" data-filter="all" aria-label="Mostrar todos os resultados" aria-pressed="true">Todos</button>
-                <button class="filter-btn" data-filter="diabetico" aria-label="Filtrar por pé diabético" aria-pressed="false">Pé Diabético</button>
-                <button class="filter-btn" data-filter="psoriase" aria-label="Filtrar por psoríase" aria-pressed="false">Psoríase</button>
-                <button class="filter-btn" data-filter="artrose" aria-label="Filtrar por artrose" aria-pressed="false">Artrose</button>
-                <button class="filter-btn" data-filter="dermatite" aria-label="Filtrar por dermatite" aria-pressed="false">Dermatite</button>
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="diabetico">Pé Diabético</button>
+                <button class="filter-btn" data-filter="psoriase">Psoríase</button>
+                <button class="filter-btn" data-filter="artrose">Artrose</button>
+                <button class="filter-btn" data-filter="dermatite">Dermatite</button>
             </div>
             
             <div class="clients-grid">
                 <!-- Cards existentes (14 imagens originais) -->
                 <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/casal-comprando-o-aparelho-ozoxx.webp" alt="Casal comprando Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/casal-comprando-o-aparelho-ozoxx.webp" alt="Casal comprando Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all psoriase" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-o-aparelho-ozoxx.webp" alt="Família com Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-o-aparelho-ozoxx.webp" alt="Família com Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all artrose" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-compra-o-Ozoxx.webp" alt="Família feliz com Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-compra-o-Ozoxx.webp" alt="Família feliz com Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all dermatite" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-decide-comprar-o-aparelho-ozoxx.webp" alt="Família decidindo comprar" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/fami%CC%81lia-decide-comprar-o-aparelho-ozoxx.webp" alt="Família decidindo comprar" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all diabetico" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/homem-compra-aparelho-ozoxx-e-fica-satisfeito.webp" alt="Homem satisfeito com Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/homem-compra-aparelho-ozoxx-e-fica-satisfeito.webp" alt="Homem satisfeito com Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all psoriase" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-familia-comprando-o-aparelho-ozoxx.webp" alt="Outra família comprando" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-familia-comprando-o-aparelho-ozoxx.webp" alt="Outra família comprando" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all artrose" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/um-senhor-de-idade-compra-o-aparelho-ozoxx.webp" alt="Senhor de idade comprando" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/um-senhor-de-idade-compra-o-aparelho-ozoxx.webp" alt="Senhor de idade comprando" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/ozoxx-e-seus-produtos-vendedores-vendendo.webp" alt="Produtos Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/ozoxx-e-seus-produtos-vendedores-vendendo.webp" alt="Produtos Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all dermatite" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-compra-o-aparelho-ozoxx.webp" alt="Senhora comprando" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-compra-o-aparelho-ozoxx.webp" alt="Senhora comprando" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-idosa-comprando-o-aparelho-ozoxx.webp" alt="Senhora idosa comprando" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/uma-senhora-idosa-comprando-o-aparelho-ozoxx.webp" alt="Senhora idosa comprando" class="client-image" loading="lazy">
                 </div>
                 
                 <!-- NOVAS IMAGENS ADICIONADAS - 4 NOVOS CARDS -->
                 <div class="client-card" data-category="all diabetico" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/Tratamento-com-aparelho-ozoxx-Muitas-dores-Joelhos-Bico-de-Papagaio-Glaucoma-Ca%CC%83imbras.webp" alt="Paciente tratando dores articulares com Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/Tratamento-com-aparelho-ozoxx-Muitas-dores-Joelhos-Bico-de-Papagaio-Glaucoma-Ca%CC%83imbras.webp" alt="Paciente tratando dores articulares com Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all psoriase artrose" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/Tratamento-com-ozonio-usando-aparelho-ozoxx.webp" alt="Tratamento com ozonioterapia caseira" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/Tratamento-com-ozonio-usando-aparelho-ozoxx.webp" alt="Tratamento com ozonioterapia caseira" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all dermatite" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-aparelho-ozoxx.webp" alt="Família adquirindo aparelho Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/familia-comprando-aparelho-ozoxx.webp" alt="Família adquirindo aparelho Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/mais-uma-familia-compra-aparelho-ozoxx.webp" alt="Mais uma família satisfeita com Ozoxx" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/mais-uma-familia-compra-aparelho-ozoxx.webp" alt="Mais uma família satisfeita com Ozoxx" class="client-image" loading="lazy">
                 </div>
                 
                 <!-- NOVA IMAGEM ADICIONADA - 15º CARD (IMAGEM QUE VOCÊ ENVIOU) -->
                 <div class="client-card" data-category="all" style="display: block; opacity: 1; transform: scale(1);">
-                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/mulher-investe-comprando-o-gerador-de-ozonio-ozzox-multi.webp" alt="Mulher investindo no gerador de ozônio Ozoxx Multi" class="client-image" loading="lazy" decoding="async" width="280" height="280">
+                    <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/mulher-investe-comprando-o-gerador-de-ozonio-ozzox-multi.webp" alt="Mulher investindo no gerador de ozônio Ozoxx Multi" class="client-image" loading="lazy">
                 </div>
             </div>
             
@@ -1614,7 +1648,7 @@
                 <!-- Depoimento 1 - KmPiKwxT8MM -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/KmPiKwxT8MM?rel=0&amp;modestbranding=1&amp;controls=1" title="Radioterapia e Câncer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre radioterapia e câncer">
+                        <iframe src="https://www.youtube.com/embed/KmPiKwxT8MM?rel=0&amp;modestbranding=1&amp;controls=1" title="Radioterapia e Câncer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1632,7 +1666,7 @@
                 <!-- Depoimento 2 - 3BhXyv1lOQk -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/3BhXyv1lOQk?rel=0&amp;modestbranding=1&amp;controls=1" title="Autismo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre autismo">
+                        <iframe src="https://www.youtube.com/embed/3BhXyv1lOQk?rel=0&amp;modestbranding=1&amp;controls=1" title="Autismo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1650,7 +1684,7 @@
                 <!-- Depoimento 3 - z_E1DD77NPo -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/z_E1DD77NPo?rel=0&amp;modestbranding=1&amp;controls=1" title="Rinite, Bronquite Asmática, Sinusite e Enxaqueca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre rinite, bronquite, sinusite e enxaqueca">
+                        <iframe src="https://www.youtube.com/embed/z_E1DD77NPo?rel=0&amp;modestbranding=1&amp;controls=1" title="Rinite, Bronquite Asmática, Sinusite e Enxaqueca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1668,7 +1702,7 @@
                 <!-- Depoimento 4 - KdqQ2LR3CdY -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/KdqQ2LR3CdY?rel=0&amp;modestbranding=1&amp;controls=1" title="Problema de Próstata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre problema de próstata">
+                        <iframe src="https://www.youtube.com/embed/KdqQ2LR3CdY?rel=0&amp;modestbranding=1&amp;controls=1" title="Problema de Próstata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1686,7 +1720,7 @@
                 <!-- Depoimento 5 - hyfFEvJba3Y -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/hyfFEvJba3Y?rel=0&amp;modestbranding=1&amp;controls=1" title="Hemodiálise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre hemodiálise">
+                        <iframe src="https://www.youtube.com/embed/hyfFEvJba3Y?rel=0&amp;modestbranding=1&amp;controls=1" title="Hemodiálise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1704,7 +1738,7 @@
                 <!-- Depoimento 6 - HosXRSccjGk -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/HosXRSccjGk?rel=0&amp;modestbranding=1&amp;controls=1" title="Osteoartrite, Artrose, derrame articular, bico de papagaio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre osteoartrite, artrose e bico de papagaio">
+                        <iframe src="https://www.youtube.com/embed/HosXRSccjGk?rel=0&amp;modestbranding=1&amp;controls=1" title="Osteoartrite, Artrose, derrame articular, bico de papagaio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1722,7 +1756,7 @@
                 <!-- Depoimento 7 - NuI72xpM_io -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/NuI72xpM_io?rel=0&amp;modestbranding=1&amp;controls=1" title="Sinusite, e Rinite Alérgica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre sinusite e rinite alérgica">
+                        <iframe src="https://www.youtube.com/embed/NuI72xpM_io?rel=0&amp;modestbranding=1&amp;controls=1" title="Sinusite, e Rinite Alérgica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1740,7 +1774,7 @@
                 <!-- Depoimento 8 - Short 28PuLrL9FYg -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/28PuLrL9FYg?rel=0&amp;modestbranding=1&amp;controls=1" title="Enxaqueca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre enxaqueca">
+                        <iframe src="https://www.youtube.com/embed/28PuLrL9FYg?rel=0&amp;modestbranding=1&amp;controls=1" title="Enxaqueca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1758,7 +1792,7 @@
                 <!-- Depoimento 9 - Short N8_nMV_6Ldo -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/N8_nMV_6Ldo?rel=0&amp;modestbranding=1&amp;controls=1" title="Hemodiálise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre hemodiálise">
+                        <iframe src="https://www.youtube.com/embed/N8_nMV_6Ldo?rel=0&amp;modestbranding=1&amp;controls=1" title="Hemodiálise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1776,7 +1810,7 @@
                 <!-- Depoimento 10 - Short rEYB9kj9HbI -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/rEYB9kj9HbI?rel=0&amp;modestbranding=1&amp;controls=1" title="Lúpus Doença Autoimune" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre lúpus">
+                        <iframe src="https://www.youtube.com/embed/rEYB9kj9HbI?rel=0&amp;modestbranding=1&amp;controls=1" title="Lúpus Doença Autoimune" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1794,7 +1828,7 @@
                 <!-- Depoimento 11 - Short dWucrzbatRk -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/dWucrzbatRk?rel=0&amp;modestbranding=1&amp;controls=1" title="Trombose" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre trombose">
+                        <iframe src="https://www.youtube.com/embed/dWucrzbatRk?rel=0&amp;modestbranding=1&amp;controls=1" title="Trombose" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1812,7 +1846,7 @@
                 <!-- Depoimento 12 - Adicione um 12º vídeo aqui -->
                 <div class="testimonial-video-card">
                     <div class="testimonial-video-container">
-                        <iframe src="https://www.youtube.com/embed/G6t7AZLJqPY?rel=0&amp;modestbranding=1&amp;controls=1" title="Ozoxx - Resultados Reais" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" aria-label="Vídeo depoimento sobre resultados do Ozoxx">
+                        <iframe src="https://www.youtube.com/embed/G6t7AZLJqPY?rel=0&amp;modestbranding=1&amp;controls=1" title="Ozoxx - Resultados Reais" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                     <div class="testimonial-video-content">
@@ -1853,7 +1887,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Mais Vendido</div>
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/maquina-de-ozonio-terapia-Ozoxx-Multi.webp" alt="Ozoxx MULTI - Gerador de Ozônio" loading="lazy" decoding="async" width="400" height="300">
+                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/maquina-de-ozonio-terapia-Ozoxx-Multi.webp" alt="Ozoxx MULTI - Gerador de Ozônio" loading="lazy">
                     </div>
                     <div class="product-content">
                         <h3>Ozoxx MULTI</h3>
@@ -1896,7 +1930,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Profissional</div>
-                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/maquina-de-ozonio-terapia-Ozoxx-AIR.webp" alt="Ozoxx AIR - Sanitizador Profissional" loading="lazy" decoding="async" width="400" height="300">
+                        <img src="https://raw.githubusercontent.com/ozoxxvenda/ozoxx-images/refs/heads/main/maquina-de-ozonio-terapia-Ozoxx-AIR.webp" alt="Ozoxx AIR - Sanitizador Profissional" loading="lazy">
                     </div>
                     <div class="product-content">
                         <h3>Ozoxx AIR</h3>
@@ -1972,12 +2006,12 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name" class="form-label">Nome Completo *</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" class="form-control" required="">
                         </div>
                         
                         <div class="form-group">
                             <label for="phone" class="form-label">Telefone/WhatsApp *</label>
-                            <input type="tel" id="phone" class="form-control" required placeholder="(11) 99999-9999">
+                            <input type="tel" id="phone" class="form-control" required="" placeholder="(11) 99999-9999">
                             <small style="display: block; margin-top: 5px; color: var(--gray);">Verificação obrigatória via WhatsApp</small>
                         </div>
                         
@@ -1988,12 +2022,12 @@
                         
                         <div class="form-group">
                             <label for="age" class="form-label">Idade *</label>
-                            <input type="number" id="age" class="form-control" required min="1" max="120">
+                            <input type="number" id="age" class="form-control" required="" min="1" max="120">
                         </div>
                         
                         <div class="form-group">
                             <label for="state" class="form-label">Estado *</label>
-                            <select id="state" class="form-control form-select" required>
+                            <select id="state" class="form-control form-select" required="">
                                 <option value="">Selecione seu estado</option>
                                 <option value="SP">São Paulo</option>
                                 <option value="RJ">Rio de Janeiro</option>
@@ -2004,7 +2038,7 @@
                         
                         <div class="form-group">
                             <label for="city" class="form-label">Cidade *</label>
-                            <input type="text" id="city" class="form-control" required>
+                            <input type="text" id="city" class="form-control" required="">
                         </div>
                         
                         <div class="form-group full-width">
@@ -2026,7 +2060,7 @@
                     </div>
                     
                     <div class="form-checkbox">
-                        <input type="checkbox" id="privacy" required>
+                        <input type="checkbox" id="privacy" required="">
                         <label for="privacy">Concordo com a Política de Privacidade e autorizo o contato via WhatsApp</label>
                     </div>
                     
@@ -2041,13 +2075,13 @@
     </section>
 
     <!-- Modal de Verificação -->
-    <div class="modal" id="verificationModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal" id="verificationModal">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Fechar modal">
+            <button class="modal-close" id="modalClose">
                 <i class="fas fa-times"></i>
             </button>
             
-            <h3 id="modalTitle" style="color: var(--primary); margin-bottom: 20px;">
+            <h3 style="color: var(--primary); margin-bottom: 20px;">
                 <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> Verificação por WhatsApp
             </h3>
             
@@ -2081,7 +2115,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx" loading="lazy" width="150" height="60">
+                        <img src="https://ozoxx.com.br/wp-content/uploads/2023/01/LOGO-OZOXX-1.png" alt="Ozoxx" loading="lazy">
                     </div>
                     <p>Ozoxx é o primeiro aparelho de ozonioterapia caseira do Brasil, desenvolvido para oferecer saúde, bem-estar e qualidade de vida através da terapia com ozônio medicinal.</p>
                 </div>
@@ -2131,7 +2165,9 @@
     <!-- JAVASCRIPT MÍNIMO ESSENCIAL -->
     <!-- =========================================== -->
     <script>
-        // APENAS FUNÇÕES ESSENCIAIS - 1KB de JavaScript
+        // URL DO SEU GOOGLE APPS SCRIPT
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzk5TjBSy2HWxzwMk7XD75W319DeG-o_B88rvER-E_-gTOEKIrw9dHAKPQmV12Vbn_g/exec';
+
         (function() {
             // 1. HEADER SCROLL - Apenas funcionalidade básica
             let scrollTimer;
@@ -2235,38 +2271,121 @@
                 }
             }
             
-            // 6. FORMULÁRIO - Envio básico sem validação complexa
+            // 6. FORMULÁRIO - Envio para Google Sheets
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
+                contactForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
                     const submitBtn = this.querySelector('button[type="submit"]');
                     const originalText = submitBtn.innerHTML;
                     const status = document.getElementById('verificationStatus');
                     
-                    // Feedback visual simples
+                    // Coletar dados do formulário
+                    const formData = {
+                        timestamp: new Date().toLocaleString('pt-BR'),
+                        name: document.getElementById('name').value,
+                        phone: document.getElementById('phone').value.replace(/\D/g, ''),
+                        email: document.getElementById('email').value,
+                        age: document.getElementById('age').value,
+                        state: document.getElementById('state').value,
+                        city: document.getElementById('city').value,
+                        health_condition: document.getElementById('condition').value,
+                        other_condition: '',
+                        message: document.getElementById('message').value,
+                        source: 'Site Ozoxx'
+                    };
+                    
+                    // Validação básica
+                    if (!formData.name || !formData.phone || !formData.age || !formData.state || !formData.city) {
+                        if (status) {
+                            status.innerHTML = '<i class="fas fa-exclamation-circle"></i> <strong>Por favor, preencha todos os campos obrigatórios.</strong>';
+                            status.className = 'verification-status error';
+                            status.style.display = 'block';
+                        }
+                        return;
+                    }
+                    
+                    // Feedback visual
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                     submitBtn.disabled = true;
                     
-                    // Simulação de envio
-                    setTimeout(() => {
+                    try {
+                        // Enviar para Google Apps Script
+                        const response = await fetch(GOOGLE_SCRIPT_URL, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formData)
+                        });
+                        
+                        const result = await response.json();
+                        
                         if (status) {
-                            status.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Solicitação enviada!</strong>';
-                            status.className = 'verification-status success';
+                            if (result.success) {
+                                status.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Solicitação enviada com sucesso!</strong> Um especialista entrará em contato em breve.';
+                                status.className = 'verification-status success';
+                                
+                                // Limpar formulário
+                                contactForm.reset();
+                            } else {
+                                status.innerHTML = '<i class="fas fa-exclamation-circle"></i> <strong>Erro ao enviar:</strong> ' + (result.error || 'Tente novamente.');
+                                status.className = 'verification-status error';
+                            }
                             status.style.display = 'block';
                         }
                         
+                    } catch (error) {
+                        console.error('Erro:', error);
+                        if (status) {
+                            status.innerHTML = '<i class="fas fa-exclamation-circle"></i> <strong>Erro de conexão:</strong> Tente novamente em alguns instantes.';
+                            status.className = 'verification-status error';
+                            status.style.display = 'block';
+                        }
+                    } finally {
+                        // Restaurar botão
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
-                        this.reset();
-                    }, 1500);
+                        
+                        // Rolar para mostrar o status
+                        if (status && status.style.display === 'block') {
+                            status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    }
                 });
             }
             
-            // 7. ADIAR CARREGAMENTO DE SCRIPTS PESADOS
+            // 7. MODAL DE VERIFICAÇÃO (opcional - para verificação por WhatsApp)
+            const verificationModal = document.getElementById('verificationModal');
+            const modalClose = document.getElementById('modalClose');
+            const copyCodeBtn = document.getElementById('copyCode');
+            const openWhatsAppBtn = document.getElementById('openWhatsApp');
+            
+            if (modalClose) {
+                modalClose.addEventListener('click', function() {
+                    if (verificationModal) verificationModal.classList.remove('active');
+                });
+            }
+            
+            if (copyCodeBtn) {
+                copyCodeBtn.addEventListener('click', function() {
+                    const codeElement = document.getElementById('verificationCode');
+                    if (codeElement) {
+                        navigator.clipboard.writeText(codeElement.textContent)
+                            .then(() => {
+                                this.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                                setTimeout(() => {
+                                    this.innerHTML = '<i class="fas fa-copy"></i> Copiar Código';
+                                }, 2000);
+                            });
+                    }
+                });
+            }
+            
+            // 8. ADIAR CARREGAMENTO DE SCRIPTS PESADOS
             window.addEventListener('load', function() {
-                // Carregar filtro apenas quando necessário (após 2 segundos ou na interação)
+                // Carregar filtro apenas quando necessário
                 setTimeout(loadFilterScript, 2000);
                 
                 // Carregar Google Analytics apenas após 3 segundos
@@ -2285,33 +2404,11 @@
                 }, 3000);
             });
             
-            // 8. Adicionar classe de fontes carregadas
+            // 9. Adicionar classe de fontes carregadas
             setTimeout(() => {
                 document.documentElement.classList.add('fonts-loaded');
             }, 100);
         })();
     </script>
-    
-    <!-- =========================================== -->
-    <!-- SCHEMA MARKUP PARA SEO (não bloqueia) -->
-    <!-- =========================================== -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "MedicalDevice",
-        "name": "Ozoxx - Gerador de Ozônio para Ozonioterapia",
-        "description": "Aparelho de ozonioterapia caseira aprovado pela ANVISA para tratamento de pé diabético, psoríase e dores crônicas",
-        "brand": {
-            "@type": "Brand",
-            "name": "Ozoxx"
-        },
-        "medicalSpecialty": ["Ozonioterapia", "Medicina Alternativa"],
-        "recognizingAuthority": {
-            "@type": "GovernmentOrganization",
-            "name": "ANVISA"
-        }
-    }
-    </script>
-    
 </body>
 </html>
