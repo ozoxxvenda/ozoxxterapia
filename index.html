@@ -1335,56 +1335,6 @@
         }
     </style>
     
-    <!-- JavaScript para controle de fontes -->
-    <script>
-        // Detectar quando as fontes são carregadas
-        document.addEventListener('DOMContentLoaded', function() {
-            // Adicionar classe quando fontes estiverem carregadas
-            function handleFontsLoaded() {
-                document.documentElement.classList.add('fonts-loaded');
-            }
-            
-            // Usar Font Face Observer para detectar carregamento das fontes
-            if (typeof FontFaceObserver !== 'undefined') {
-                const poppins = new FontFaceObserver('Poppins');
-                const roboto = new FontFaceObserver('Roboto');
-                
-                Promise.all([poppins.load(), roboto.load()])
-                    .then(handleFontsLoaded)
-                    .catch(handleFontsLoaded); // Fallback se falhar
-            } else {
-                // Fallback simples
-                setTimeout(handleFontsLoaded, 100);
-            }
-            
-            // Forçar FOIT para fontes do Font Awesome
-            const style = document.createElement('style');
-            style.textContent = `
-                .fa-solid:before {
-                    font-family: 'Font Awesome 6 Free' !important;
-                    font-weight: 900;
-                    content: var(--fa-content);
-                    mask-image: none !important;
-                    background: transparent !important;
-                    -webkit-mask-image: none !important;
-                }
-                
-                .fa-brands:before {
-                    font-family: 'Font Awesome 6 Brands' !important;
-                    font-weight: 400;
-                    content: var(--fa-content);
-                }
-            `;
-            
-            // Adicionar após 1s (tempo para fontes carregarem)
-            setTimeout(() => {
-                document.head.appendChild(style);
-            }, 1000);
-        });
-    </script>
-    
-    <!-- Carregar Font Face Observer async -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.standalone.js" async onload="this.onload=null;this.rel='preload';"></script>
 </head>
 <body>
     <!-- WhatsApp Float -->
@@ -2161,281 +2111,182 @@
         </div>
     </footer>
 
-    <!-- Google Analytics OTIMIZADO - sem render blocking -->
-<script>
-    // Configuração inicial não bloqueante
-    window.dataLayer = window.dataLayer || [];
-    
-    // Carrega GTM de forma assíncrona após o load
-    function loadGTM() {
-        const script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL';
-        script.async = true;
-        document.head.appendChild(script);
-        
-        script.onload = function() {
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8D4M7PEGKL');
-        };
-    }
-    
-    // Carrega após a página estar interativa
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadGTM);
-    } else {
-        setTimeout(loadGTM, 1000); // Delay para priorizar conteúdo
-    }
-
+    <!-- =========================================== -->
+    <!-- JAVASCRIPT OTIMIZADO - PERFORMANCE MAXIMIZADA -->
+    <!-- =========================================== -->
     <script>
         // ===========================================
-        // FUNÇÕES GERAIS
+        // JAVASCRIPT MÍNIMO INICIAL - SEM BLOQUEIO
         // ===========================================
         
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // 1. HEADER SCROLL (otimizado com throttle)
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (!scrollTimeout) {
+                scrollTimeout = setTimeout(() => {
+                    scrollTimeout = null;
+                    const header = document.getElementById('header');
+                    if (header) {
+                        header.classList.toggle('scrolled', window.scrollY > 100);
+                    }
+                }, 16); // 60fps
             }
-        });
+        }, { passive: true });
         
-        // Mobile menu toggle
+        // 2. MENU MOBILE (simplificado)
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
         
-        mobileToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileToggle.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // ===========================================
-        // FILTRO DE CLIENTES
-        // ===========================================
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const clientCards = document.querySelectorAll('.client-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                
-                // Filter cards
-                clientCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 10);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            });
-        });
-        
-        // ===========================================
-        // FORMULÁRIO E VERIFICAÇÃO
-        // ===========================================
-        const contactForm = document.getElementById('contactForm');
-        const verificationModal = document.getElementById('verificationModal');
-        const modalClose = document.getElementById('modalClose');
-        const copyCodeBtn = document.getElementById('copyCode');
-        const openWhatsAppBtn = document.getElementById('openWhatsApp');
-        const verificationStatus = document.getElementById('verificationStatus');
-        const verificationCodeElement = document.getElementById('verificationCode');
-        const whatsappNumberElement = document.getElementById('whatsappNumber');
-        
-        let verificationCode = '';
-        let isPhoneVerified = false;
-        
-        // Formatação automática do telefone
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) value = value.substring(0, 11);
-            
-            if (value.length > 10) {
-                e.target.value = `(${value.substring(0,2)}) ${value.substring(2,7)}-${value.substring(7,11)}`;
-            } else if (value.length > 6) {
-                e.target.value = `(${value.substring(0,2)}) ${value.substring(2,6)}-${value.substring(6,10)}`;
-            } else if (value.length > 2) {
-                e.target.value = `(${value.substring(0,2)}) ${value.substring(2)}`;
-            } else if (value.length > 0) {
-                e.target.value = `(${value}`;
-            }
-        });
-        
-        // Gera código de verificação
-        function generateVerificationCode() {
-            return Math.floor(100000 + Math.random() * 900000).toString();
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isActive = navMenu.classList.toggle('active');
+                mobileToggle.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            }, { passive: false });
         }
         
-        // Mostra modal de verificação
-        function showVerificationModal(phone) {
-            verificationCode = generateVerificationCode();
-            verificationCodeElement.textContent = verificationCode;
+        // 3. SCROLL SUAVE (lightweight)
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a[href^="#"]');
+            if (!link) return;
             
-            const cleanPhone = phone.replace(/\D/g, '');
-            const whatsappNumber = `+55${cleanPhone}`;
-            whatsappNumberElement.textContent = whatsappNumber;
-            
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Código+de+verificação+Ozoxx:+${verificationCode}`;
-            openWhatsAppBtn.href = whatsappUrl;
-            
-            verificationModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Fecha modal
-        modalClose.addEventListener('click', () => {
-            verificationModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Copia código
-        copyCodeBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(verificationCode).then(() => {
-                const originalText = copyCodeBtn.innerHTML;
-                copyCodeBtn.innerHTML = '<i class="fas fa-check"></i> Código Copiado!';
-                setTimeout(() => {
-                    copyCodeBtn.innerHTML = originalText;
-                }, 2000);
-            });
-        });
-        
-        // Quando o telefone perde o foco
-        phoneInput.addEventListener('blur', function() {
-            const phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
-            if (phoneRegex.test(this.value) && !isPhoneVerified) {
-                showVerificationModal(this.value);
-            }
-        });
-        
-        // Submissão do formulário
-        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            if (!isPhoneVerified) {
-                verificationStatus.className = 'verification-status error';
-                verificationStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Por favor, verifique seu número de telefone primeiro.';
-                verificationStatus.style.display = 'block';
-                phoneInput.focus();
-                return;
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
+        }, { passive: false });
+        
+        // 4. GOOGLE ANALYTICS OTIMIZADO (carrega após 3s)
+        setTimeout(() => {
+            const gtagScript = document.createElement('script');
+            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL';
+            gtagScript.async = true;
+            document.head.appendChild(gtagScript);
             
-            // Coletar dados do formulário
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                age: document.getElementById('age').value,
-                state: document.getElementById('state').value,
-                city: document.getElementById('city').value,
-                condition: document.getElementById('condition').value,
-                message: document.getElementById('message').value,
-                verification_code: verificationCode,
-                timestamp: new Date().toLocaleString('pt-BR')
+            gtagScript.onload = function() {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-8D4M7PEGKL');
             };
-            
-            // Simular envio (substitua pela sua integração real)
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                // Sucesso
-                verificationStatus.className = 'verification-status success';
-                verificationStatus.innerHTML = `
-                    <i class="fas fa-check-circle"></i> 
-                    <strong>Solicitação enviada com sucesso!</strong><br>
-                    Entraremos em contato em até 24 horas pelo WhatsApp.
-                `;
-                verificationStatus.style.display = 'block';
-                
-                // Reset do formulário
-                contactForm.reset();
-                isPhoneVerified = false;
-                
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Scroll para o status
-                verificationStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 2000);
-        });
+        }, 3000);
         
-        // Verificação manual (para demonstração)
-        document.addEventListener('keydown', function(e) {
-            // Simulação: Se o usuário digitar "123456" no campo de telefone, marca como verificado
-            if (e.key === 'Enter' && phoneInput.value.includes('123456')) {
-                isPhoneVerified = true;
-                verificationStatus.className = 'verification-status success';
-                verificationStatus.innerHTML = '<i class="fas fa-check-circle"></i> Telefone verificado com sucesso!';
-                verificationStatus.style.display = 'block';
-                verificationModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // Fecha modal ao clicar fora
-        window.addEventListener('click', function(e) {
-            if (e.target === verificationModal) {
-                verificationModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // Inicialização
+        // ===========================================
+        // FUNÇÕES CARREGADAS APÓS DOM
+        // ===========================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Ativar primeiro filtro
-            document.querySelector('.filter-btn[data-filter="all"]').click();
+            // 5. FILTRO DE CLIENTES (otimizado)
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const clientCards = document.querySelectorAll('.client-card');
             
-            // Adicionar classe fonts-loaded quando fontes carregarem
+            if (filterButtons.length > 0 && clientCards.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Atualizar botão ativo
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        const filter = this.getAttribute('data-filter');
+                        
+                        // Aplicar filtro com requestAnimationFrame
+                        requestAnimationFrame(() => {
+                            clientCards.forEach(card => {
+                                const shouldShow = filter === 'all' || 
+                                                 card.getAttribute('data-category').includes(filter);
+                                
+                                if (shouldShow) {
+                                    card.style.display = 'block';
+                                    setTimeout(() => {
+                                        card.style.opacity = '1';
+                                        card.style.transform = 'scale(1)';
+                                    }, 10);
+                                } else {
+                                    card.style.opacity = '0';
+                                    card.style.transform = 'scale(0.8)';
+                                    setTimeout(() => {
+                                        if (card.style.opacity === '0') {
+                                            card.style.display = 'none';
+                                        }
+                                    }, 300);
+                                }
+                            });
+                        });
+                    });
+                });
+                
+                // Ativar primeiro filtro
+                setTimeout(() => {
+                    const firstBtn = document.querySelector('.filter-btn[data-filter="all"]');
+                    if (firstBtn) firstBtn.click();
+                }, 100);
+            }
+            
+            // 6. FORMATAÇÃO DE TELEFONE
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.substring(0, 11);
+                    
+                    if (value.length > 10) {
+                        e.target.value = `(${value.substring(0,2)}) ${value.substring(2,7)}-${value.substring(7,11)}`;
+                    } else if (value.length > 6) {
+                        e.target.value = `(${value.substring(0,2)}) ${value.substring(2,6)}-${value.substring(6,10)}`;
+                    } else if (value.length > 2) {
+                        e.target.value = `(${value.substring(0,2)}) ${value.substring(2)}`;
+                    }
+                }, { passive: true });
+            }
+            
+            // 7. ENVIO DO FORMULÁRIO (simplificado)
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    const status = document.getElementById('verificationStatus');
+                    
+                    // Mostrar loading
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                    submitBtn.disabled = true;
+                    
+                    // Simular envio
+                    setTimeout(() => {
+                        if (status) {
+                            status.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Solicitação enviada com sucesso!</strong><br>Entraremos em contato em até 24 horas.';
+                            status.className = 'verification-status success';
+                            status.style.display = 'block';
+                        }
+                        
+                        // Reset
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        this.reset();
+                        
+                        // Scroll para mensagem
+                        if (status) {
+                            status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 1500);
+                });
+            }
+            
+            // 8. ADICIONAR CLASSE DE FONTES CARREGADAS
             setTimeout(() => {
                 document.documentElement.classList.add('fonts-loaded');
             }, 100);
         });
     </script>
-
 
 </body>
 </html>
