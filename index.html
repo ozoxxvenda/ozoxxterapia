@@ -2161,14 +2161,31 @@
         </div>
     </footer>
 
-    <!-- Google Analytics movido para o final do body -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8D4M7PEGKL');
-    </script>
+    <!-- Google Analytics OTIMIZADO - sem render blocking -->
+<script>
+    // Configuração inicial não bloqueante
+    window.dataLayer = window.dataLayer || [];
+    
+    // Carrega GTM de forma assíncrona após o load
+    function loadGTM() {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL';
+        script.async = true;
+        document.head.appendChild(script);
+        
+        script.onload = function() {
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8D4M7PEGKL');
+        };
+    }
+    
+    // Carrega após a página estar interativa
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadGTM);
+    } else {
+        setTimeout(loadGTM, 1000); // Delay para priorizar conteúdo
+    }
 
     <script>
         // ===========================================
