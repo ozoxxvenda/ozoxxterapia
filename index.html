@@ -1802,87 +1802,264 @@
 
     <!-- Formulário -->
     <section class="section form-section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Fale Com Nossos Especialistas</h2>
-                <p>Preencha o formulário abaixo e um especialista em ozonioterapia entrará em contato para tirar todas suas dúvidas.</p>
+    <div class="container">
+        <div class="section-title">
+            <h2>Fale Com Nossos Especialistas</h2>
+            <p>Preencha o formulário abaixo e um especialista em ozonioterapia entrará em contato para tirar todas suas dúvidas.</p>
+        </div>
+        
+        <div class="form-container">
+            <div class="form-header">
+                <h3>Solicite sua Consulta Gratuita</h3>
+                <p><i class="fas fa-headset"></i> Entraremos em contato em até 24 horas</p>
             </div>
             
-            <div class="form-container">
-                <div class="form-header">
-                    <h3>Solicite sua Consulta Gratuita</h3>
-                    <p><i class="fas fa-headset"></i> Entraremos em contato em até 24 horas</p>
+            <form id="contactForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nome Completo *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Telefone/WhatsApp *</label>
+                        <input type="tel" id="phone" class="form-control" required placeholder="(11) 99999-9999">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" id="email" class="form-control" placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age" class="form-label">Idade *</label>
+                        <input type="number" id="age" class="form-control" required min="1" max="120">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state" class="form-label">Estado *</label>
+                        <select id="state" class="form-control form-select" required>
+                            <option value="">Selecione seu estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city" class="form-label">Cidade *</label>
+                        <select id="city" class="form-control form-select" required disabled>
+                            <option value="">Primeiro selecione o estado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="condition" class="form-label">Condição de Saúde *</label>
+                        <select id="condition" class="form-control form-select" required>
+                            <option value="">Selecione sua condição</option>
+                            <option value="hipertensao">Hipertensão</option>
+                            <option value="diabetes">Diabetes</option>
+                            <option value="obesidade">Obesidade</option>
+                            <option value="depressao">Depressão</option>
+                            <option value="ansiedade">Ansiedade</option>
+                            <option value="asma">Asma</option>
+                            <option value="dor_lombar">Dor Lombar</option>
+                            <option value="doenca_cardiaca">Doença Cardíaca</option>
+                            <option value="cancer">Câncer</option>
+                            <option value="doenca_respiratoria">Doença Respiratória Crônica</option>
+                            <option value="outra">Outra</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message" class="form-label">Conte mais sobre seu caso (Opcional)</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Há quanto tempo sofre com isso? Quais tratamentos já tentou?"></textarea>
+                    </div>
                 </div>
                 
-                <form id="contactForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nome Completo *</label>
-                            <input type="text" id="name" class="form-control" required="">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Telefone/WhatsApp *</label>
-                            <input type="tel" id="phone" class="form-control" required="" placeholder="(11) 99999-9999">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" id="email" class="form-control" placeholder="seu@email.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="age" class="form-label">Idade *</label>
-                            <input type="number" id="age" class="form-control" required="" min="1" max="120">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="state" class="form-label">Estado *</label>
-                            <select id="state" class="form-control form-select" required="">
-                                <option value="">Selecione seu estado</option>
-                                <option value="SP">São Paulo</option>
-                                <option value="RJ">Rio de Janeiro</option>
-                                <option value="MG">Minas Gerais</option>
-                                <!-- Outros estados -->
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="city" class="form-label">Cidade *</label>
-                            <input type="text" id="city" class="form-control" required="">
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="condition" class="form-label">Condição de Saúde (Opcional)</label>
-                            <select id="condition" class="form-control form-select">
-                                <option value="">Selecione sua condição</option>
-                                <option value="diabetico">Pé Diabético</option>
-                                <option value="psoriase">Psoríase</option>
-                                <option value="artrose">Artrose</option>
-                                <option value="dermatite">Dermatite</option>
-                                <option value="outra">Outra</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="message" class="form-label">Conte mais sobre seu caso (Opcional)</label>
-                            <textarea id="message" class="form-control" rows="4" placeholder="Há quanto tempo sofre com isso? Quais tratamentos já tentou?"></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="privacy" required="">
-                        <label for="privacy">Concordo com a Política de Privacidade e autorizo o contato via WhatsApp</label>
-                    </div>
-                    
-                    <div id="formStatus" class="form-status"></div>
-                    
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-                        <i class="fas fa-paper-plane"></i> Enviar Solicitação
-                    </button>
-                </form>
-            </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="privacy" required>
+                    <label for="privacy">Concordo com a Política de Privacidade e autorizo o contato via WhatsApp</label>
+                </div>
+                
+                <div id="formStatus" class="form-status"></div>
+                
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                </button>
+            </form>
         </div>
+    </div>
+</section>
+
+<script>
+// Dados otimizados de cidades por estado (apenas algumas principais para exemplo)
+const cidadesPorEstado = {
+    "AC": ["Rio Branco", "Cruzeiro do Sul", "Sena Madureira"],
+    "AL": ["Maceió", "Arapiraca", "Palmeira dos Índios"],
+    "AP": ["Macapá", "Santana", "Laranjal do Jari"],
+    "AM": ["Manaus", "Parintins", "Itacoatiara"],
+    "BA": ["Salvador", "Feira de Santana", "Vitória da Conquista"],
+    "CE": ["Fortaleza", "Caucaia", "Juazeiro do Norte"],
+    "DF": ["Brasília"],
+    "ES": ["Vitória", "Vila Velha", "Serra"],
+    "GO": ["Goiânia", "Aparecida de Goiânia", "Anápolis"],
+    "MA": ["São Luís", "Imperatriz", "Caxias"],
+    "MT": ["Cuiabá", "Várzea Grande", "Rondonópolis"],
+    "MS": ["Campo Grande", "Dourados", "Três Lagoas"],
+    "MG": ["Belo Horizonte", "Uberlândia", "Contagem"],
+    "PA": ["Belém", "Ananindeua", "Santarém"],
+    "PB": ["João Pessoa", "Campina Grande", "Santa Rita"],
+    "PR": ["Curitiba", "Londrina", "Maringá"],
+    "PE": ["Recife", "Jaboatão dos Guararapes", "Olinda"],
+    "PI": ["Teresina", "Parnaíba", "Picos"],
+    "RJ": ["Rio de Janeiro", "São Gonçalo", "Duque de Caxias"],
+    "RN": ["Natal", "Mossoró", "Parnamirim"],
+    "RS": ["Porto Alegre", "Caxias do Sul", "Pelotas"],
+    "RO": ["Porto Velho", "Ji-Paraná", "Ariquemes"],
+    "RR": ["Boa Vista", "Rorainópolis", "Caracaraí"],
+    "SC": ["Florianópolis", "Joinville", "Blumenau"],
+    "SP": ["São Paulo", "Guarulhos", "Campinas"],
+    "SE": ["Aracaju", "Nossa Senhora do Socorro", "Lagarto"],
+    "TO": ["Palmas", "Araguaína", "Gurupi"]
+};
+
+// Cache de elementos DOM
+const stateSelect = document.getElementById('state');
+const citySelect = document.getElementById('city');
+
+// Evento para carregar cidades quando estado for selecionado
+stateSelect.addEventListener('change', function() {
+    const estado = this.value;
+    
+    // Limpar opções anteriores
+    citySelect.innerHTML = '<option value="">Selecione sua cidade</option>';
+    
+    if (estado && cidadesPorEstado[estado]) {
+        // Habilitar select de cidades
+        citySelect.disabled = false;
+        
+        // Adicionar opções de cidades
+        cidadesPorEstado[estado].forEach(cidade => {
+            const option = document.createElement('option');
+            option.value = cidade.toLowerCase().replace(/\s+/g, '_');
+            option.textContent = cidade;
+            citySelect.appendChild(option);
+        });
+    } else {
+        // Desabilitar se nenhum estado selecionado
+        citySelect.disabled = true;
+        citySelect.innerHTML = '<option value="">Primeiro selecione o estado</option>';
+    }
+});
+
+// Validação do formulário
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const conditionSelect = document.getElementById('condition');
+    const conditionValue = conditionSelect.value;
+    
+    // Verificar se condição de saúde foi selecionada
+    if (!conditionValue) {
+        showNotification('Por favor, selecione uma condição de saúde');
+        return;
+    }
+    
+    // Se chegou aqui, formulário é válido
+    this.submit();
+});
+
+// Função para mostrar notificação
+function showNotification(message) {
+    // Remover notificação anterior se existir
+    const existingNotification = document.querySelector('.form-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Criar nova notificação
+    const notification = document.createElement('div');
+    notification.className = 'form-notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #e74c3c;
+        color: white;
+        padding: 20px 30px;
+        border-radius: 8px;
+        z-index: 10000;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    // Adicionar ao body
+    document.body.appendChild(notification);
+    
+    // Remover após 3 segundos
+    setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Adicionar estilos CSS para animações
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translate(-50%, -60%); }
+        to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    
+    @keyframes fadeOut {
+        from { opacity: 1; transform: translate(-50%, -50%); }
+        to { opacity: 0; transform: translate(-50%, -60%); }
+    }
+    
+    .form-notification {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #e74c3c;
+        color: white;
+        padding: 20px 30px;
+        border-radius: 8px;
+        z-index: 10000;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+`;
+document.head.appendChild(style);
+</script>
     </section>
 
     <!-- Footer -->
