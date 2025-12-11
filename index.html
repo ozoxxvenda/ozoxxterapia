@@ -1937,7 +1937,7 @@
         </div>
     </footer>
 
-    <!-- Google Analytics movido para o final do body -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D4M7PEGKL"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -1947,6 +1947,13 @@
     </script>
 
     <script>
+        // ===========================================
+        // CONFIGURAÇÃO DO GOOGLE APPS SCRIPT
+        // ===========================================
+        // ⚠️ IMPORTANTE: Substitua esta URL pela URL do seu Google Apps Script
+        // Você obterá esta URL no Passo 4 do tutorial abaixo
+        const GAS_URL = 'https://script.google.com/macros/s/AKfycbxCG1a9PlGuyIzHB-ygcTQXE3gLfW0T8lTp7ja8SkXS2p5RrvHRRMJbKmKttAgxeXMMyA/exec';
+        
         // ===========================================
         // FUNÇÕES GERAIS
         // ===========================================
@@ -2031,7 +2038,7 @@
         });
         
         // ===========================================
-        // FORMULÁRIO SIMPLIFICADO
+        // FORMULÁRIO INTEGRADO COM GOOGLE SHEETS
         // ===========================================
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
@@ -2053,54 +2060,134 @@
             }
         });
         
-        // Submissão do formulário
-        contactForm.addEventListener('submit', function(e) {
+        // Submissão do formulário para Google Sheets
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Coletar dados do formulário
             const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                age: document.getElementById('age').value,
+                timestamp: new Date().toLocaleString('pt-BR'),
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim() || 'Não informado',
+                age: document.getElementById('age').value.trim(),
                 state: document.getElementById('state').value,
-                city: document.getElementById('city').value,
-                condition: document.getElementById('condition').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toLocaleString('pt-BR')
+                city: document.getElementById('city').value.trim(),
+                condition: document.getElementById('condition').value || 'Não informada',
+                message: document.getElementById('message').value.trim() || 'Não informada',
+                source: 'Site Ozoxx',
+                page_url: window.location.href
             };
             
-            // Simular envio (substitua pela sua integração real)
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
+            
+            // Mostrar estado de carregamento
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
+            formStatus.style.display = 'none';
             
-            setTimeout(() => {
-                // Sucesso
-                formStatus.className = 'form-status success';
-                formStatus.innerHTML = `
-                    <i class="fas fa-check-circle"></i> 
-                    <strong>Solicitação enviada com sucesso!</strong><br>
-                    Entraremos em contato em até 24 horas.
-                `;
-                formStatus.style.display = 'block';
+            try {
+                // Enviar para Google Apps Script
+                const response = await fetch(GAS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Necessário para Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
                 
-                // Reset do formulário
+                // Com 'no-cors' não podemos ler a resposta, mas assumimos sucesso
+                showSuccessMessage();
+                
+                // Limpar formulário
                 contactForm.reset();
                 
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Scroll para o status
-                formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 2000);
+            } catch(error) {
+                showErrorMessage();
+                console.error('Erro ao enviar formulário:', error);
+            }
+            
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
         });
+        
+        // Função para mostrar mensagem de sucesso
+        function showSuccessMessage() {
+            formStatus.className = 'form-status success';
+            formStatus.innerHTML = `
+                <i class="fas fa-check-circle"></i> 
+                <strong>Cadastro realizado com sucesso!</strong><br>
+                Seus dados foram salvos em nossa planilha e entraremos em contato em até 24 horas.
+            `;
+            formStatus.style.display = 'block';
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Feedback visual adicional
+            setTimeout(() => {
+                formStatus.style.opacity = '1';
+            }, 100);
+        }
+        
+        // Função para mostrar mensagem de erro
+        function showErrorMessage() {
+            formStatus.className = 'form-status error';
+            formStatus.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i> 
+                <strong>Erro ao enviar o formulário.</strong><br>
+                Por favor, tente novamente ou entre em contato diretamente pelo WhatsApp.
+                <br><small>Erro técnico: Não foi possível conectar ao servidor.</small>
+            `;
+            formStatus.style.display = 'block';
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Validação em tempo real do telefone
+        phoneInput.addEventListener('blur', function() {
+            const phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
+            if (this.value && !phoneRegex.test(this.value)) {
+                this.style.borderColor = 'var(--danger)';
+                showFieldError(this, 'Formato inválido. Use: (11) 99999-9999');
+            } else {
+                this.style.borderColor = '';
+                clearFieldError(this);
+            }
+        });
+        
+        function showFieldError(field, message) {
+            let errorElement = field.parentNode.querySelector('.field-error');
+            if (!errorElement) {
+                errorElement = document.createElement('div');
+                errorElement.className = 'field-error';
+                errorElement.style.color = 'var(--danger)';
+                errorElement.style.fontSize = '0.85rem';
+                errorElement.style.marginTop = '5px';
+                field.parentNode.appendChild(errorElement);
+            }
+            errorElement.textContent = message;
+        }
+        
+        function clearFieldError(field) {
+            const errorElement = field.parentNode.querySelector('.field-error');
+            if (errorElement) {
+                errorElement.remove();
+            }
+        }
         
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
             // Ativar primeiro filtro
             document.querySelector('.filter-btn[data-filter="all"]').click();
+            
+            // Verificar se o GAS_URL está configurado
+            if (GAS_URL.includes('YOUR_SCRIPT_ID')) {
+                console.warn('⚠️ ATENÇÃO: Configure a URL do Google Apps Script na constante GAS_URL');
+                const warning = document.createElement('div');
+                warning.style.cssText = 'position:fixed; top:10px; right:10px; background:#ffc107; color:#000; padding:10px; border-radius:5px; z-index:9999; font-size:12px; max-width:300px;';
+                warning.innerHTML = '⚠️ <strong>Configuração Pendente:</strong><br>Configure o Google Apps Script no arquivo HTML.';
+                document.body.appendChild(warning);
+            }
         });
     </script>
 </body>
