@@ -2161,5 +2161,25 @@
             document.querySelector('.filter-btn[data-filter="all"]').click();
         });
     </script>
+    <script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+
+  try {
+    if (localStorage.getItem('ozoxx_done') === 'true') {
+      window.dataLayer.push({
+        event: 'lead_confirmed_home',
+        funnel_step: 'home'
+      });
+
+      // Evita disparo duplicado
+      localStorage.removeItem('ozoxx_done');
+    }
+  } catch (e) {
+    // fail silently (boas práticas Google)
+  }
+})();
+</script>
+
 </body>
 </html>
